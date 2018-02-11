@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.StoreDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.StoreDO">
+		select `id`,`addTime`,`deleteStatus`,`card_approve`,`realstore_approve`,`store_address`,`store_credit`,`store_info`,`store_msn`,`store_name`,`store_ower`,`store_ower_card`,`store_qq`,`store_recommend`,`store_recommend_time`,`store_seo_description`,`store_seo_keywords`,`store_status`,`store_telephone`,`store_zip`,`template`,`validity`,`violation_reseaon`,`area_id`,`card_id`,`grade_id`,`sc_id`,`store_banner_id`,`store_license_id`,`store_logo_id`,`update_grade_id`,`domain_modify_count`,`store_second_domain`,`favorite_count`,`store_lat`,`store_lng`,`store_ww`,`map_type`,`delivery_begin_time`,`delivery_end_time`,`combin_begin_time`,`combin_end_time`,`weixin_begin_time`,`weixin_end_time`,`weixin_status`,`weixin_appId`,`weixin_appSecret`,`weixin_token`,`weixin_welecome_content`,`weixin_qr_img_id`,`weixin_account`,`store_weixin_logo_id`,`weixin_store_name` from wemall_store where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.StoreDO">
+		select `id`,`addTime`,`deleteStatus`,`card_approve`,`realstore_approve`,`store_address`,`store_credit`,`store_info`,`store_msn`,`store_name`,`store_ower`,`store_ower_card`,`store_qq`,`store_recommend`,`store_recommend_time`,`store_seo_description`,`store_seo_keywords`,`store_status`,`store_telephone`,`store_zip`,`template`,`validity`,`violation_reseaon`,`area_id`,`card_id`,`grade_id`,`sc_id`,`store_banner_id`,`store_license_id`,`store_logo_id`,`update_grade_id`,`domain_modify_count`,`store_second_domain`,`favorite_count`,`store_lat`,`store_lng`,`store_ww`,`map_type`,`delivery_begin_time`,`delivery_end_time`,`combin_begin_time`,`combin_end_time`,`weixin_begin_time`,`weixin_end_time`,`weixin_status`,`weixin_appId`,`weixin_appSecret`,`weixin_token`,`weixin_welecome_content`,`weixin_qr_img_id`,`weixin_account`,`store_weixin_logo_id`,`weixin_store_name` from wemall_store
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="cardApprove != null and cardApprove != ''"> and card_approve = #{cardApprove} </if>
+		  		  <if test="realstoreApprove != null and realstoreApprove != ''"> and realstore_approve = #{realstoreApprove} </if>
+		  		  <if test="storeAddress != null and storeAddress != ''"> and store_address = #{storeAddress} </if>
+		  		  <if test="storeCredit != null and storeCredit != ''"> and store_credit = #{storeCredit} </if>
+		  		  <if test="storeInfo != null and storeInfo != ''"> and store_info = #{storeInfo} </if>
+		  		  <if test="storeMsn != null and storeMsn != ''"> and store_msn = #{storeMsn} </if>
+		  		  <if test="storeName != null and storeName != ''"> and store_name = #{storeName} </if>
+		  		  <if test="storeOwer != null and storeOwer != ''"> and store_ower = #{storeOwer} </if>
+		  		  <if test="storeOwerCard != null and storeOwerCard != ''"> and store_ower_card = #{storeOwerCard} </if>
+		  		  <if test="storeQq != null and storeQq != ''"> and store_qq = #{storeQq} </if>
+		  		  <if test="storeRecommend != null and storeRecommend != ''"> and store_recommend = #{storeRecommend} </if>
+		  		  <if test="storeRecommendTime != null and storeRecommendTime != ''"> and store_recommend_time = #{storeRecommendTime} </if>
+		  		  <if test="storeSeoDescription != null and storeSeoDescription != ''"> and store_seo_description = #{storeSeoDescription} </if>
+		  		  <if test="storeSeoKeywords != null and storeSeoKeywords != ''"> and store_seo_keywords = #{storeSeoKeywords} </if>
+		  		  <if test="storeStatus != null and storeStatus != ''"> and store_status = #{storeStatus} </if>
+		  		  <if test="storeTelephone != null and storeTelephone != ''"> and store_telephone = #{storeTelephone} </if>
+		  		  <if test="storeZip != null and storeZip != ''"> and store_zip = #{storeZip} </if>
+		  		  <if test="template != null and template != ''"> and template = #{template} </if>
+		  		  <if test="validity != null and validity != ''"> and validity = #{validity} </if>
+		  		  <if test="violationReseaon != null and violationReseaon != ''"> and violation_reseaon = #{violationReseaon} </if>
+		  		  <if test="areaId != null and areaId != ''"> and area_id = #{areaId} </if>
+		  		  <if test="cardId != null and cardId != ''"> and card_id = #{cardId} </if>
+		  		  <if test="gradeId != null and gradeId != ''"> and grade_id = #{gradeId} </if>
+		  		  <if test="scId != null and scId != ''"> and sc_id = #{scId} </if>
+		  		  <if test="storeBannerId != null and storeBannerId != ''"> and store_banner_id = #{storeBannerId} </if>
+		  		  <if test="storeLicenseId != null and storeLicenseId != ''"> and store_license_id = #{storeLicenseId} </if>
+		  		  <if test="storeLogoId != null and storeLogoId != ''"> and store_logo_id = #{storeLogoId} </if>
+		  		  <if test="updateGradeId != null and updateGradeId != ''"> and update_grade_id = #{updateGradeId} </if>
+		  		  <if test="domainModifyCount != null and domainModifyCount != ''"> and domain_modify_count = #{domainModifyCount} </if>
+		  		  <if test="storeSecondDomain != null and storeSecondDomain != ''"> and store_second_domain = #{storeSecondDomain} </if>
+		  		  <if test="favoriteCount != null and favoriteCount != ''"> and favorite_count = #{favoriteCount} </if>
+		  		  <if test="storeLat != null and storeLat != ''"> and store_lat = #{storeLat} </if>
+		  		  <if test="storeLng != null and storeLng != ''"> and store_lng = #{storeLng} </if>
+		  		  <if test="storeWw != null and storeWw != ''"> and store_ww = #{storeWw} </if>
+		  		  <if test="mapType != null and mapType != ''"> and map_type = #{mapType} </if>
+		  		  <if test="deliveryBeginTime != null and deliveryBeginTime != ''"> and delivery_begin_time = #{deliveryBeginTime} </if>
+		  		  <if test="deliveryEndTime != null and deliveryEndTime != ''"> and delivery_end_time = #{deliveryEndTime} </if>
+		  		  <if test="combinBeginTime != null and combinBeginTime != ''"> and combin_begin_time = #{combinBeginTime} </if>
+		  		  <if test="combinEndTime != null and combinEndTime != ''"> and combin_end_time = #{combinEndTime} </if>
+		  		  <if test="weixinBeginTime != null and weixinBeginTime != ''"> and weixin_begin_time = #{weixinBeginTime} </if>
+		  		  <if test="weixinEndTime != null and weixinEndTime != ''"> and weixin_end_time = #{weixinEndTime} </if>
+		  		  <if test="weixinStatus != null and weixinStatus != ''"> and weixin_status = #{weixinStatus} </if>
+		  		  <if test="weixinAppid != null and weixinAppid != ''"> and weixin_appId = #{weixinAppid} </if>
+		  		  <if test="weixinAppsecret != null and weixinAppsecret != ''"> and weixin_appSecret = #{weixinAppsecret} </if>
+		  		  <if test="weixinToken != null and weixinToken != ''"> and weixin_token = #{weixinToken} </if>
+		  		  <if test="weixinWelecomeContent != null and weixinWelecomeContent != ''"> and weixin_welecome_content = #{weixinWelecomeContent} </if>
+		  		  <if test="weixinQrImgId != null and weixinQrImgId != ''"> and weixin_qr_img_id = #{weixinQrImgId} </if>
+		  		  <if test="weixinAccount != null and weixinAccount != ''"> and weixin_account = #{weixinAccount} </if>
+		  		  <if test="storeWeixinLogoId != null and storeWeixinLogoId != ''"> and store_weixin_logo_id = #{storeWeixinLogoId} </if>
+		  		  <if test="weixinStoreName != null and weixinStoreName != ''"> and weixin_store_name = #{weixinStoreName} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_store
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="cardApprove != null and cardApprove != ''"> and card_approve = #{cardApprove} </if>
+		  		  <if test="realstoreApprove != null and realstoreApprove != ''"> and realstore_approve = #{realstoreApprove} </if>
+		  		  <if test="storeAddress != null and storeAddress != ''"> and store_address = #{storeAddress} </if>
+		  		  <if test="storeCredit != null and storeCredit != ''"> and store_credit = #{storeCredit} </if>
+		  		  <if test="storeInfo != null and storeInfo != ''"> and store_info = #{storeInfo} </if>
+		  		  <if test="storeMsn != null and storeMsn != ''"> and store_msn = #{storeMsn} </if>
+		  		  <if test="storeName != null and storeName != ''"> and store_name = #{storeName} </if>
+		  		  <if test="storeOwer != null and storeOwer != ''"> and store_ower = #{storeOwer} </if>
+		  		  <if test="storeOwerCard != null and storeOwerCard != ''"> and store_ower_card = #{storeOwerCard} </if>
+		  		  <if test="storeQq != null and storeQq != ''"> and store_qq = #{storeQq} </if>
+		  		  <if test="storeRecommend != null and storeRecommend != ''"> and store_recommend = #{storeRecommend} </if>
+		  		  <if test="storeRecommendTime != null and storeRecommendTime != ''"> and store_recommend_time = #{storeRecommendTime} </if>
+		  		  <if test="storeSeoDescription != null and storeSeoDescription != ''"> and store_seo_description = #{storeSeoDescription} </if>
+		  		  <if test="storeSeoKeywords != null and storeSeoKeywords != ''"> and store_seo_keywords = #{storeSeoKeywords} </if>
+		  		  <if test="storeStatus != null and storeStatus != ''"> and store_status = #{storeStatus} </if>
+		  		  <if test="storeTelephone != null and storeTelephone != ''"> and store_telephone = #{storeTelephone} </if>
+		  		  <if test="storeZip != null and storeZip != ''"> and store_zip = #{storeZip} </if>
+		  		  <if test="template != null and template != ''"> and template = #{template} </if>
+		  		  <if test="validity != null and validity != ''"> and validity = #{validity} </if>
+		  		  <if test="violationReseaon != null and violationReseaon != ''"> and violation_reseaon = #{violationReseaon} </if>
+		  		  <if test="areaId != null and areaId != ''"> and area_id = #{areaId} </if>
+		  		  <if test="cardId != null and cardId != ''"> and card_id = #{cardId} </if>
+		  		  <if test="gradeId != null and gradeId != ''"> and grade_id = #{gradeId} </if>
+		  		  <if test="scId != null and scId != ''"> and sc_id = #{scId} </if>
+		  		  <if test="storeBannerId != null and storeBannerId != ''"> and store_banner_id = #{storeBannerId} </if>
+		  		  <if test="storeLicenseId != null and storeLicenseId != ''"> and store_license_id = #{storeLicenseId} </if>
+		  		  <if test="storeLogoId != null and storeLogoId != ''"> and store_logo_id = #{storeLogoId} </if>
+		  		  <if test="updateGradeId != null and updateGradeId != ''"> and update_grade_id = #{updateGradeId} </if>
+		  		  <if test="domainModifyCount != null and domainModifyCount != ''"> and domain_modify_count = #{domainModifyCount} </if>
+		  		  <if test="storeSecondDomain != null and storeSecondDomain != ''"> and store_second_domain = #{storeSecondDomain} </if>
+		  		  <if test="favoriteCount != null and favoriteCount != ''"> and favorite_count = #{favoriteCount} </if>
+		  		  <if test="storeLat != null and storeLat != ''"> and store_lat = #{storeLat} </if>
+		  		  <if test="storeLng != null and storeLng != ''"> and store_lng = #{storeLng} </if>
+		  		  <if test="storeWw != null and storeWw != ''"> and store_ww = #{storeWw} </if>
+		  		  <if test="mapType != null and mapType != ''"> and map_type = #{mapType} </if>
+		  		  <if test="deliveryBeginTime != null and deliveryBeginTime != ''"> and delivery_begin_time = #{deliveryBeginTime} </if>
+		  		  <if test="deliveryEndTime != null and deliveryEndTime != ''"> and delivery_end_time = #{deliveryEndTime} </if>
+		  		  <if test="combinBeginTime != null and combinBeginTime != ''"> and combin_begin_time = #{combinBeginTime} </if>
+		  		  <if test="combinEndTime != null and combinEndTime != ''"> and combin_end_time = #{combinEndTime} </if>
+		  		  <if test="weixinBeginTime != null and weixinBeginTime != ''"> and weixin_begin_time = #{weixinBeginTime} </if>
+		  		  <if test="weixinEndTime != null and weixinEndTime != ''"> and weixin_end_time = #{weixinEndTime} </if>
+		  		  <if test="weixinStatus != null and weixinStatus != ''"> and weixin_status = #{weixinStatus} </if>
+		  		  <if test="weixinAppid != null and weixinAppid != ''"> and weixin_appId = #{weixinAppid} </if>
+		  		  <if test="weixinAppsecret != null and weixinAppsecret != ''"> and weixin_appSecret = #{weixinAppsecret} </if>
+		  		  <if test="weixinToken != null and weixinToken != ''"> and weixin_token = #{weixinToken} </if>
+		  		  <if test="weixinWelecomeContent != null and weixinWelecomeContent != ''"> and weixin_welecome_content = #{weixinWelecomeContent} </if>
+		  		  <if test="weixinQrImgId != null and weixinQrImgId != ''"> and weixin_qr_img_id = #{weixinQrImgId} </if>
+		  		  <if test="weixinAccount != null and weixinAccount != ''"> and weixin_account = #{weixinAccount} </if>
+		  		  <if test="storeWeixinLogoId != null and storeWeixinLogoId != ''"> and store_weixin_logo_id = #{storeWeixinLogoId} </if>
+		  		  <if test="weixinStoreName != null and weixinStoreName != ''"> and weixin_store_name = #{weixinStoreName} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.StoreDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_store
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`card_approve`, 
+			`realstore_approve`, 
+			`store_address`, 
+			`store_credit`, 
+			`store_info`, 
+			`store_msn`, 
+			`store_name`, 
+			`store_ower`, 
+			`store_ower_card`, 
+			`store_qq`, 
+			`store_recommend`, 
+			`store_recommend_time`, 
+			`store_seo_description`, 
+			`store_seo_keywords`, 
+			`store_status`, 
+			`store_telephone`, 
+			`store_zip`, 
+			`template`, 
+			`validity`, 
+			`violation_reseaon`, 
+			`area_id`, 
+			`card_id`, 
+			`grade_id`, 
+			`sc_id`, 
+			`store_banner_id`, 
+			`store_license_id`, 
+			`store_logo_id`, 
+			`update_grade_id`, 
+			`domain_modify_count`, 
+			`store_second_domain`, 
+			`favorite_count`, 
+			`store_lat`, 
+			`store_lng`, 
+			`store_ww`, 
+			`map_type`, 
+			`delivery_begin_time`, 
+			`delivery_end_time`, 
+			`combin_begin_time`, 
+			`combin_end_time`, 
+			`weixin_begin_time`, 
+			`weixin_end_time`, 
+			`weixin_status`, 
+			`weixin_appId`, 
+			`weixin_appSecret`, 
+			`weixin_token`, 
+			`weixin_welecome_content`, 
+			`weixin_qr_img_id`, 
+			`weixin_account`, 
+			`store_weixin_logo_id`, 
+			`weixin_store_name`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{cardApprove}, 
+			#{realstoreApprove}, 
+			#{storeAddress}, 
+			#{storeCredit}, 
+			#{storeInfo}, 
+			#{storeMsn}, 
+			#{storeName}, 
+			#{storeOwer}, 
+			#{storeOwerCard}, 
+			#{storeQq}, 
+			#{storeRecommend}, 
+			#{storeRecommendTime}, 
+			#{storeSeoDescription}, 
+			#{storeSeoKeywords}, 
+			#{storeStatus}, 
+			#{storeTelephone}, 
+			#{storeZip}, 
+			#{template}, 
+			#{validity}, 
+			#{violationReseaon}, 
+			#{areaId}, 
+			#{cardId}, 
+			#{gradeId}, 
+			#{scId}, 
+			#{storeBannerId}, 
+			#{storeLicenseId}, 
+			#{storeLogoId}, 
+			#{updateGradeId}, 
+			#{domainModifyCount}, 
+			#{storeSecondDomain}, 
+			#{favoriteCount}, 
+			#{storeLat}, 
+			#{storeLng}, 
+			#{storeWw}, 
+			#{mapType}, 
+			#{deliveryBeginTime}, 
+			#{deliveryEndTime}, 
+			#{combinBeginTime}, 
+			#{combinEndTime}, 
+			#{weixinBeginTime}, 
+			#{weixinEndTime}, 
+			#{weixinStatus}, 
+			#{weixinAppid}, 
+			#{weixinAppsecret}, 
+			#{weixinToken}, 
+			#{weixinWelecomeContent}, 
+			#{weixinQrImgId}, 
+			#{weixinAccount}, 
+			#{storeWeixinLogoId}, 
+			#{weixinStoreName}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.StoreDO">
+		update wemall_store 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="cardApprove != null">`card_approve` = #{cardApprove}, </if>
+			<if test="realstoreApprove != null">`realstore_approve` = #{realstoreApprove}, </if>
+			<if test="storeAddress != null">`store_address` = #{storeAddress}, </if>
+			<if test="storeCredit != null">`store_credit` = #{storeCredit}, </if>
+			<if test="storeInfo != null">`store_info` = #{storeInfo}, </if>
+			<if test="storeMsn != null">`store_msn` = #{storeMsn}, </if>
+			<if test="storeName != null">`store_name` = #{storeName}, </if>
+			<if test="storeOwer != null">`store_ower` = #{storeOwer}, </if>
+			<if test="storeOwerCard != null">`store_ower_card` = #{storeOwerCard}, </if>
+			<if test="storeQq != null">`store_qq` = #{storeQq}, </if>
+			<if test="storeRecommend != null">`store_recommend` = #{storeRecommend}, </if>
+			<if test="storeRecommendTime != null">`store_recommend_time` = #{storeRecommendTime}, </if>
+			<if test="storeSeoDescription != null">`store_seo_description` = #{storeSeoDescription}, </if>
+			<if test="storeSeoKeywords != null">`store_seo_keywords` = #{storeSeoKeywords}, </if>
+			<if test="storeStatus != null">`store_status` = #{storeStatus}, </if>
+			<if test="storeTelephone != null">`store_telephone` = #{storeTelephone}, </if>
+			<if test="storeZip != null">`store_zip` = #{storeZip}, </if>
+			<if test="template != null">`template` = #{template}, </if>
+			<if test="validity != null">`validity` = #{validity}, </if>
+			<if test="violationReseaon != null">`violation_reseaon` = #{violationReseaon}, </if>
+			<if test="areaId != null">`area_id` = #{areaId}, </if>
+			<if test="cardId != null">`card_id` = #{cardId}, </if>
+			<if test="gradeId != null">`grade_id` = #{gradeId}, </if>
+			<if test="scId != null">`sc_id` = #{scId}, </if>
+			<if test="storeBannerId != null">`store_banner_id` = #{storeBannerId}, </if>
+			<if test="storeLicenseId != null">`store_license_id` = #{storeLicenseId}, </if>
+			<if test="storeLogoId != null">`store_logo_id` = #{storeLogoId}, </if>
+			<if test="updateGradeId != null">`update_grade_id` = #{updateGradeId}, </if>
+			<if test="domainModifyCount != null">`domain_modify_count` = #{domainModifyCount}, </if>
+			<if test="storeSecondDomain != null">`store_second_domain` = #{storeSecondDomain}, </if>
+			<if test="favoriteCount != null">`favorite_count` = #{favoriteCount}, </if>
+			<if test="storeLat != null">`store_lat` = #{storeLat}, </if>
+			<if test="storeLng != null">`store_lng` = #{storeLng}, </if>
+			<if test="storeWw != null">`store_ww` = #{storeWw}, </if>
+			<if test="mapType != null">`map_type` = #{mapType}, </if>
+			<if test="deliveryBeginTime != null">`delivery_begin_time` = #{deliveryBeginTime}, </if>
+			<if test="deliveryEndTime != null">`delivery_end_time` = #{deliveryEndTime}, </if>
+			<if test="combinBeginTime != null">`combin_begin_time` = #{combinBeginTime}, </if>
+			<if test="combinEndTime != null">`combin_end_time` = #{combinEndTime}, </if>
+			<if test="weixinBeginTime != null">`weixin_begin_time` = #{weixinBeginTime}, </if>
+			<if test="weixinEndTime != null">`weixin_end_time` = #{weixinEndTime}, </if>
+			<if test="weixinStatus != null">`weixin_status` = #{weixinStatus}, </if>
+			<if test="weixinAppid != null">`weixin_appId` = #{weixinAppid}, </if>
+			<if test="weixinAppsecret != null">`weixin_appSecret` = #{weixinAppsecret}, </if>
+			<if test="weixinToken != null">`weixin_token` = #{weixinToken}, </if>
+			<if test="weixinWelecomeContent != null">`weixin_welecome_content` = #{weixinWelecomeContent}, </if>
+			<if test="weixinQrImgId != null">`weixin_qr_img_id` = #{weixinQrImgId}, </if>
+			<if test="weixinAccount != null">`weixin_account` = #{weixinAccount}, </if>
+			<if test="storeWeixinLogoId != null">`store_weixin_logo_id` = #{storeWeixinLogoId}, </if>
+			<if test="weixinStoreName != null">`weixin_store_name` = #{weixinStoreName}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_store where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_store where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

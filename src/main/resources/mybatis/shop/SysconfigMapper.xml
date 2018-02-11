@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.SysconfigDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.SysconfigDO">
+		select `id`,`addTime`,`deleteStatus`,`address`,`bigHeight`,`bigWidth`,`closeReason`,`codeStat`,`complaint_time`,`consumptionRatio`,`copyRight`,`creditrule`,`deposit`,`description`,`emailEnable`,`emailHost`,`emailPort`,`emailPws`,`emailTest`,`emailUser`,`emailUserName`,`everyIndentLimit`,`gold`,`goldMarketValue`,`groupBuy`,`hotSearch`,`imageFilesize`,`imageSaveType`,`imageSuffix`,`indentComment`,`integral`,`integralRate`,`integralStore`,`keywords`,`memberDayLogin`,`memberRegister`,`middleHeight`,`middleWidth`,`securityCodeConsult`,`securityCodeLogin`,`securityCodeRegister`,`securityCodeType`,`share_code`,`smallHeight`,`smallWidth`,`smsEnbale`,`smsPassword`,`smsTest`,`smsURL`,`smsUserName`,`store_allow`,`store_payment`,`sysLanguage`,`templates`,`title`,`uploadFilePath`,`user_creditrule`,`visitorConsult`,`voucher`,`websiteName`,`websiteState`,`ztc_price`,`ztc_status`,`goodsImage_id`,`memberIcon_id`,`storeImage_id`,`websiteLogo_id`,`domain_allow_count`,`second_domain_open`,`sys_domain`,`qq_login`,`qq_login_id`,`qq_login_key`,`qq_domain_code`,`sina_domain_code`,`sina_login`,`sina_login_id`,`sina_login_key`,`imageWebServer`,`lucene_update`,`alipay_fenrun`,`balance_fenrun`,`auto_order_confirm`,`auto_order_notice`,`bargain_maximum`,`bargain_rebate`,`bargain_state`,`bargain_status`,`bargain_title`,`service_qq_list`,`service_telphone_list`,`sys_delivery_maximum`,`uc_bbs`,`kuaidi_id`,`uc_api`,`uc_appid`,`uc_database`,`uc_database_port`,`uc_database_pws`,`uc_database_url`,`uc_database_username`,`uc_ip`,`uc_key`,`uc_table_preffix`,`currency_code`,`bargain_validity`,`delivery_amount`,`delivery_status`,`delivery_title`,`websiteCss`,`combin_amount`,`combin_count`,`ztc_goods_view`,`auto_order_evaluate`,`auto_order_return`,`weixin_store`,`weixin_amount`,`config_payment_type`,`weixin_account`,`weixin_appId`,`weixin_appSecret`,`weixin_token`,`weixin_welecome_content`,`store_weixin_logo_id`,`weixin_qr_img_id`,`site_url` from wemall_sysconfig where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.SysconfigDO">
+		select `id`,`addTime`,`deleteStatus`,`address`,`bigHeight`,`bigWidth`,`closeReason`,`codeStat`,`complaint_time`,`consumptionRatio`,`copyRight`,`creditrule`,`deposit`,`description`,`emailEnable`,`emailHost`,`emailPort`,`emailPws`,`emailTest`,`emailUser`,`emailUserName`,`everyIndentLimit`,`gold`,`goldMarketValue`,`groupBuy`,`hotSearch`,`imageFilesize`,`imageSaveType`,`imageSuffix`,`indentComment`,`integral`,`integralRate`,`integralStore`,`keywords`,`memberDayLogin`,`memberRegister`,`middleHeight`,`middleWidth`,`securityCodeConsult`,`securityCodeLogin`,`securityCodeRegister`,`securityCodeType`,`share_code`,`smallHeight`,`smallWidth`,`smsEnbale`,`smsPassword`,`smsTest`,`smsURL`,`smsUserName`,`store_allow`,`store_payment`,`sysLanguage`,`templates`,`title`,`uploadFilePath`,`user_creditrule`,`visitorConsult`,`voucher`,`websiteName`,`websiteState`,`ztc_price`,`ztc_status`,`goodsImage_id`,`memberIcon_id`,`storeImage_id`,`websiteLogo_id`,`domain_allow_count`,`second_domain_open`,`sys_domain`,`qq_login`,`qq_login_id`,`qq_login_key`,`qq_domain_code`,`sina_domain_code`,`sina_login`,`sina_login_id`,`sina_login_key`,`imageWebServer`,`lucene_update`,`alipay_fenrun`,`balance_fenrun`,`auto_order_confirm`,`auto_order_notice`,`bargain_maximum`,`bargain_rebate`,`bargain_state`,`bargain_status`,`bargain_title`,`service_qq_list`,`service_telphone_list`,`sys_delivery_maximum`,`uc_bbs`,`kuaidi_id`,`uc_api`,`uc_appid`,`uc_database`,`uc_database_port`,`uc_database_pws`,`uc_database_url`,`uc_database_username`,`uc_ip`,`uc_key`,`uc_table_preffix`,`currency_code`,`bargain_validity`,`delivery_amount`,`delivery_status`,`delivery_title`,`websiteCss`,`combin_amount`,`combin_count`,`ztc_goods_view`,`auto_order_evaluate`,`auto_order_return`,`weixin_store`,`weixin_amount`,`config_payment_type`,`weixin_account`,`weixin_appId`,`weixin_appSecret`,`weixin_token`,`weixin_welecome_content`,`store_weixin_logo_id`,`weixin_qr_img_id`,`site_url` from wemall_sysconfig
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="bigheight != null and bigheight != ''"> and bigHeight = #{bigheight} </if>
+		  		  <if test="bigwidth != null and bigwidth != ''"> and bigWidth = #{bigwidth} </if>
+		  		  <if test="closereason != null and closereason != ''"> and closeReason = #{closereason} </if>
+		  		  <if test="codestat != null and codestat != ''"> and codeStat = #{codestat} </if>
+		  		  <if test="complaintTime != null and complaintTime != ''"> and complaint_time = #{complaintTime} </if>
+		  		  <if test="consumptionratio != null and consumptionratio != ''"> and consumptionRatio = #{consumptionratio} </if>
+		  		  <if test="copyright != null and copyright != ''"> and copyRight = #{copyright} </if>
+		  		  <if test="creditrule != null and creditrule != ''"> and creditrule = #{creditrule} </if>
+		  		  <if test="deposit != null and deposit != ''"> and deposit = #{deposit} </if>
+		  		  <if test="description != null and description != ''"> and description = #{description} </if>
+		  		  <if test="emailenable != null and emailenable != ''"> and emailEnable = #{emailenable} </if>
+		  		  <if test="emailhost != null and emailhost != ''"> and emailHost = #{emailhost} </if>
+		  		  <if test="emailport != null and emailport != ''"> and emailPort = #{emailport} </if>
+		  		  <if test="emailpws != null and emailpws != ''"> and emailPws = #{emailpws} </if>
+		  		  <if test="emailtest != null and emailtest != ''"> and emailTest = #{emailtest} </if>
+		  		  <if test="emailuser != null and emailuser != ''"> and emailUser = #{emailuser} </if>
+		  		  <if test="emailusername != null and emailusername != ''"> and emailUserName = #{emailusername} </if>
+		  		  <if test="everyindentlimit != null and everyindentlimit != ''"> and everyIndentLimit = #{everyindentlimit} </if>
+		  		  <if test="gold != null and gold != ''"> and gold = #{gold} </if>
+		  		  <if test="goldmarketvalue != null and goldmarketvalue != ''"> and goldMarketValue = #{goldmarketvalue} </if>
+		  		  <if test="groupbuy != null and groupbuy != ''"> and groupBuy = #{groupbuy} </if>
+		  		  <if test="hotsearch != null and hotsearch != ''"> and hotSearch = #{hotsearch} </if>
+		  		  <if test="imagefilesize != null and imagefilesize != ''"> and imageFilesize = #{imagefilesize} </if>
+		  		  <if test="imagesavetype != null and imagesavetype != ''"> and imageSaveType = #{imagesavetype} </if>
+		  		  <if test="imagesuffix != null and imagesuffix != ''"> and imageSuffix = #{imagesuffix} </if>
+		  		  <if test="indentcomment != null and indentcomment != ''"> and indentComment = #{indentcomment} </if>
+		  		  <if test="integral != null and integral != ''"> and integral = #{integral} </if>
+		  		  <if test="integralrate != null and integralrate != ''"> and integralRate = #{integralrate} </if>
+		  		  <if test="integralstore != null and integralstore != ''"> and integralStore = #{integralstore} </if>
+		  		  <if test="keywords != null and keywords != ''"> and keywords = #{keywords} </if>
+		  		  <if test="memberdaylogin != null and memberdaylogin != ''"> and memberDayLogin = #{memberdaylogin} </if>
+		  		  <if test="memberregister != null and memberregister != ''"> and memberRegister = #{memberregister} </if>
+		  		  <if test="middleheight != null and middleheight != ''"> and middleHeight = #{middleheight} </if>
+		  		  <if test="middlewidth != null and middlewidth != ''"> and middleWidth = #{middlewidth} </if>
+		  		  <if test="securitycodeconsult != null and securitycodeconsult != ''"> and securityCodeConsult = #{securitycodeconsult} </if>
+		  		  <if test="securitycodelogin != null and securitycodelogin != ''"> and securityCodeLogin = #{securitycodelogin} </if>
+		  		  <if test="securitycoderegister != null and securitycoderegister != ''"> and securityCodeRegister = #{securitycoderegister} </if>
+		  		  <if test="securitycodetype != null and securitycodetype != ''"> and securityCodeType = #{securitycodetype} </if>
+		  		  <if test="shareCode != null and shareCode != ''"> and share_code = #{shareCode} </if>
+		  		  <if test="smallheight != null and smallheight != ''"> and smallHeight = #{smallheight} </if>
+		  		  <if test="smallwidth != null and smallwidth != ''"> and smallWidth = #{smallwidth} </if>
+		  		  <if test="smsenbale != null and smsenbale != ''"> and smsEnbale = #{smsenbale} </if>
+		  		  <if test="smspassword != null and smspassword != ''"> and smsPassword = #{smspassword} </if>
+		  		  <if test="smstest != null and smstest != ''"> and smsTest = #{smstest} </if>
+		  		  <if test="smsurl != null and smsurl != ''"> and smsURL = #{smsurl} </if>
+		  		  <if test="smsusername != null and smsusername != ''"> and smsUserName = #{smsusername} </if>
+		  		  <if test="storeAllow != null and storeAllow != ''"> and store_allow = #{storeAllow} </if>
+		  		  <if test="storePayment != null and storePayment != ''"> and store_payment = #{storePayment} </if>
+		  		  <if test="syslanguage != null and syslanguage != ''"> and sysLanguage = #{syslanguage} </if>
+		  		  <if test="templates != null and templates != ''"> and templates = #{templates} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="uploadfilepath != null and uploadfilepath != ''"> and uploadFilePath = #{uploadfilepath} </if>
+		  		  <if test="userCreditrule != null and userCreditrule != ''"> and user_creditrule = #{userCreditrule} </if>
+		  		  <if test="visitorconsult != null and visitorconsult != ''"> and visitorConsult = #{visitorconsult} </if>
+		  		  <if test="voucher != null and voucher != ''"> and voucher = #{voucher} </if>
+		  		  <if test="websitename != null and websitename != ''"> and websiteName = #{websitename} </if>
+		  		  <if test="websitestate != null and websitestate != ''"> and websiteState = #{websitestate} </if>
+		  		  <if test="ztcPrice != null and ztcPrice != ''"> and ztc_price = #{ztcPrice} </if>
+		  		  <if test="ztcStatus != null and ztcStatus != ''"> and ztc_status = #{ztcStatus} </if>
+		  		  <if test="goodsimageId != null and goodsimageId != ''"> and goodsImage_id = #{goodsimageId} </if>
+		  		  <if test="membericonId != null and membericonId != ''"> and memberIcon_id = #{membericonId} </if>
+		  		  <if test="storeimageId != null and storeimageId != ''"> and storeImage_id = #{storeimageId} </if>
+		  		  <if test="websitelogoId != null and websitelogoId != ''"> and websiteLogo_id = #{websitelogoId} </if>
+		  		  <if test="domainAllowCount != null and domainAllowCount != ''"> and domain_allow_count = #{domainAllowCount} </if>
+		  		  <if test="secondDomainOpen != null and secondDomainOpen != ''"> and second_domain_open = #{secondDomainOpen} </if>
+		  		  <if test="sysDomain != null and sysDomain != ''"> and sys_domain = #{sysDomain} </if>
+		  		  <if test="qqLogin != null and qqLogin != ''"> and qq_login = #{qqLogin} </if>
+		  		  <if test="qqLoginId != null and qqLoginId != ''"> and qq_login_id = #{qqLoginId} </if>
+		  		  <if test="qqLoginKey != null and qqLoginKey != ''"> and qq_login_key = #{qqLoginKey} </if>
+		  		  <if test="qqDomainCode != null and qqDomainCode != ''"> and qq_domain_code = #{qqDomainCode} </if>
+		  		  <if test="sinaDomainCode != null and sinaDomainCode != ''"> and sina_domain_code = #{sinaDomainCode} </if>
+		  		  <if test="sinaLogin != null and sinaLogin != ''"> and sina_login = #{sinaLogin} </if>
+		  		  <if test="sinaLoginId != null and sinaLoginId != ''"> and sina_login_id = #{sinaLoginId} </if>
+		  		  <if test="sinaLoginKey != null and sinaLoginKey != ''"> and sina_login_key = #{sinaLoginKey} </if>
+		  		  <if test="imagewebserver != null and imagewebserver != ''"> and imageWebServer = #{imagewebserver} </if>
+		  		  <if test="luceneUpdate != null and luceneUpdate != ''"> and lucene_update = #{luceneUpdate} </if>
+		  		  <if test="alipayFenrun != null and alipayFenrun != ''"> and alipay_fenrun = #{alipayFenrun} </if>
+		  		  <if test="balanceFenrun != null and balanceFenrun != ''"> and balance_fenrun = #{balanceFenrun} </if>
+		  		  <if test="autoOrderConfirm != null and autoOrderConfirm != ''"> and auto_order_confirm = #{autoOrderConfirm} </if>
+		  		  <if test="autoOrderNotice != null and autoOrderNotice != ''"> and auto_order_notice = #{autoOrderNotice} </if>
+		  		  <if test="bargainMaximum != null and bargainMaximum != ''"> and bargain_maximum = #{bargainMaximum} </if>
+		  		  <if test="bargainRebate != null and bargainRebate != ''"> and bargain_rebate = #{bargainRebate} </if>
+		  		  <if test="bargainState != null and bargainState != ''"> and bargain_state = #{bargainState} </if>
+		  		  <if test="bargainStatus != null and bargainStatus != ''"> and bargain_status = #{bargainStatus} </if>
+		  		  <if test="bargainTitle != null and bargainTitle != ''"> and bargain_title = #{bargainTitle} </if>
+		  		  <if test="serviceQqList != null and serviceQqList != ''"> and service_qq_list = #{serviceQqList} </if>
+		  		  <if test="serviceTelphoneList != null and serviceTelphoneList != ''"> and service_telphone_list = #{serviceTelphoneList} </if>
+		  		  <if test="sysDeliveryMaximum != null and sysDeliveryMaximum != ''"> and sys_delivery_maximum = #{sysDeliveryMaximum} </if>
+		  		  <if test="ucBbs != null and ucBbs != ''"> and uc_bbs = #{ucBbs} </if>
+		  		  <if test="kuaidiId != null and kuaidiId != ''"> and kuaidi_id = #{kuaidiId} </if>
+		  		  <if test="ucApi != null and ucApi != ''"> and uc_api = #{ucApi} </if>
+		  		  <if test="ucAppid != null and ucAppid != ''"> and uc_appid = #{ucAppid} </if>
+		  		  <if test="ucDatabase != null and ucDatabase != ''"> and uc_database = #{ucDatabase} </if>
+		  		  <if test="ucDatabasePort != null and ucDatabasePort != ''"> and uc_database_port = #{ucDatabasePort} </if>
+		  		  <if test="ucDatabasePws != null and ucDatabasePws != ''"> and uc_database_pws = #{ucDatabasePws} </if>
+		  		  <if test="ucDatabaseUrl != null and ucDatabaseUrl != ''"> and uc_database_url = #{ucDatabaseUrl} </if>
+		  		  <if test="ucDatabaseUsername != null and ucDatabaseUsername != ''"> and uc_database_username = #{ucDatabaseUsername} </if>
+		  		  <if test="ucIp != null and ucIp != ''"> and uc_ip = #{ucIp} </if>
+		  		  <if test="ucKey != null and ucKey != ''"> and uc_key = #{ucKey} </if>
+		  		  <if test="ucTablePreffix != null and ucTablePreffix != ''"> and uc_table_preffix = #{ucTablePreffix} </if>
+		  		  <if test="currencyCode != null and currencyCode != ''"> and currency_code = #{currencyCode} </if>
+		  		  <if test="bargainValidity != null and bargainValidity != ''"> and bargain_validity = #{bargainValidity} </if>
+		  		  <if test="deliveryAmount != null and deliveryAmount != ''"> and delivery_amount = #{deliveryAmount} </if>
+		  		  <if test="deliveryStatus != null and deliveryStatus != ''"> and delivery_status = #{deliveryStatus} </if>
+		  		  <if test="deliveryTitle != null and deliveryTitle != ''"> and delivery_title = #{deliveryTitle} </if>
+		  		  <if test="websitecss != null and websitecss != ''"> and websiteCss = #{websitecss} </if>
+		  		  <if test="combinAmount != null and combinAmount != ''"> and combin_amount = #{combinAmount} </if>
+		  		  <if test="combinCount != null and combinCount != ''"> and combin_count = #{combinCount} </if>
+		  		  <if test="ztcGoodsView != null and ztcGoodsView != ''"> and ztc_goods_view = #{ztcGoodsView} </if>
+		  		  <if test="autoOrderEvaluate != null and autoOrderEvaluate != ''"> and auto_order_evaluate = #{autoOrderEvaluate} </if>
+		  		  <if test="autoOrderReturn != null and autoOrderReturn != ''"> and auto_order_return = #{autoOrderReturn} </if>
+		  		  <if test="weixinStore != null and weixinStore != ''"> and weixin_store = #{weixinStore} </if>
+		  		  <if test="weixinAmount != null and weixinAmount != ''"> and weixin_amount = #{weixinAmount} </if>
+		  		  <if test="configPaymentType != null and configPaymentType != ''"> and config_payment_type = #{configPaymentType} </if>
+		  		  <if test="weixinAccount != null and weixinAccount != ''"> and weixin_account = #{weixinAccount} </if>
+		  		  <if test="weixinAppid != null and weixinAppid != ''"> and weixin_appId = #{weixinAppid} </if>
+		  		  <if test="weixinAppsecret != null and weixinAppsecret != ''"> and weixin_appSecret = #{weixinAppsecret} </if>
+		  		  <if test="weixinToken != null and weixinToken != ''"> and weixin_token = #{weixinToken} </if>
+		  		  <if test="weixinWelecomeContent != null and weixinWelecomeContent != ''"> and weixin_welecome_content = #{weixinWelecomeContent} </if>
+		  		  <if test="storeWeixinLogoId != null and storeWeixinLogoId != ''"> and store_weixin_logo_id = #{storeWeixinLogoId} </if>
+		  		  <if test="weixinQrImgId != null and weixinQrImgId != ''"> and weixin_qr_img_id = #{weixinQrImgId} </if>
+		  		  <if test="siteUrl != null and siteUrl != ''"> and site_url = #{siteUrl} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_sysconfig
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="bigheight != null and bigheight != ''"> and bigHeight = #{bigheight} </if>
+		  		  <if test="bigwidth != null and bigwidth != ''"> and bigWidth = #{bigwidth} </if>
+		  		  <if test="closereason != null and closereason != ''"> and closeReason = #{closereason} </if>
+		  		  <if test="codestat != null and codestat != ''"> and codeStat = #{codestat} </if>
+		  		  <if test="complaintTime != null and complaintTime != ''"> and complaint_time = #{complaintTime} </if>
+		  		  <if test="consumptionratio != null and consumptionratio != ''"> and consumptionRatio = #{consumptionratio} </if>
+		  		  <if test="copyright != null and copyright != ''"> and copyRight = #{copyright} </if>
+		  		  <if test="creditrule != null and creditrule != ''"> and creditrule = #{creditrule} </if>
+		  		  <if test="deposit != null and deposit != ''"> and deposit = #{deposit} </if>
+		  		  <if test="description != null and description != ''"> and description = #{description} </if>
+		  		  <if test="emailenable != null and emailenable != ''"> and emailEnable = #{emailenable} </if>
+		  		  <if test="emailhost != null and emailhost != ''"> and emailHost = #{emailhost} </if>
+		  		  <if test="emailport != null and emailport != ''"> and emailPort = #{emailport} </if>
+		  		  <if test="emailpws != null and emailpws != ''"> and emailPws = #{emailpws} </if>
+		  		  <if test="emailtest != null and emailtest != ''"> and emailTest = #{emailtest} </if>
+		  		  <if test="emailuser != null and emailuser != ''"> and emailUser = #{emailuser} </if>
+		  		  <if test="emailusername != null and emailusername != ''"> and emailUserName = #{emailusername} </if>
+		  		  <if test="everyindentlimit != null and everyindentlimit != ''"> and everyIndentLimit = #{everyindentlimit} </if>
+		  		  <if test="gold != null and gold != ''"> and gold = #{gold} </if>
+		  		  <if test="goldmarketvalue != null and goldmarketvalue != ''"> and goldMarketValue = #{goldmarketvalue} </if>
+		  		  <if test="groupbuy != null and groupbuy != ''"> and groupBuy = #{groupbuy} </if>
+		  		  <if test="hotsearch != null and hotsearch != ''"> and hotSearch = #{hotsearch} </if>
+		  		  <if test="imagefilesize != null and imagefilesize != ''"> and imageFilesize = #{imagefilesize} </if>
+		  		  <if test="imagesavetype != null and imagesavetype != ''"> and imageSaveType = #{imagesavetype} </if>
+		  		  <if test="imagesuffix != null and imagesuffix != ''"> and imageSuffix = #{imagesuffix} </if>
+		  		  <if test="indentcomment != null and indentcomment != ''"> and indentComment = #{indentcomment} </if>
+		  		  <if test="integral != null and integral != ''"> and integral = #{integral} </if>
+		  		  <if test="integralrate != null and integralrate != ''"> and integralRate = #{integralrate} </if>
+		  		  <if test="integralstore != null and integralstore != ''"> and integralStore = #{integralstore} </if>
+		  		  <if test="keywords != null and keywords != ''"> and keywords = #{keywords} </if>
+		  		  <if test="memberdaylogin != null and memberdaylogin != ''"> and memberDayLogin = #{memberdaylogin} </if>
+		  		  <if test="memberregister != null and memberregister != ''"> and memberRegister = #{memberregister} </if>
+		  		  <if test="middleheight != null and middleheight != ''"> and middleHeight = #{middleheight} </if>
+		  		  <if test="middlewidth != null and middlewidth != ''"> and middleWidth = #{middlewidth} </if>
+		  		  <if test="securitycodeconsult != null and securitycodeconsult != ''"> and securityCodeConsult = #{securitycodeconsult} </if>
+		  		  <if test="securitycodelogin != null and securitycodelogin != ''"> and securityCodeLogin = #{securitycodelogin} </if>
+		  		  <if test="securitycoderegister != null and securitycoderegister != ''"> and securityCodeRegister = #{securitycoderegister} </if>
+		  		  <if test="securitycodetype != null and securitycodetype != ''"> and securityCodeType = #{securitycodetype} </if>
+		  		  <if test="shareCode != null and shareCode != ''"> and share_code = #{shareCode} </if>
+		  		  <if test="smallheight != null and smallheight != ''"> and smallHeight = #{smallheight} </if>
+		  		  <if test="smallwidth != null and smallwidth != ''"> and smallWidth = #{smallwidth} </if>
+		  		  <if test="smsenbale != null and smsenbale != ''"> and smsEnbale = #{smsenbale} </if>
+		  		  <if test="smspassword != null and smspassword != ''"> and smsPassword = #{smspassword} </if>
+		  		  <if test="smstest != null and smstest != ''"> and smsTest = #{smstest} </if>
+		  		  <if test="smsurl != null and smsurl != ''"> and smsURL = #{smsurl} </if>
+		  		  <if test="smsusername != null and smsusername != ''"> and smsUserName = #{smsusername} </if>
+		  		  <if test="storeAllow != null and storeAllow != ''"> and store_allow = #{storeAllow} </if>
+		  		  <if test="storePayment != null and storePayment != ''"> and store_payment = #{storePayment} </if>
+		  		  <if test="syslanguage != null and syslanguage != ''"> and sysLanguage = #{syslanguage} </if>
+		  		  <if test="templates != null and templates != ''"> and templates = #{templates} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="uploadfilepath != null and uploadfilepath != ''"> and uploadFilePath = #{uploadfilepath} </if>
+		  		  <if test="userCreditrule != null and userCreditrule != ''"> and user_creditrule = #{userCreditrule} </if>
+		  		  <if test="visitorconsult != null and visitorconsult != ''"> and visitorConsult = #{visitorconsult} </if>
+		  		  <if test="voucher != null and voucher != ''"> and voucher = #{voucher} </if>
+		  		  <if test="websitename != null and websitename != ''"> and websiteName = #{websitename} </if>
+		  		  <if test="websitestate != null and websitestate != ''"> and websiteState = #{websitestate} </if>
+		  		  <if test="ztcPrice != null and ztcPrice != ''"> and ztc_price = #{ztcPrice} </if>
+		  		  <if test="ztcStatus != null and ztcStatus != ''"> and ztc_status = #{ztcStatus} </if>
+		  		  <if test="goodsimageId != null and goodsimageId != ''"> and goodsImage_id = #{goodsimageId} </if>
+		  		  <if test="membericonId != null and membericonId != ''"> and memberIcon_id = #{membericonId} </if>
+		  		  <if test="storeimageId != null and storeimageId != ''"> and storeImage_id = #{storeimageId} </if>
+		  		  <if test="websitelogoId != null and websitelogoId != ''"> and websiteLogo_id = #{websitelogoId} </if>
+		  		  <if test="domainAllowCount != null and domainAllowCount != ''"> and domain_allow_count = #{domainAllowCount} </if>
+		  		  <if test="secondDomainOpen != null and secondDomainOpen != ''"> and second_domain_open = #{secondDomainOpen} </if>
+		  		  <if test="sysDomain != null and sysDomain != ''"> and sys_domain = #{sysDomain} </if>
+		  		  <if test="qqLogin != null and qqLogin != ''"> and qq_login = #{qqLogin} </if>
+		  		  <if test="qqLoginId != null and qqLoginId != ''"> and qq_login_id = #{qqLoginId} </if>
+		  		  <if test="qqLoginKey != null and qqLoginKey != ''"> and qq_login_key = #{qqLoginKey} </if>
+		  		  <if test="qqDomainCode != null and qqDomainCode != ''"> and qq_domain_code = #{qqDomainCode} </if>
+		  		  <if test="sinaDomainCode != null and sinaDomainCode != ''"> and sina_domain_code = #{sinaDomainCode} </if>
+		  		  <if test="sinaLogin != null and sinaLogin != ''"> and sina_login = #{sinaLogin} </if>
+		  		  <if test="sinaLoginId != null and sinaLoginId != ''"> and sina_login_id = #{sinaLoginId} </if>
+		  		  <if test="sinaLoginKey != null and sinaLoginKey != ''"> and sina_login_key = #{sinaLoginKey} </if>
+		  		  <if test="imagewebserver != null and imagewebserver != ''"> and imageWebServer = #{imagewebserver} </if>
+		  		  <if test="luceneUpdate != null and luceneUpdate != ''"> and lucene_update = #{luceneUpdate} </if>
+		  		  <if test="alipayFenrun != null and alipayFenrun != ''"> and alipay_fenrun = #{alipayFenrun} </if>
+		  		  <if test="balanceFenrun != null and balanceFenrun != ''"> and balance_fenrun = #{balanceFenrun} </if>
+		  		  <if test="autoOrderConfirm != null and autoOrderConfirm != ''"> and auto_order_confirm = #{autoOrderConfirm} </if>
+		  		  <if test="autoOrderNotice != null and autoOrderNotice != ''"> and auto_order_notice = #{autoOrderNotice} </if>
+		  		  <if test="bargainMaximum != null and bargainMaximum != ''"> and bargain_maximum = #{bargainMaximum} </if>
+		  		  <if test="bargainRebate != null and bargainRebate != ''"> and bargain_rebate = #{bargainRebate} </if>
+		  		  <if test="bargainState != null and bargainState != ''"> and bargain_state = #{bargainState} </if>
+		  		  <if test="bargainStatus != null and bargainStatus != ''"> and bargain_status = #{bargainStatus} </if>
+		  		  <if test="bargainTitle != null and bargainTitle != ''"> and bargain_title = #{bargainTitle} </if>
+		  		  <if test="serviceQqList != null and serviceQqList != ''"> and service_qq_list = #{serviceQqList} </if>
+		  		  <if test="serviceTelphoneList != null and serviceTelphoneList != ''"> and service_telphone_list = #{serviceTelphoneList} </if>
+		  		  <if test="sysDeliveryMaximum != null and sysDeliveryMaximum != ''"> and sys_delivery_maximum = #{sysDeliveryMaximum} </if>
+		  		  <if test="ucBbs != null and ucBbs != ''"> and uc_bbs = #{ucBbs} </if>
+		  		  <if test="kuaidiId != null and kuaidiId != ''"> and kuaidi_id = #{kuaidiId} </if>
+		  		  <if test="ucApi != null and ucApi != ''"> and uc_api = #{ucApi} </if>
+		  		  <if test="ucAppid != null and ucAppid != ''"> and uc_appid = #{ucAppid} </if>
+		  		  <if test="ucDatabase != null and ucDatabase != ''"> and uc_database = #{ucDatabase} </if>
+		  		  <if test="ucDatabasePort != null and ucDatabasePort != ''"> and uc_database_port = #{ucDatabasePort} </if>
+		  		  <if test="ucDatabasePws != null and ucDatabasePws != ''"> and uc_database_pws = #{ucDatabasePws} </if>
+		  		  <if test="ucDatabaseUrl != null and ucDatabaseUrl != ''"> and uc_database_url = #{ucDatabaseUrl} </if>
+		  		  <if test="ucDatabaseUsername != null and ucDatabaseUsername != ''"> and uc_database_username = #{ucDatabaseUsername} </if>
+		  		  <if test="ucIp != null and ucIp != ''"> and uc_ip = #{ucIp} </if>
+		  		  <if test="ucKey != null and ucKey != ''"> and uc_key = #{ucKey} </if>
+		  		  <if test="ucTablePreffix != null and ucTablePreffix != ''"> and uc_table_preffix = #{ucTablePreffix} </if>
+		  		  <if test="currencyCode != null and currencyCode != ''"> and currency_code = #{currencyCode} </if>
+		  		  <if test="bargainValidity != null and bargainValidity != ''"> and bargain_validity = #{bargainValidity} </if>
+		  		  <if test="deliveryAmount != null and deliveryAmount != ''"> and delivery_amount = #{deliveryAmount} </if>
+		  		  <if test="deliveryStatus != null and deliveryStatus != ''"> and delivery_status = #{deliveryStatus} </if>
+		  		  <if test="deliveryTitle != null and deliveryTitle != ''"> and delivery_title = #{deliveryTitle} </if>
+		  		  <if test="websitecss != null and websitecss != ''"> and websiteCss = #{websitecss} </if>
+		  		  <if test="combinAmount != null and combinAmount != ''"> and combin_amount = #{combinAmount} </if>
+		  		  <if test="combinCount != null and combinCount != ''"> and combin_count = #{combinCount} </if>
+		  		  <if test="ztcGoodsView != null and ztcGoodsView != ''"> and ztc_goods_view = #{ztcGoodsView} </if>
+		  		  <if test="autoOrderEvaluate != null and autoOrderEvaluate != ''"> and auto_order_evaluate = #{autoOrderEvaluate} </if>
+		  		  <if test="autoOrderReturn != null and autoOrderReturn != ''"> and auto_order_return = #{autoOrderReturn} </if>
+		  		  <if test="weixinStore != null and weixinStore != ''"> and weixin_store = #{weixinStore} </if>
+		  		  <if test="weixinAmount != null and weixinAmount != ''"> and weixin_amount = #{weixinAmount} </if>
+		  		  <if test="configPaymentType != null and configPaymentType != ''"> and config_payment_type = #{configPaymentType} </if>
+		  		  <if test="weixinAccount != null and weixinAccount != ''"> and weixin_account = #{weixinAccount} </if>
+		  		  <if test="weixinAppid != null and weixinAppid != ''"> and weixin_appId = #{weixinAppid} </if>
+		  		  <if test="weixinAppsecret != null and weixinAppsecret != ''"> and weixin_appSecret = #{weixinAppsecret} </if>
+		  		  <if test="weixinToken != null and weixinToken != ''"> and weixin_token = #{weixinToken} </if>
+		  		  <if test="weixinWelecomeContent != null and weixinWelecomeContent != ''"> and weixin_welecome_content = #{weixinWelecomeContent} </if>
+		  		  <if test="storeWeixinLogoId != null and storeWeixinLogoId != ''"> and store_weixin_logo_id = #{storeWeixinLogoId} </if>
+		  		  <if test="weixinQrImgId != null and weixinQrImgId != ''"> and weixin_qr_img_id = #{weixinQrImgId} </if>
+		  		  <if test="siteUrl != null and siteUrl != ''"> and site_url = #{siteUrl} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.SysconfigDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_sysconfig
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`address`, 
+			`bigHeight`, 
+			`bigWidth`, 
+			`closeReason`, 
+			`codeStat`, 
+			`complaint_time`, 
+			`consumptionRatio`, 
+			`copyRight`, 
+			`creditrule`, 
+			`deposit`, 
+			`description`, 
+			`emailEnable`, 
+			`emailHost`, 
+			`emailPort`, 
+			`emailPws`, 
+			`emailTest`, 
+			`emailUser`, 
+			`emailUserName`, 
+			`everyIndentLimit`, 
+			`gold`, 
+			`goldMarketValue`, 
+			`groupBuy`, 
+			`hotSearch`, 
+			`imageFilesize`, 
+			`imageSaveType`, 
+			`imageSuffix`, 
+			`indentComment`, 
+			`integral`, 
+			`integralRate`, 
+			`integralStore`, 
+			`keywords`, 
+			`memberDayLogin`, 
+			`memberRegister`, 
+			`middleHeight`, 
+			`middleWidth`, 
+			`securityCodeConsult`, 
+			`securityCodeLogin`, 
+			`securityCodeRegister`, 
+			`securityCodeType`, 
+			`share_code`, 
+			`smallHeight`, 
+			`smallWidth`, 
+			`smsEnbale`, 
+			`smsPassword`, 
+			`smsTest`, 
+			`smsURL`, 
+			`smsUserName`, 
+			`store_allow`, 
+			`store_payment`, 
+			`sysLanguage`, 
+			`templates`, 
+			`title`, 
+			`uploadFilePath`, 
+			`user_creditrule`, 
+			`visitorConsult`, 
+			`voucher`, 
+			`websiteName`, 
+			`websiteState`, 
+			`ztc_price`, 
+			`ztc_status`, 
+			`goodsImage_id`, 
+			`memberIcon_id`, 
+			`storeImage_id`, 
+			`websiteLogo_id`, 
+			`domain_allow_count`, 
+			`second_domain_open`, 
+			`sys_domain`, 
+			`qq_login`, 
+			`qq_login_id`, 
+			`qq_login_key`, 
+			`qq_domain_code`, 
+			`sina_domain_code`, 
+			`sina_login`, 
+			`sina_login_id`, 
+			`sina_login_key`, 
+			`imageWebServer`, 
+			`lucene_update`, 
+			`alipay_fenrun`, 
+			`balance_fenrun`, 
+			`auto_order_confirm`, 
+			`auto_order_notice`, 
+			`bargain_maximum`, 
+			`bargain_rebate`, 
+			`bargain_state`, 
+			`bargain_status`, 
+			`bargain_title`, 
+			`service_qq_list`, 
+			`service_telphone_list`, 
+			`sys_delivery_maximum`, 
+			`uc_bbs`, 
+			`kuaidi_id`, 
+			`uc_api`, 
+			`uc_appid`, 
+			`uc_database`, 
+			`uc_database_port`, 
+			`uc_database_pws`, 
+			`uc_database_url`, 
+			`uc_database_username`, 
+			`uc_ip`, 
+			`uc_key`, 
+			`uc_table_preffix`, 
+			`currency_code`, 
+			`bargain_validity`, 
+			`delivery_amount`, 
+			`delivery_status`, 
+			`delivery_title`, 
+			`websiteCss`, 
+			`combin_amount`, 
+			`combin_count`, 
+			`ztc_goods_view`, 
+			`auto_order_evaluate`, 
+			`auto_order_return`, 
+			`weixin_store`, 
+			`weixin_amount`, 
+			`config_payment_type`, 
+			`weixin_account`, 
+			`weixin_appId`, 
+			`weixin_appSecret`, 
+			`weixin_token`, 
+			`weixin_welecome_content`, 
+			`store_weixin_logo_id`, 
+			`weixin_qr_img_id`, 
+			`site_url`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{address}, 
+			#{bigheight}, 
+			#{bigwidth}, 
+			#{closereason}, 
+			#{codestat}, 
+			#{complaintTime}, 
+			#{consumptionratio}, 
+			#{copyright}, 
+			#{creditrule}, 
+			#{deposit}, 
+			#{description}, 
+			#{emailenable}, 
+			#{emailhost}, 
+			#{emailport}, 
+			#{emailpws}, 
+			#{emailtest}, 
+			#{emailuser}, 
+			#{emailusername}, 
+			#{everyindentlimit}, 
+			#{gold}, 
+			#{goldmarketvalue}, 
+			#{groupbuy}, 
+			#{hotsearch}, 
+			#{imagefilesize}, 
+			#{imagesavetype}, 
+			#{imagesuffix}, 
+			#{indentcomment}, 
+			#{integral}, 
+			#{integralrate}, 
+			#{integralstore}, 
+			#{keywords}, 
+			#{memberdaylogin}, 
+			#{memberregister}, 
+			#{middleheight}, 
+			#{middlewidth}, 
+			#{securitycodeconsult}, 
+			#{securitycodelogin}, 
+			#{securitycoderegister}, 
+			#{securitycodetype}, 
+			#{shareCode}, 
+			#{smallheight}, 
+			#{smallwidth}, 
+			#{smsenbale}, 
+			#{smspassword}, 
+			#{smstest}, 
+			#{smsurl}, 
+			#{smsusername}, 
+			#{storeAllow}, 
+			#{storePayment}, 
+			#{syslanguage}, 
+			#{templates}, 
+			#{title}, 
+			#{uploadfilepath}, 
+			#{userCreditrule}, 
+			#{visitorconsult}, 
+			#{voucher}, 
+			#{websitename}, 
+			#{websitestate}, 
+			#{ztcPrice}, 
+			#{ztcStatus}, 
+			#{goodsimageId}, 
+			#{membericonId}, 
+			#{storeimageId}, 
+			#{websitelogoId}, 
+			#{domainAllowCount}, 
+			#{secondDomainOpen}, 
+			#{sysDomain}, 
+			#{qqLogin}, 
+			#{qqLoginId}, 
+			#{qqLoginKey}, 
+			#{qqDomainCode}, 
+			#{sinaDomainCode}, 
+			#{sinaLogin}, 
+			#{sinaLoginId}, 
+			#{sinaLoginKey}, 
+			#{imagewebserver}, 
+			#{luceneUpdate}, 
+			#{alipayFenrun}, 
+			#{balanceFenrun}, 
+			#{autoOrderConfirm}, 
+			#{autoOrderNotice}, 
+			#{bargainMaximum}, 
+			#{bargainRebate}, 
+			#{bargainState}, 
+			#{bargainStatus}, 
+			#{bargainTitle}, 
+			#{serviceQqList}, 
+			#{serviceTelphoneList}, 
+			#{sysDeliveryMaximum}, 
+			#{ucBbs}, 
+			#{kuaidiId}, 
+			#{ucApi}, 
+			#{ucAppid}, 
+			#{ucDatabase}, 
+			#{ucDatabasePort}, 
+			#{ucDatabasePws}, 
+			#{ucDatabaseUrl}, 
+			#{ucDatabaseUsername}, 
+			#{ucIp}, 
+			#{ucKey}, 
+			#{ucTablePreffix}, 
+			#{currencyCode}, 
+			#{bargainValidity}, 
+			#{deliveryAmount}, 
+			#{deliveryStatus}, 
+			#{deliveryTitle}, 
+			#{websitecss}, 
+			#{combinAmount}, 
+			#{combinCount}, 
+			#{ztcGoodsView}, 
+			#{autoOrderEvaluate}, 
+			#{autoOrderReturn}, 
+			#{weixinStore}, 
+			#{weixinAmount}, 
+			#{configPaymentType}, 
+			#{weixinAccount}, 
+			#{weixinAppid}, 
+			#{weixinAppsecret}, 
+			#{weixinToken}, 
+			#{weixinWelecomeContent}, 
+			#{storeWeixinLogoId}, 
+			#{weixinQrImgId}, 
+			#{siteUrl}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.SysconfigDO">
+		update wemall_sysconfig 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="bigheight != null">`bigHeight` = #{bigheight}, </if>
+			<if test="bigwidth != null">`bigWidth` = #{bigwidth}, </if>
+			<if test="closereason != null">`closeReason` = #{closereason}, </if>
+			<if test="codestat != null">`codeStat` = #{codestat}, </if>
+			<if test="complaintTime != null">`complaint_time` = #{complaintTime}, </if>
+			<if test="consumptionratio != null">`consumptionRatio` = #{consumptionratio}, </if>
+			<if test="copyright != null">`copyRight` = #{copyright}, </if>
+			<if test="creditrule != null">`creditrule` = #{creditrule}, </if>
+			<if test="deposit != null">`deposit` = #{deposit}, </if>
+			<if test="description != null">`description` = #{description}, </if>
+			<if test="emailenable != null">`emailEnable` = #{emailenable}, </if>
+			<if test="emailhost != null">`emailHost` = #{emailhost}, </if>
+			<if test="emailport != null">`emailPort` = #{emailport}, </if>
+			<if test="emailpws != null">`emailPws` = #{emailpws}, </if>
+			<if test="emailtest != null">`emailTest` = #{emailtest}, </if>
+			<if test="emailuser != null">`emailUser` = #{emailuser}, </if>
+			<if test="emailusername != null">`emailUserName` = #{emailusername}, </if>
+			<if test="everyindentlimit != null">`everyIndentLimit` = #{everyindentlimit}, </if>
+			<if test="gold != null">`gold` = #{gold}, </if>
+			<if test="goldmarketvalue != null">`goldMarketValue` = #{goldmarketvalue}, </if>
+			<if test="groupbuy != null">`groupBuy` = #{groupbuy}, </if>
+			<if test="hotsearch != null">`hotSearch` = #{hotsearch}, </if>
+			<if test="imagefilesize != null">`imageFilesize` = #{imagefilesize}, </if>
+			<if test="imagesavetype != null">`imageSaveType` = #{imagesavetype}, </if>
+			<if test="imagesuffix != null">`imageSuffix` = #{imagesuffix}, </if>
+			<if test="indentcomment != null">`indentComment` = #{indentcomment}, </if>
+			<if test="integral != null">`integral` = #{integral}, </if>
+			<if test="integralrate != null">`integralRate` = #{integralrate}, </if>
+			<if test="integralstore != null">`integralStore` = #{integralstore}, </if>
+			<if test="keywords != null">`keywords` = #{keywords}, </if>
+			<if test="memberdaylogin != null">`memberDayLogin` = #{memberdaylogin}, </if>
+			<if test="memberregister != null">`memberRegister` = #{memberregister}, </if>
+			<if test="middleheight != null">`middleHeight` = #{middleheight}, </if>
+			<if test="middlewidth != null">`middleWidth` = #{middlewidth}, </if>
+			<if test="securitycodeconsult != null">`securityCodeConsult` = #{securitycodeconsult}, </if>
+			<if test="securitycodelogin != null">`securityCodeLogin` = #{securitycodelogin}, </if>
+			<if test="securitycoderegister != null">`securityCodeRegister` = #{securitycoderegister}, </if>
+			<if test="securitycodetype != null">`securityCodeType` = #{securitycodetype}, </if>
+			<if test="shareCode != null">`share_code` = #{shareCode}, </if>
+			<if test="smallheight != null">`smallHeight` = #{smallheight}, </if>
+			<if test="smallwidth != null">`smallWidth` = #{smallwidth}, </if>
+			<if test="smsenbale != null">`smsEnbale` = #{smsenbale}, </if>
+			<if test="smspassword != null">`smsPassword` = #{smspassword}, </if>
+			<if test="smstest != null">`smsTest` = #{smstest}, </if>
+			<if test="smsurl != null">`smsURL` = #{smsurl}, </if>
+			<if test="smsusername != null">`smsUserName` = #{smsusername}, </if>
+			<if test="storeAllow != null">`store_allow` = #{storeAllow}, </if>
+			<if test="storePayment != null">`store_payment` = #{storePayment}, </if>
+			<if test="syslanguage != null">`sysLanguage` = #{syslanguage}, </if>
+			<if test="templates != null">`templates` = #{templates}, </if>
+			<if test="title != null">`title` = #{title}, </if>
+			<if test="uploadfilepath != null">`uploadFilePath` = #{uploadfilepath}, </if>
+			<if test="userCreditrule != null">`user_creditrule` = #{userCreditrule}, </if>
+			<if test="visitorconsult != null">`visitorConsult` = #{visitorconsult}, </if>
+			<if test="voucher != null">`voucher` = #{voucher}, </if>
+			<if test="websitename != null">`websiteName` = #{websitename}, </if>
+			<if test="websitestate != null">`websiteState` = #{websitestate}, </if>
+			<if test="ztcPrice != null">`ztc_price` = #{ztcPrice}, </if>
+			<if test="ztcStatus != null">`ztc_status` = #{ztcStatus}, </if>
+			<if test="goodsimageId != null">`goodsImage_id` = #{goodsimageId}, </if>
+			<if test="membericonId != null">`memberIcon_id` = #{membericonId}, </if>
+			<if test="storeimageId != null">`storeImage_id` = #{storeimageId}, </if>
+			<if test="websitelogoId != null">`websiteLogo_id` = #{websitelogoId}, </if>
+			<if test="domainAllowCount != null">`domain_allow_count` = #{domainAllowCount}, </if>
+			<if test="secondDomainOpen != null">`second_domain_open` = #{secondDomainOpen}, </if>
+			<if test="sysDomain != null">`sys_domain` = #{sysDomain}, </if>
+			<if test="qqLogin != null">`qq_login` = #{qqLogin}, </if>
+			<if test="qqLoginId != null">`qq_login_id` = #{qqLoginId}, </if>
+			<if test="qqLoginKey != null">`qq_login_key` = #{qqLoginKey}, </if>
+			<if test="qqDomainCode != null">`qq_domain_code` = #{qqDomainCode}, </if>
+			<if test="sinaDomainCode != null">`sina_domain_code` = #{sinaDomainCode}, </if>
+			<if test="sinaLogin != null">`sina_login` = #{sinaLogin}, </if>
+			<if test="sinaLoginId != null">`sina_login_id` = #{sinaLoginId}, </if>
+			<if test="sinaLoginKey != null">`sina_login_key` = #{sinaLoginKey}, </if>
+			<if test="imagewebserver != null">`imageWebServer` = #{imagewebserver}, </if>
+			<if test="luceneUpdate != null">`lucene_update` = #{luceneUpdate}, </if>
+			<if test="alipayFenrun != null">`alipay_fenrun` = #{alipayFenrun}, </if>
+			<if test="balanceFenrun != null">`balance_fenrun` = #{balanceFenrun}, </if>
+			<if test="autoOrderConfirm != null">`auto_order_confirm` = #{autoOrderConfirm}, </if>
+			<if test="autoOrderNotice != null">`auto_order_notice` = #{autoOrderNotice}, </if>
+			<if test="bargainMaximum != null">`bargain_maximum` = #{bargainMaximum}, </if>
+			<if test="bargainRebate != null">`bargain_rebate` = #{bargainRebate}, </if>
+			<if test="bargainState != null">`bargain_state` = #{bargainState}, </if>
+			<if test="bargainStatus != null">`bargain_status` = #{bargainStatus}, </if>
+			<if test="bargainTitle != null">`bargain_title` = #{bargainTitle}, </if>
+			<if test="serviceQqList != null">`service_qq_list` = #{serviceQqList}, </if>
+			<if test="serviceTelphoneList != null">`service_telphone_list` = #{serviceTelphoneList}, </if>
+			<if test="sysDeliveryMaximum != null">`sys_delivery_maximum` = #{sysDeliveryMaximum}, </if>
+			<if test="ucBbs != null">`uc_bbs` = #{ucBbs}, </if>
+			<if test="kuaidiId != null">`kuaidi_id` = #{kuaidiId}, </if>
+			<if test="ucApi != null">`uc_api` = #{ucApi}, </if>
+			<if test="ucAppid != null">`uc_appid` = #{ucAppid}, </if>
+			<if test="ucDatabase != null">`uc_database` = #{ucDatabase}, </if>
+			<if test="ucDatabasePort != null">`uc_database_port` = #{ucDatabasePort}, </if>
+			<if test="ucDatabasePws != null">`uc_database_pws` = #{ucDatabasePws}, </if>
+			<if test="ucDatabaseUrl != null">`uc_database_url` = #{ucDatabaseUrl}, </if>
+			<if test="ucDatabaseUsername != null">`uc_database_username` = #{ucDatabaseUsername}, </if>
+			<if test="ucIp != null">`uc_ip` = #{ucIp}, </if>
+			<if test="ucKey != null">`uc_key` = #{ucKey}, </if>
+			<if test="ucTablePreffix != null">`uc_table_preffix` = #{ucTablePreffix}, </if>
+			<if test="currencyCode != null">`currency_code` = #{currencyCode}, </if>
+			<if test="bargainValidity != null">`bargain_validity` = #{bargainValidity}, </if>
+			<if test="deliveryAmount != null">`delivery_amount` = #{deliveryAmount}, </if>
+			<if test="deliveryStatus != null">`delivery_status` = #{deliveryStatus}, </if>
+			<if test="deliveryTitle != null">`delivery_title` = #{deliveryTitle}, </if>
+			<if test="websitecss != null">`websiteCss` = #{websitecss}, </if>
+			<if test="combinAmount != null">`combin_amount` = #{combinAmount}, </if>
+			<if test="combinCount != null">`combin_count` = #{combinCount}, </if>
+			<if test="ztcGoodsView != null">`ztc_goods_view` = #{ztcGoodsView}, </if>
+			<if test="autoOrderEvaluate != null">`auto_order_evaluate` = #{autoOrderEvaluate}, </if>
+			<if test="autoOrderReturn != null">`auto_order_return` = #{autoOrderReturn}, </if>
+			<if test="weixinStore != null">`weixin_store` = #{weixinStore}, </if>
+			<if test="weixinAmount != null">`weixin_amount` = #{weixinAmount}, </if>
+			<if test="configPaymentType != null">`config_payment_type` = #{configPaymentType}, </if>
+			<if test="weixinAccount != null">`weixin_account` = #{weixinAccount}, </if>
+			<if test="weixinAppid != null">`weixin_appId` = #{weixinAppid}, </if>
+			<if test="weixinAppsecret != null">`weixin_appSecret` = #{weixinAppsecret}, </if>
+			<if test="weixinToken != null">`weixin_token` = #{weixinToken}, </if>
+			<if test="weixinWelecomeContent != null">`weixin_welecome_content` = #{weixinWelecomeContent}, </if>
+			<if test="storeWeixinLogoId != null">`store_weixin_logo_id` = #{storeWeixinLogoId}, </if>
+			<if test="weixinQrImgId != null">`weixin_qr_img_id` = #{weixinQrImgId}, </if>
+			<if test="siteUrl != null">`site_url` = #{siteUrl}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_sysconfig where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_sysconfig where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

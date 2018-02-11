@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.AreaDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.AreaDO">
+		select `id`,`addTime`,`deleteStatus`,`areaName`,`level`,`sequence`,`parent_id`,`common` from wemall_area where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.AreaDO">
+		select `id`,`addTime`,`deleteStatus`,`areaName`,`level`,`sequence`,`parent_id`,`common` from wemall_area
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="areaname != null and areaname != ''"> and areaName = #{areaname} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="common != null and common != ''"> and common = #{common} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_area
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="areaname != null and areaname != ''"> and areaName = #{areaname} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="common != null and common != ''"> and common = #{common} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.AreaDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_area
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`areaName`, 
+			`level`, 
+			`sequence`, 
+			`parent_id`, 
+			`common`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{areaname}, 
+			#{level}, 
+			#{sequence}, 
+			#{parentId}, 
+			#{common}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.AreaDO">
+		update wemall_area 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="areaname != null">`areaName` = #{areaname}, </if>
+			<if test="level != null">`level` = #{level}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="common != null">`common` = #{common}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_area where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_area where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

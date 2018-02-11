@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.StoregradeDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.StoregradeDO">
+		select `id`,`addTime`,`deleteStatus`,`add_funciton`,`audit`,`content`,`goodsCount`,`gradeLevel`,`gradeName`,`price`,`sequence`,`spaceSize`,`sysGrade`,`templates`,`acount_num` from wemall_storegrade where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.StoregradeDO">
+		select `id`,`addTime`,`deleteStatus`,`add_funciton`,`audit`,`content`,`goodsCount`,`gradeLevel`,`gradeName`,`price`,`sequence`,`spaceSize`,`sysGrade`,`templates`,`acount_num` from wemall_storegrade
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="addFunciton != null and addFunciton != ''"> and add_funciton = #{addFunciton} </if>
+		  		  <if test="audit != null and audit != ''"> and audit = #{audit} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="goodscount != null and goodscount != ''"> and goodsCount = #{goodscount} </if>
+		  		  <if test="gradelevel != null and gradelevel != ''"> and gradeLevel = #{gradelevel} </if>
+		  		  <if test="gradename != null and gradename != ''"> and gradeName = #{gradename} </if>
+		  		  <if test="price != null and price != ''"> and price = #{price} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="spacesize != null and spacesize != ''"> and spaceSize = #{spacesize} </if>
+		  		  <if test="sysgrade != null and sysgrade != ''"> and sysGrade = #{sysgrade} </if>
+		  		  <if test="templates != null and templates != ''"> and templates = #{templates} </if>
+		  		  <if test="acountNum != null and acountNum != ''"> and acount_num = #{acountNum} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_storegrade
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="addFunciton != null and addFunciton != ''"> and add_funciton = #{addFunciton} </if>
+		  		  <if test="audit != null and audit != ''"> and audit = #{audit} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="goodscount != null and goodscount != ''"> and goodsCount = #{goodscount} </if>
+		  		  <if test="gradelevel != null and gradelevel != ''"> and gradeLevel = #{gradelevel} </if>
+		  		  <if test="gradename != null and gradename != ''"> and gradeName = #{gradename} </if>
+		  		  <if test="price != null and price != ''"> and price = #{price} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="spacesize != null and spacesize != ''"> and spaceSize = #{spacesize} </if>
+		  		  <if test="sysgrade != null and sysgrade != ''"> and sysGrade = #{sysgrade} </if>
+		  		  <if test="templates != null and templates != ''"> and templates = #{templates} </if>
+		  		  <if test="acountNum != null and acountNum != ''"> and acount_num = #{acountNum} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.StoregradeDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_storegrade
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`add_funciton`, 
+			`audit`, 
+			`content`, 
+			`goodsCount`, 
+			`gradeLevel`, 
+			`gradeName`, 
+			`price`, 
+			`sequence`, 
+			`spaceSize`, 
+			`sysGrade`, 
+			`templates`, 
+			`acount_num`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{addFunciton}, 
+			#{audit}, 
+			#{content}, 
+			#{goodscount}, 
+			#{gradelevel}, 
+			#{gradename}, 
+			#{price}, 
+			#{sequence}, 
+			#{spacesize}, 
+			#{sysgrade}, 
+			#{templates}, 
+			#{acountNum}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.StoregradeDO">
+		update wemall_storegrade 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="addFunciton != null">`add_funciton` = #{addFunciton}, </if>
+			<if test="audit != null">`audit` = #{audit}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="goodscount != null">`goodsCount` = #{goodscount}, </if>
+			<if test="gradelevel != null">`gradeLevel` = #{gradelevel}, </if>
+			<if test="gradename != null">`gradeName` = #{gradename}, </if>
+			<if test="price != null">`price` = #{price}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}, </if>
+			<if test="spacesize != null">`spaceSize` = #{spacesize}, </if>
+			<if test="sysgrade != null">`sysGrade` = #{sysgrade}, </if>
+			<if test="templates != null">`templates` = #{templates}, </if>
+			<if test="acountNum != null">`acount_num` = #{acountNum}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_storegrade where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_storegrade where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.SpareGoodsDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.SpareGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`contact`,`content`,`errorMessage`,`goods_old_price`,`goods_price`,`name`,`oldAndnew`,`sellMethod`,`seodescribe`,`seokeyword`,`status`,`title`,`area_id`,`img_id`,`spareGoodsClass_id`,`user_id`,`phone`,`img1_id`,`img2_id`,`img3_id`,`img4_id`,`main_img_id`,`img5_id`,`viewInFloor`,`sgf_id`,`QQ`,`recommend`,`down` from wemall_spare_goods where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.SpareGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`contact`,`content`,`errorMessage`,`goods_old_price`,`goods_price`,`name`,`oldAndnew`,`sellMethod`,`seodescribe`,`seokeyword`,`status`,`title`,`area_id`,`img_id`,`spareGoodsClass_id`,`user_id`,`phone`,`img1_id`,`img2_id`,`img3_id`,`img4_id`,`main_img_id`,`img5_id`,`viewInFloor`,`sgf_id`,`QQ`,`recommend`,`down` from wemall_spare_goods
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="contact != null and contact != ''"> and contact = #{contact} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="errormessage != null and errormessage != ''"> and errorMessage = #{errormessage} </if>
+		  		  <if test="goodsOldPrice != null and goodsOldPrice != ''"> and goods_old_price = #{goodsOldPrice} </if>
+		  		  <if test="goodsPrice != null and goodsPrice != ''"> and goods_price = #{goodsPrice} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="oldandnew != null and oldandnew != ''"> and oldAndnew = #{oldandnew} </if>
+		  		  <if test="sellmethod != null and sellmethod != ''"> and sellMethod = #{sellmethod} </if>
+		  		  <if test="seodescribe != null and seodescribe != ''"> and seodescribe = #{seodescribe} </if>
+		  		  <if test="seokeyword != null and seokeyword != ''"> and seokeyword = #{seokeyword} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="areaId != null and areaId != ''"> and area_id = #{areaId} </if>
+		  		  <if test="imgId != null and imgId != ''"> and img_id = #{imgId} </if>
+		  		  <if test="sparegoodsclassId != null and sparegoodsclassId != ''"> and spareGoodsClass_id = #{sparegoodsclassId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="img1Id != null and img1Id != ''"> and img1_id = #{img1Id} </if>
+		  		  <if test="img2Id != null and img2Id != ''"> and img2_id = #{img2Id} </if>
+		  		  <if test="img3Id != null and img3Id != ''"> and img3_id = #{img3Id} </if>
+		  		  <if test="img4Id != null and img4Id != ''"> and img4_id = #{img4Id} </if>
+		  		  <if test="mainImgId != null and mainImgId != ''"> and main_img_id = #{mainImgId} </if>
+		  		  <if test="img5Id != null and img5Id != ''"> and img5_id = #{img5Id} </if>
+		  		  <if test="viewinfloor != null and viewinfloor != ''"> and viewInFloor = #{viewinfloor} </if>
+		  		  <if test="sgfId != null and sgfId != ''"> and sgf_id = #{sgfId} </if>
+		  		  <if test="qq != null and qq != ''"> and QQ = #{qq} </if>
+		  		  <if test="recommend != null and recommend != ''"> and recommend = #{recommend} </if>
+		  		  <if test="down != null and down != ''"> and down = #{down} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_spare_goods
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="contact != null and contact != ''"> and contact = #{contact} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="errormessage != null and errormessage != ''"> and errorMessage = #{errormessage} </if>
+		  		  <if test="goodsOldPrice != null and goodsOldPrice != ''"> and goods_old_price = #{goodsOldPrice} </if>
+		  		  <if test="goodsPrice != null and goodsPrice != ''"> and goods_price = #{goodsPrice} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="oldandnew != null and oldandnew != ''"> and oldAndnew = #{oldandnew} </if>
+		  		  <if test="sellmethod != null and sellmethod != ''"> and sellMethod = #{sellmethod} </if>
+		  		  <if test="seodescribe != null and seodescribe != ''"> and seodescribe = #{seodescribe} </if>
+		  		  <if test="seokeyword != null and seokeyword != ''"> and seokeyword = #{seokeyword} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="areaId != null and areaId != ''"> and area_id = #{areaId} </if>
+		  		  <if test="imgId != null and imgId != ''"> and img_id = #{imgId} </if>
+		  		  <if test="sparegoodsclassId != null and sparegoodsclassId != ''"> and spareGoodsClass_id = #{sparegoodsclassId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="phone != null and phone != ''"> and phone = #{phone} </if>
+		  		  <if test="img1Id != null and img1Id != ''"> and img1_id = #{img1Id} </if>
+		  		  <if test="img2Id != null and img2Id != ''"> and img2_id = #{img2Id} </if>
+		  		  <if test="img3Id != null and img3Id != ''"> and img3_id = #{img3Id} </if>
+		  		  <if test="img4Id != null and img4Id != ''"> and img4_id = #{img4Id} </if>
+		  		  <if test="mainImgId != null and mainImgId != ''"> and main_img_id = #{mainImgId} </if>
+		  		  <if test="img5Id != null and img5Id != ''"> and img5_id = #{img5Id} </if>
+		  		  <if test="viewinfloor != null and viewinfloor != ''"> and viewInFloor = #{viewinfloor} </if>
+		  		  <if test="sgfId != null and sgfId != ''"> and sgf_id = #{sgfId} </if>
+		  		  <if test="qq != null and qq != ''"> and QQ = #{qq} </if>
+		  		  <if test="recommend != null and recommend != ''"> and recommend = #{recommend} </if>
+		  		  <if test="down != null and down != ''"> and down = #{down} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.SpareGoodsDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_spare_goods
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`contact`, 
+			`content`, 
+			`errorMessage`, 
+			`goods_old_price`, 
+			`goods_price`, 
+			`name`, 
+			`oldAndnew`, 
+			`sellMethod`, 
+			`seodescribe`, 
+			`seokeyword`, 
+			`status`, 
+			`title`, 
+			`area_id`, 
+			`img_id`, 
+			`spareGoodsClass_id`, 
+			`user_id`, 
+			`phone`, 
+			`img1_id`, 
+			`img2_id`, 
+			`img3_id`, 
+			`img4_id`, 
+			`main_img_id`, 
+			`img5_id`, 
+			`viewInFloor`, 
+			`sgf_id`, 
+			`QQ`, 
+			`recommend`, 
+			`down`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{contact}, 
+			#{content}, 
+			#{errormessage}, 
+			#{goodsOldPrice}, 
+			#{goodsPrice}, 
+			#{name}, 
+			#{oldandnew}, 
+			#{sellmethod}, 
+			#{seodescribe}, 
+			#{seokeyword}, 
+			#{status}, 
+			#{title}, 
+			#{areaId}, 
+			#{imgId}, 
+			#{sparegoodsclassId}, 
+			#{userId}, 
+			#{phone}, 
+			#{img1Id}, 
+			#{img2Id}, 
+			#{img3Id}, 
+			#{img4Id}, 
+			#{mainImgId}, 
+			#{img5Id}, 
+			#{viewinfloor}, 
+			#{sgfId}, 
+			#{qq}, 
+			#{recommend}, 
+			#{down}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.SpareGoodsDO">
+		update wemall_spare_goods 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="contact != null">`contact` = #{contact}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="errormessage != null">`errorMessage` = #{errormessage}, </if>
+			<if test="goodsOldPrice != null">`goods_old_price` = #{goodsOldPrice}, </if>
+			<if test="goodsPrice != null">`goods_price` = #{goodsPrice}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="oldandnew != null">`oldAndnew` = #{oldandnew}, </if>
+			<if test="sellmethod != null">`sellMethod` = #{sellmethod}, </if>
+			<if test="seodescribe != null">`seodescribe` = #{seodescribe}, </if>
+			<if test="seokeyword != null">`seokeyword` = #{seokeyword}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="title != null">`title` = #{title}, </if>
+			<if test="areaId != null">`area_id` = #{areaId}, </if>
+			<if test="imgId != null">`img_id` = #{imgId}, </if>
+			<if test="sparegoodsclassId != null">`spareGoodsClass_id` = #{sparegoodsclassId}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="phone != null">`phone` = #{phone}, </if>
+			<if test="img1Id != null">`img1_id` = #{img1Id}, </if>
+			<if test="img2Id != null">`img2_id` = #{img2Id}, </if>
+			<if test="img3Id != null">`img3_id` = #{img3Id}, </if>
+			<if test="img4Id != null">`img4_id` = #{img4Id}, </if>
+			<if test="mainImgId != null">`main_img_id` = #{mainImgId}, </if>
+			<if test="img5Id != null">`img5_id` = #{img5Id}, </if>
+			<if test="viewinfloor != null">`viewInFloor` = #{viewinfloor}, </if>
+			<if test="sgfId != null">`sgf_id` = #{sgfId}, </if>
+			<if test="qq != null">`QQ` = #{qq}, </if>
+			<if test="recommend != null">`recommend` = #{recommend}, </if>
+			<if test="down != null">`down` = #{down}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_spare_goods where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_spare_goods where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

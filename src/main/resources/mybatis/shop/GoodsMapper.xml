@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodsDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`goods_click`,`goods_details`,`goods_fee`,`goods_inventory`,`goods_inventory_detail`,`goods_name`,`goods_price`,`goods_property`,`goods_recommend`,`goods_salenum`,`goods_seller_time`,`goods_serial`,`goods_status`,`goods_transfee`,`goods_weight`,`inventory_type`,`seo_description`,`seo_keywords`,`store_price`,`store_recommend`,`store_recommend_time`,`ztc_admin_content`,`ztc_apply_time`,`ztc_begin_time`,`ztc_click_num`,`ztc_dredge_price`,`ztc_gold`,`ztc_pay_status`,`ztc_price`,`ztc_status`,`gc_id`,`goods_brand_id`,`goods_main_photo_id`,`goods_store_id`,`ztc_admin_id`,`goods_collect`,`group_buy`,`goods_choice_type`,`group_id`,`activity_status`,`bargain_status`,`delivery_status`,`goods_current_price`,`goods_volume`,`ems_trans_fee`,`express_trans_fee`,`mail_trans_fee`,`transport_id`,`combin_status`,`combin_begin_time`,`combin_end_time`,`combin_price`,`description_evaluate`,`weixin_shop_hot`,`weixin_shop_hotTime`,`weixin_shop_recommend`,`weixin_shop_recommendTime` from wemall_goods where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`goods_click`,`goods_details`,`goods_fee`,`goods_inventory`,`goods_inventory_detail`,`goods_name`,`goods_price`,`goods_property`,`goods_recommend`,`goods_salenum`,`goods_seller_time`,`goods_serial`,`goods_status`,`goods_transfee`,`goods_weight`,`inventory_type`,`seo_description`,`seo_keywords`,`store_price`,`store_recommend`,`store_recommend_time`,`ztc_admin_content`,`ztc_apply_time`,`ztc_begin_time`,`ztc_click_num`,`ztc_dredge_price`,`ztc_gold`,`ztc_pay_status`,`ztc_price`,`ztc_status`,`gc_id`,`goods_brand_id`,`goods_main_photo_id`,`goods_store_id`,`ztc_admin_id`,`goods_collect`,`group_buy`,`goods_choice_type`,`group_id`,`activity_status`,`bargain_status`,`delivery_status`,`goods_current_price`,`goods_volume`,`ems_trans_fee`,`express_trans_fee`,`mail_trans_fee`,`transport_id`,`combin_status`,`combin_begin_time`,`combin_end_time`,`combin_price`,`description_evaluate`,`weixin_shop_hot`,`weixin_shop_hotTime`,`weixin_shop_recommend`,`weixin_shop_recommendTime` from wemall_goods
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="goodsClick != null and goodsClick != ''"> and goods_click = #{goodsClick} </if>
+		  		  <if test="goodsDetails != null and goodsDetails != ''"> and goods_details = #{goodsDetails} </if>
+		  		  <if test="goodsFee != null and goodsFee != ''"> and goods_fee = #{goodsFee} </if>
+		  		  <if test="goodsInventory != null and goodsInventory != ''"> and goods_inventory = #{goodsInventory} </if>
+		  		  <if test="goodsInventoryDetail != null and goodsInventoryDetail != ''"> and goods_inventory_detail = #{goodsInventoryDetail} </if>
+		  		  <if test="goodsName != null and goodsName != ''"> and goods_name = #{goodsName} </if>
+		  		  <if test="goodsPrice != null and goodsPrice != ''"> and goods_price = #{goodsPrice} </if>
+		  		  <if test="goodsProperty != null and goodsProperty != ''"> and goods_property = #{goodsProperty} </if>
+		  		  <if test="goodsRecommend != null and goodsRecommend != ''"> and goods_recommend = #{goodsRecommend} </if>
+		  		  <if test="goodsSalenum != null and goodsSalenum != ''"> and goods_salenum = #{goodsSalenum} </if>
+		  		  <if test="goodsSellerTime != null and goodsSellerTime != ''"> and goods_seller_time = #{goodsSellerTime} </if>
+		  		  <if test="goodsSerial != null and goodsSerial != ''"> and goods_serial = #{goodsSerial} </if>
+		  		  <if test="goodsStatus != null and goodsStatus != ''"> and goods_status = #{goodsStatus} </if>
+		  		  <if test="goodsTransfee != null and goodsTransfee != ''"> and goods_transfee = #{goodsTransfee} </if>
+		  		  <if test="goodsWeight != null and goodsWeight != ''"> and goods_weight = #{goodsWeight} </if>
+		  		  <if test="inventoryType != null and inventoryType != ''"> and inventory_type = #{inventoryType} </if>
+		  		  <if test="seoDescription != null and seoDescription != ''"> and seo_description = #{seoDescription} </if>
+		  		  <if test="seoKeywords != null and seoKeywords != ''"> and seo_keywords = #{seoKeywords} </if>
+		  		  <if test="storePrice != null and storePrice != ''"> and store_price = #{storePrice} </if>
+		  		  <if test="storeRecommend != null and storeRecommend != ''"> and store_recommend = #{storeRecommend} </if>
+		  		  <if test="storeRecommendTime != null and storeRecommendTime != ''"> and store_recommend_time = #{storeRecommendTime} </if>
+		  		  <if test="ztcAdminContent != null and ztcAdminContent != ''"> and ztc_admin_content = #{ztcAdminContent} </if>
+		  		  <if test="ztcApplyTime != null and ztcApplyTime != ''"> and ztc_apply_time = #{ztcApplyTime} </if>
+		  		  <if test="ztcBeginTime != null and ztcBeginTime != ''"> and ztc_begin_time = #{ztcBeginTime} </if>
+		  		  <if test="ztcClickNum != null and ztcClickNum != ''"> and ztc_click_num = #{ztcClickNum} </if>
+		  		  <if test="ztcDredgePrice != null and ztcDredgePrice != ''"> and ztc_dredge_price = #{ztcDredgePrice} </if>
+		  		  <if test="ztcGold != null and ztcGold != ''"> and ztc_gold = #{ztcGold} </if>
+		  		  <if test="ztcPayStatus != null and ztcPayStatus != ''"> and ztc_pay_status = #{ztcPayStatus} </if>
+		  		  <if test="ztcPrice != null and ztcPrice != ''"> and ztc_price = #{ztcPrice} </if>
+		  		  <if test="ztcStatus != null and ztcStatus != ''"> and ztc_status = #{ztcStatus} </if>
+		  		  <if test="gcId != null and gcId != ''"> and gc_id = #{gcId} </if>
+		  		  <if test="goodsBrandId != null and goodsBrandId != ''"> and goods_brand_id = #{goodsBrandId} </if>
+		  		  <if test="goodsMainPhotoId != null and goodsMainPhotoId != ''"> and goods_main_photo_id = #{goodsMainPhotoId} </if>
+		  		  <if test="goodsStoreId != null and goodsStoreId != ''"> and goods_store_id = #{goodsStoreId} </if>
+		  		  <if test="ztcAdminId != null and ztcAdminId != ''"> and ztc_admin_id = #{ztcAdminId} </if>
+		  		  <if test="goodsCollect != null and goodsCollect != ''"> and goods_collect = #{goodsCollect} </if>
+		  		  <if test="groupBuy != null and groupBuy != ''"> and group_buy = #{groupBuy} </if>
+		  		  <if test="goodsChoiceType != null and goodsChoiceType != ''"> and goods_choice_type = #{goodsChoiceType} </if>
+		  		  <if test="groupId != null and groupId != ''"> and group_id = #{groupId} </if>
+		  		  <if test="activityStatus != null and activityStatus != ''"> and activity_status = #{activityStatus} </if>
+		  		  <if test="bargainStatus != null and bargainStatus != ''"> and bargain_status = #{bargainStatus} </if>
+		  		  <if test="deliveryStatus != null and deliveryStatus != ''"> and delivery_status = #{deliveryStatus} </if>
+		  		  <if test="goodsCurrentPrice != null and goodsCurrentPrice != ''"> and goods_current_price = #{goodsCurrentPrice} </if>
+		  		  <if test="goodsVolume != null and goodsVolume != ''"> and goods_volume = #{goodsVolume} </if>
+		  		  <if test="emsTransFee != null and emsTransFee != ''"> and ems_trans_fee = #{emsTransFee} </if>
+		  		  <if test="expressTransFee != null and expressTransFee != ''"> and express_trans_fee = #{expressTransFee} </if>
+		  		  <if test="mailTransFee != null and mailTransFee != ''"> and mail_trans_fee = #{mailTransFee} </if>
+		  		  <if test="transportId != null and transportId != ''"> and transport_id = #{transportId} </if>
+		  		  <if test="combinStatus != null and combinStatus != ''"> and combin_status = #{combinStatus} </if>
+		  		  <if test="combinBeginTime != null and combinBeginTime != ''"> and combin_begin_time = #{combinBeginTime} </if>
+		  		  <if test="combinEndTime != null and combinEndTime != ''"> and combin_end_time = #{combinEndTime} </if>
+		  		  <if test="combinPrice != null and combinPrice != ''"> and combin_price = #{combinPrice} </if>
+		  		  <if test="descriptionEvaluate != null and descriptionEvaluate != ''"> and description_evaluate = #{descriptionEvaluate} </if>
+		  		  <if test="weixinShopHot != null and weixinShopHot != ''"> and weixin_shop_hot = #{weixinShopHot} </if>
+		  		  <if test="weixinShopHottime != null and weixinShopHottime != ''"> and weixin_shop_hotTime = #{weixinShopHottime} </if>
+		  		  <if test="weixinShopRecommend != null and weixinShopRecommend != ''"> and weixin_shop_recommend = #{weixinShopRecommend} </if>
+		  		  <if test="weixinShopRecommendtime != null and weixinShopRecommendtime != ''"> and weixin_shop_recommendTime = #{weixinShopRecommendtime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goods
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="goodsClick != null and goodsClick != ''"> and goods_click = #{goodsClick} </if>
+		  		  <if test="goodsDetails != null and goodsDetails != ''"> and goods_details = #{goodsDetails} </if>
+		  		  <if test="goodsFee != null and goodsFee != ''"> and goods_fee = #{goodsFee} </if>
+		  		  <if test="goodsInventory != null and goodsInventory != ''"> and goods_inventory = #{goodsInventory} </if>
+		  		  <if test="goodsInventoryDetail != null and goodsInventoryDetail != ''"> and goods_inventory_detail = #{goodsInventoryDetail} </if>
+		  		  <if test="goodsName != null and goodsName != ''"> and goods_name = #{goodsName} </if>
+		  		  <if test="goodsPrice != null and goodsPrice != ''"> and goods_price = #{goodsPrice} </if>
+		  		  <if test="goodsProperty != null and goodsProperty != ''"> and goods_property = #{goodsProperty} </if>
+		  		  <if test="goodsRecommend != null and goodsRecommend != ''"> and goods_recommend = #{goodsRecommend} </if>
+		  		  <if test="goodsSalenum != null and goodsSalenum != ''"> and goods_salenum = #{goodsSalenum} </if>
+		  		  <if test="goodsSellerTime != null and goodsSellerTime != ''"> and goods_seller_time = #{goodsSellerTime} </if>
+		  		  <if test="goodsSerial != null and goodsSerial != ''"> and goods_serial = #{goodsSerial} </if>
+		  		  <if test="goodsStatus != null and goodsStatus != ''"> and goods_status = #{goodsStatus} </if>
+		  		  <if test="goodsTransfee != null and goodsTransfee != ''"> and goods_transfee = #{goodsTransfee} </if>
+		  		  <if test="goodsWeight != null and goodsWeight != ''"> and goods_weight = #{goodsWeight} </if>
+		  		  <if test="inventoryType != null and inventoryType != ''"> and inventory_type = #{inventoryType} </if>
+		  		  <if test="seoDescription != null and seoDescription != ''"> and seo_description = #{seoDescription} </if>
+		  		  <if test="seoKeywords != null and seoKeywords != ''"> and seo_keywords = #{seoKeywords} </if>
+		  		  <if test="storePrice != null and storePrice != ''"> and store_price = #{storePrice} </if>
+		  		  <if test="storeRecommend != null and storeRecommend != ''"> and store_recommend = #{storeRecommend} </if>
+		  		  <if test="storeRecommendTime != null and storeRecommendTime != ''"> and store_recommend_time = #{storeRecommendTime} </if>
+		  		  <if test="ztcAdminContent != null and ztcAdminContent != ''"> and ztc_admin_content = #{ztcAdminContent} </if>
+		  		  <if test="ztcApplyTime != null and ztcApplyTime != ''"> and ztc_apply_time = #{ztcApplyTime} </if>
+		  		  <if test="ztcBeginTime != null and ztcBeginTime != ''"> and ztc_begin_time = #{ztcBeginTime} </if>
+		  		  <if test="ztcClickNum != null and ztcClickNum != ''"> and ztc_click_num = #{ztcClickNum} </if>
+		  		  <if test="ztcDredgePrice != null and ztcDredgePrice != ''"> and ztc_dredge_price = #{ztcDredgePrice} </if>
+		  		  <if test="ztcGold != null and ztcGold != ''"> and ztc_gold = #{ztcGold} </if>
+		  		  <if test="ztcPayStatus != null and ztcPayStatus != ''"> and ztc_pay_status = #{ztcPayStatus} </if>
+		  		  <if test="ztcPrice != null and ztcPrice != ''"> and ztc_price = #{ztcPrice} </if>
+		  		  <if test="ztcStatus != null and ztcStatus != ''"> and ztc_status = #{ztcStatus} </if>
+		  		  <if test="gcId != null and gcId != ''"> and gc_id = #{gcId} </if>
+		  		  <if test="goodsBrandId != null and goodsBrandId != ''"> and goods_brand_id = #{goodsBrandId} </if>
+		  		  <if test="goodsMainPhotoId != null and goodsMainPhotoId != ''"> and goods_main_photo_id = #{goodsMainPhotoId} </if>
+		  		  <if test="goodsStoreId != null and goodsStoreId != ''"> and goods_store_id = #{goodsStoreId} </if>
+		  		  <if test="ztcAdminId != null and ztcAdminId != ''"> and ztc_admin_id = #{ztcAdminId} </if>
+		  		  <if test="goodsCollect != null and goodsCollect != ''"> and goods_collect = #{goodsCollect} </if>
+		  		  <if test="groupBuy != null and groupBuy != ''"> and group_buy = #{groupBuy} </if>
+		  		  <if test="goodsChoiceType != null and goodsChoiceType != ''"> and goods_choice_type = #{goodsChoiceType} </if>
+		  		  <if test="groupId != null and groupId != ''"> and group_id = #{groupId} </if>
+		  		  <if test="activityStatus != null and activityStatus != ''"> and activity_status = #{activityStatus} </if>
+		  		  <if test="bargainStatus != null and bargainStatus != ''"> and bargain_status = #{bargainStatus} </if>
+		  		  <if test="deliveryStatus != null and deliveryStatus != ''"> and delivery_status = #{deliveryStatus} </if>
+		  		  <if test="goodsCurrentPrice != null and goodsCurrentPrice != ''"> and goods_current_price = #{goodsCurrentPrice} </if>
+		  		  <if test="goodsVolume != null and goodsVolume != ''"> and goods_volume = #{goodsVolume} </if>
+		  		  <if test="emsTransFee != null and emsTransFee != ''"> and ems_trans_fee = #{emsTransFee} </if>
+		  		  <if test="expressTransFee != null and expressTransFee != ''"> and express_trans_fee = #{expressTransFee} </if>
+		  		  <if test="mailTransFee != null and mailTransFee != ''"> and mail_trans_fee = #{mailTransFee} </if>
+		  		  <if test="transportId != null and transportId != ''"> and transport_id = #{transportId} </if>
+		  		  <if test="combinStatus != null and combinStatus != ''"> and combin_status = #{combinStatus} </if>
+		  		  <if test="combinBeginTime != null and combinBeginTime != ''"> and combin_begin_time = #{combinBeginTime} </if>
+		  		  <if test="combinEndTime != null and combinEndTime != ''"> and combin_end_time = #{combinEndTime} </if>
+		  		  <if test="combinPrice != null and combinPrice != ''"> and combin_price = #{combinPrice} </if>
+		  		  <if test="descriptionEvaluate != null and descriptionEvaluate != ''"> and description_evaluate = #{descriptionEvaluate} </if>
+		  		  <if test="weixinShopHot != null and weixinShopHot != ''"> and weixin_shop_hot = #{weixinShopHot} </if>
+		  		  <if test="weixinShopHottime != null and weixinShopHottime != ''"> and weixin_shop_hotTime = #{weixinShopHottime} </if>
+		  		  <if test="weixinShopRecommend != null and weixinShopRecommend != ''"> and weixin_shop_recommend = #{weixinShopRecommend} </if>
+		  		  <if test="weixinShopRecommendtime != null and weixinShopRecommendtime != ''"> and weixin_shop_recommendTime = #{weixinShopRecommendtime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodsDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_goods
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`goods_click`, 
+			`goods_details`, 
+			`goods_fee`, 
+			`goods_inventory`, 
+			`goods_inventory_detail`, 
+			`goods_name`, 
+			`goods_price`, 
+			`goods_property`, 
+			`goods_recommend`, 
+			`goods_salenum`, 
+			`goods_seller_time`, 
+			`goods_serial`, 
+			`goods_status`, 
+			`goods_transfee`, 
+			`goods_weight`, 
+			`inventory_type`, 
+			`seo_description`, 
+			`seo_keywords`, 
+			`store_price`, 
+			`store_recommend`, 
+			`store_recommend_time`, 
+			`ztc_admin_content`, 
+			`ztc_apply_time`, 
+			`ztc_begin_time`, 
+			`ztc_click_num`, 
+			`ztc_dredge_price`, 
+			`ztc_gold`, 
+			`ztc_pay_status`, 
+			`ztc_price`, 
+			`ztc_status`, 
+			`gc_id`, 
+			`goods_brand_id`, 
+			`goods_main_photo_id`, 
+			`goods_store_id`, 
+			`ztc_admin_id`, 
+			`goods_collect`, 
+			`group_buy`, 
+			`goods_choice_type`, 
+			`group_id`, 
+			`activity_status`, 
+			`bargain_status`, 
+			`delivery_status`, 
+			`goods_current_price`, 
+			`goods_volume`, 
+			`ems_trans_fee`, 
+			`express_trans_fee`, 
+			`mail_trans_fee`, 
+			`transport_id`, 
+			`combin_status`, 
+			`combin_begin_time`, 
+			`combin_end_time`, 
+			`combin_price`, 
+			`description_evaluate`, 
+			`weixin_shop_hot`, 
+			`weixin_shop_hotTime`, 
+			`weixin_shop_recommend`, 
+			`weixin_shop_recommendTime`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{goodsClick}, 
+			#{goodsDetails}, 
+			#{goodsFee}, 
+			#{goodsInventory}, 
+			#{goodsInventoryDetail}, 
+			#{goodsName}, 
+			#{goodsPrice}, 
+			#{goodsProperty}, 
+			#{goodsRecommend}, 
+			#{goodsSalenum}, 
+			#{goodsSellerTime}, 
+			#{goodsSerial}, 
+			#{goodsStatus}, 
+			#{goodsTransfee}, 
+			#{goodsWeight}, 
+			#{inventoryType}, 
+			#{seoDescription}, 
+			#{seoKeywords}, 
+			#{storePrice}, 
+			#{storeRecommend}, 
+			#{storeRecommendTime}, 
+			#{ztcAdminContent}, 
+			#{ztcApplyTime}, 
+			#{ztcBeginTime}, 
+			#{ztcClickNum}, 
+			#{ztcDredgePrice}, 
+			#{ztcGold}, 
+			#{ztcPayStatus}, 
+			#{ztcPrice}, 
+			#{ztcStatus}, 
+			#{gcId}, 
+			#{goodsBrandId}, 
+			#{goodsMainPhotoId}, 
+			#{goodsStoreId}, 
+			#{ztcAdminId}, 
+			#{goodsCollect}, 
+			#{groupBuy}, 
+			#{goodsChoiceType}, 
+			#{groupId}, 
+			#{activityStatus}, 
+			#{bargainStatus}, 
+			#{deliveryStatus}, 
+			#{goodsCurrentPrice}, 
+			#{goodsVolume}, 
+			#{emsTransFee}, 
+			#{expressTransFee}, 
+			#{mailTransFee}, 
+			#{transportId}, 
+			#{combinStatus}, 
+			#{combinBeginTime}, 
+			#{combinEndTime}, 
+			#{combinPrice}, 
+			#{descriptionEvaluate}, 
+			#{weixinShopHot}, 
+			#{weixinShopHottime}, 
+			#{weixinShopRecommend}, 
+			#{weixinShopRecommendtime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodsDO">
+		update wemall_goods 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="goodsClick != null">`goods_click` = #{goodsClick}, </if>
+			<if test="goodsDetails != null">`goods_details` = #{goodsDetails}, </if>
+			<if test="goodsFee != null">`goods_fee` = #{goodsFee}, </if>
+			<if test="goodsInventory != null">`goods_inventory` = #{goodsInventory}, </if>
+			<if test="goodsInventoryDetail != null">`goods_inventory_detail` = #{goodsInventoryDetail}, </if>
+			<if test="goodsName != null">`goods_name` = #{goodsName}, </if>
+			<if test="goodsPrice != null">`goods_price` = #{goodsPrice}, </if>
+			<if test="goodsProperty != null">`goods_property` = #{goodsProperty}, </if>
+			<if test="goodsRecommend != null">`goods_recommend` = #{goodsRecommend}, </if>
+			<if test="goodsSalenum != null">`goods_salenum` = #{goodsSalenum}, </if>
+			<if test="goodsSellerTime != null">`goods_seller_time` = #{goodsSellerTime}, </if>
+			<if test="goodsSerial != null">`goods_serial` = #{goodsSerial}, </if>
+			<if test="goodsStatus != null">`goods_status` = #{goodsStatus}, </if>
+			<if test="goodsTransfee != null">`goods_transfee` = #{goodsTransfee}, </if>
+			<if test="goodsWeight != null">`goods_weight` = #{goodsWeight}, </if>
+			<if test="inventoryType != null">`inventory_type` = #{inventoryType}, </if>
+			<if test="seoDescription != null">`seo_description` = #{seoDescription}, </if>
+			<if test="seoKeywords != null">`seo_keywords` = #{seoKeywords}, </if>
+			<if test="storePrice != null">`store_price` = #{storePrice}, </if>
+			<if test="storeRecommend != null">`store_recommend` = #{storeRecommend}, </if>
+			<if test="storeRecommendTime != null">`store_recommend_time` = #{storeRecommendTime}, </if>
+			<if test="ztcAdminContent != null">`ztc_admin_content` = #{ztcAdminContent}, </if>
+			<if test="ztcApplyTime != null">`ztc_apply_time` = #{ztcApplyTime}, </if>
+			<if test="ztcBeginTime != null">`ztc_begin_time` = #{ztcBeginTime}, </if>
+			<if test="ztcClickNum != null">`ztc_click_num` = #{ztcClickNum}, </if>
+			<if test="ztcDredgePrice != null">`ztc_dredge_price` = #{ztcDredgePrice}, </if>
+			<if test="ztcGold != null">`ztc_gold` = #{ztcGold}, </if>
+			<if test="ztcPayStatus != null">`ztc_pay_status` = #{ztcPayStatus}, </if>
+			<if test="ztcPrice != null">`ztc_price` = #{ztcPrice}, </if>
+			<if test="ztcStatus != null">`ztc_status` = #{ztcStatus}, </if>
+			<if test="gcId != null">`gc_id` = #{gcId}, </if>
+			<if test="goodsBrandId != null">`goods_brand_id` = #{goodsBrandId}, </if>
+			<if test="goodsMainPhotoId != null">`goods_main_photo_id` = #{goodsMainPhotoId}, </if>
+			<if test="goodsStoreId != null">`goods_store_id` = #{goodsStoreId}, </if>
+			<if test="ztcAdminId != null">`ztc_admin_id` = #{ztcAdminId}, </if>
+			<if test="goodsCollect != null">`goods_collect` = #{goodsCollect}, </if>
+			<if test="groupBuy != null">`group_buy` = #{groupBuy}, </if>
+			<if test="goodsChoiceType != null">`goods_choice_type` = #{goodsChoiceType}, </if>
+			<if test="groupId != null">`group_id` = #{groupId}, </if>
+			<if test="activityStatus != null">`activity_status` = #{activityStatus}, </if>
+			<if test="bargainStatus != null">`bargain_status` = #{bargainStatus}, </if>
+			<if test="deliveryStatus != null">`delivery_status` = #{deliveryStatus}, </if>
+			<if test="goodsCurrentPrice != null">`goods_current_price` = #{goodsCurrentPrice}, </if>
+			<if test="goodsVolume != null">`goods_volume` = #{goodsVolume}, </if>
+			<if test="emsTransFee != null">`ems_trans_fee` = #{emsTransFee}, </if>
+			<if test="expressTransFee != null">`express_trans_fee` = #{expressTransFee}, </if>
+			<if test="mailTransFee != null">`mail_trans_fee` = #{mailTransFee}, </if>
+			<if test="transportId != null">`transport_id` = #{transportId}, </if>
+			<if test="combinStatus != null">`combin_status` = #{combinStatus}, </if>
+			<if test="combinBeginTime != null">`combin_begin_time` = #{combinBeginTime}, </if>
+			<if test="combinEndTime != null">`combin_end_time` = #{combinEndTime}, </if>
+			<if test="combinPrice != null">`combin_price` = #{combinPrice}, </if>
+			<if test="descriptionEvaluate != null">`description_evaluate` = #{descriptionEvaluate}, </if>
+			<if test="weixinShopHot != null">`weixin_shop_hot` = #{weixinShopHot}, </if>
+			<if test="weixinShopHottime != null">`weixin_shop_hotTime` = #{weixinShopHottime}, </if>
+			<if test="weixinShopRecommend != null">`weixin_shop_recommend` = #{weixinShopRecommend}, </if>
+			<if test="weixinShopRecommendtime != null">`weixin_shop_recommendTime` = #{weixinShopRecommendtime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goods where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goods where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

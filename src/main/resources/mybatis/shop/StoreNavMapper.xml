@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.StoreNavDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.StoreNavDO">
+		select `id`,`addTime`,`deleteStatus`,`content`,`display`,`sequence`,`title`,`url`,`win_type`,`store_id` from wemall_store_nav where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.StoreNavDO">
+		select `id`,`addTime`,`deleteStatus`,`content`,`display`,`sequence`,`title`,`url`,`win_type`,`store_id` from wemall_store_nav
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="display != null and display != ''"> and display = #{display} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="url != null and url != ''"> and url = #{url} </if>
+		  		  <if test="winType != null and winType != ''"> and win_type = #{winType} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_store_nav
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="display != null and display != ''"> and display = #{display} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="url != null and url != ''"> and url = #{url} </if>
+		  		  <if test="winType != null and winType != ''"> and win_type = #{winType} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.StoreNavDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_store_nav
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`content`, 
+			`display`, 
+			`sequence`, 
+			`title`, 
+			`url`, 
+			`win_type`, 
+			`store_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{content}, 
+			#{display}, 
+			#{sequence}, 
+			#{title}, 
+			#{url}, 
+			#{winType}, 
+			#{storeId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.StoreNavDO">
+		update wemall_store_nav 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="display != null">`display` = #{display}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}, </if>
+			<if test="title != null">`title` = #{title}, </if>
+			<if test="url != null">`url` = #{url}, </if>
+			<if test="winType != null">`win_type` = #{winType}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_store_nav where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_store_nav where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

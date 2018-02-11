@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.DynamicDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.DynamicDO">
+		select `id`,`addTime`,`deleteStatus`,`content`,`discussNum`,`praiseNum`,`turnNum`,`dissParent_id`,`goods_id`,`turnParent_id`,`user_id`,`locked`,`img_id`,`store_id`,`display` from wemall_dynamic where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.DynamicDO">
+		select `id`,`addTime`,`deleteStatus`,`content`,`discussNum`,`praiseNum`,`turnNum`,`dissParent_id`,`goods_id`,`turnParent_id`,`user_id`,`locked`,`img_id`,`store_id`,`display` from wemall_dynamic
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="discussnum != null and discussnum != ''"> and discussNum = #{discussnum} </if>
+		  		  <if test="praisenum != null and praisenum != ''"> and praiseNum = #{praisenum} </if>
+		  		  <if test="turnnum != null and turnnum != ''"> and turnNum = #{turnnum} </if>
+		  		  <if test="dissparentId != null and dissparentId != ''"> and dissParent_id = #{dissparentId} </if>
+		  		  <if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="turnparentId != null and turnparentId != ''"> and turnParent_id = #{turnparentId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="locked != null and locked != ''"> and locked = #{locked} </if>
+		  		  <if test="imgId != null and imgId != ''"> and img_id = #{imgId} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="display != null and display != ''"> and display = #{display} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_dynamic
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="discussnum != null and discussnum != ''"> and discussNum = #{discussnum} </if>
+		  		  <if test="praisenum != null and praisenum != ''"> and praiseNum = #{praisenum} </if>
+		  		  <if test="turnnum != null and turnnum != ''"> and turnNum = #{turnnum} </if>
+		  		  <if test="dissparentId != null and dissparentId != ''"> and dissParent_id = #{dissparentId} </if>
+		  		  <if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="turnparentId != null and turnparentId != ''"> and turnParent_id = #{turnparentId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="locked != null and locked != ''"> and locked = #{locked} </if>
+		  		  <if test="imgId != null and imgId != ''"> and img_id = #{imgId} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="display != null and display != ''"> and display = #{display} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.DynamicDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_dynamic
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`content`, 
+			`discussNum`, 
+			`praiseNum`, 
+			`turnNum`, 
+			`dissParent_id`, 
+			`goods_id`, 
+			`turnParent_id`, 
+			`user_id`, 
+			`locked`, 
+			`img_id`, 
+			`store_id`, 
+			`display`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{content}, 
+			#{discussnum}, 
+			#{praisenum}, 
+			#{turnnum}, 
+			#{dissparentId}, 
+			#{goodsId}, 
+			#{turnparentId}, 
+			#{userId}, 
+			#{locked}, 
+			#{imgId}, 
+			#{storeId}, 
+			#{display}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.DynamicDO">
+		update wemall_dynamic 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="discussnum != null">`discussNum` = #{discussnum}, </if>
+			<if test="praisenum != null">`praiseNum` = #{praisenum}, </if>
+			<if test="turnnum != null">`turnNum` = #{turnnum}, </if>
+			<if test="dissparentId != null">`dissParent_id` = #{dissparentId}, </if>
+			<if test="goodsId != null">`goods_id` = #{goodsId}, </if>
+			<if test="turnparentId != null">`turnParent_id` = #{turnparentId}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="locked != null">`locked` = #{locked}, </if>
+			<if test="imgId != null">`img_id` = #{imgId}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}, </if>
+			<if test="display != null">`display` = #{display}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_dynamic where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_dynamic where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

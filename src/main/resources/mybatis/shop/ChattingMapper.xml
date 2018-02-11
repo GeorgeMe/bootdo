@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.ChattingDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.ChattingDO">
+		select `id`,`addTime`,`deleteStatus`,`type`,`user1_id`,`user2_id` from wemall_chatting where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.ChattingDO">
+		select `id`,`addTime`,`deleteStatus`,`type`,`user1_id`,`user2_id` from wemall_chatting
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="user1Id != null and user1Id != ''"> and user1_id = #{user1Id} </if>
+		  		  <if test="user2Id != null and user2Id != ''"> and user2_id = #{user2Id} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_chatting
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="user1Id != null and user1Id != ''"> and user1_id = #{user1Id} </if>
+		  		  <if test="user2Id != null and user2Id != ''"> and user2_id = #{user2Id} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.ChattingDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_chatting
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`type`, 
+			`user1_id`, 
+			`user2_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{type}, 
+			#{user1Id}, 
+			#{user2Id}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.ChattingDO">
+		update wemall_chatting 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="user1Id != null">`user1_id` = #{user1Id}, </if>
+			<if test="user2Id != null">`user2_id` = #{user2Id}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_chatting where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_chatting where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">card_approve：</label>
+								<div class="col-sm-8">
+									<input id="cardApprove" name="cardApprove" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">realstore_approve：</label>
+								<div class="col-sm-8">
+									<input id="realstoreApprove" name="realstoreApprove" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_address：</label>
+								<div class="col-sm-8">
+									<input id="storeAddress" name="storeAddress" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_credit：</label>
+								<div class="col-sm-8">
+									<input id="storeCredit" name="storeCredit" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_info：</label>
+								<div class="col-sm-8">
+									<input id="storeInfo" name="storeInfo" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_msn：</label>
+								<div class="col-sm-8">
+									<input id="storeMsn" name="storeMsn" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_name：</label>
+								<div class="col-sm-8">
+									<input id="storeName" name="storeName" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_ower：</label>
+								<div class="col-sm-8">
+									<input id="storeOwer" name="storeOwer" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_ower_card：</label>
+								<div class="col-sm-8">
+									<input id="storeOwerCard" name="storeOwerCard" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_qq：</label>
+								<div class="col-sm-8">
+									<input id="storeQq" name="storeQq" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_recommend：</label>
+								<div class="col-sm-8">
+									<input id="storeRecommend" name="storeRecommend" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_recommend_time：</label>
+								<div class="col-sm-8">
+									<input id="storeRecommendTime" name="storeRecommendTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_seo_description：</label>
+								<div class="col-sm-8">
+									<input id="storeSeoDescription" name="storeSeoDescription" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_seo_keywords：</label>
+								<div class="col-sm-8">
+									<input id="storeSeoKeywords" name="storeSeoKeywords" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_status：</label>
+								<div class="col-sm-8">
+									<input id="storeStatus" name="storeStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_telephone：</label>
+								<div class="col-sm-8">
+									<input id="storeTelephone" name="storeTelephone" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_zip：</label>
+								<div class="col-sm-8">
+									<input id="storeZip" name="storeZip" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">template：</label>
+								<div class="col-sm-8">
+									<input id="template" name="template" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">validity：</label>
+								<div class="col-sm-8">
+									<input id="validity" name="validity" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">violation_reseaon：</label>
+								<div class="col-sm-8">
+									<input id="violationReseaon" name="violationReseaon" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">area_id：</label>
+								<div class="col-sm-8">
+									<input id="areaId" name="areaId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">card_id：</label>
+								<div class="col-sm-8">
+									<input id="cardId" name="cardId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">grade_id：</label>
+								<div class="col-sm-8">
+									<input id="gradeId" name="gradeId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sc_id：</label>
+								<div class="col-sm-8">
+									<input id="scId" name="scId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_banner_id：</label>
+								<div class="col-sm-8">
+									<input id="storeBannerId" name="storeBannerId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_license_id：</label>
+								<div class="col-sm-8">
+									<input id="storeLicenseId" name="storeLicenseId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_logo_id：</label>
+								<div class="col-sm-8">
+									<input id="storeLogoId" name="storeLogoId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">update_grade_id：</label>
+								<div class="col-sm-8">
+									<input id="updateGradeId" name="updateGradeId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">domain_modify_count：</label>
+								<div class="col-sm-8">
+									<input id="domainModifyCount" name="domainModifyCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_second_domain：</label>
+								<div class="col-sm-8">
+									<input id="storeSecondDomain" name="storeSecondDomain" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">favorite_count：</label>
+								<div class="col-sm-8">
+									<input id="favoriteCount" name="favoriteCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_lat：</label>
+								<div class="col-sm-8">
+									<input id="storeLat" name="storeLat" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_lng：</label>
+								<div class="col-sm-8">
+									<input id="storeLng" name="storeLng" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_ww：</label>
+								<div class="col-sm-8">
+									<input id="storeWw" name="storeWw" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">map_type：</label>
+								<div class="col-sm-8">
+									<input id="mapType" name="mapType" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_begin_time：</label>
+								<div class="col-sm-8">
+									<input id="deliveryBeginTime" name="deliveryBeginTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_end_time：</label>
+								<div class="col-sm-8">
+									<input id="deliveryEndTime" name="deliveryEndTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_begin_time：</label>
+								<div class="col-sm-8">
+									<input id="combinBeginTime" name="combinBeginTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_end_time：</label>
+								<div class="col-sm-8">
+									<input id="combinEndTime" name="combinEndTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_begin_time：</label>
+								<div class="col-sm-8">
+									<input id="weixinBeginTime" name="weixinBeginTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_end_time：</label>
+								<div class="col-sm-8">
+									<input id="weixinEndTime" name="weixinEndTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_status：</label>
+								<div class="col-sm-8">
+									<input id="weixinStatus" name="weixinStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appId：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppid" name="weixinAppid" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appSecret：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppsecret" name="weixinAppsecret" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_token：</label>
+								<div class="col-sm-8">
+									<input id="weixinToken" name="weixinToken" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_welecome_content：</label>
+								<div class="col-sm-8">
+									<input id="weixinWelecomeContent" name="weixinWelecomeContent" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_qr_img_id：</label>
+								<div class="col-sm-8">
+									<input id="weixinQrImgId" name="weixinQrImgId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_account：</label>
+								<div class="col-sm-8">
+									<input id="weixinAccount" name="weixinAccount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_weixin_logo_id：</label>
+								<div class="col-sm-8">
+									<input id="storeWeixinLogoId" name="storeWeixinLogoId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_store_name：</label>
+								<div class="col-sm-8">
+									<input id="weixinStoreName" name="weixinStoreName" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/store/add.js">
+	</script>
+</body>
+</html>

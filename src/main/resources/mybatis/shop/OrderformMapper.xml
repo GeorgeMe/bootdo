@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.OrderformDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.OrderformDO">
+		select `id`,`addTime`,`deleteStatus`,`finishTime`,`goods_amount`,`invoice`,`invoiceType`,`msg`,`order_id`,`order_status`,`payTime`,`pay_msg`,`refund`,`refund_type`,`shipCode`,`shipTime`,`ship_price`,`totalPrice`,`addr_id`,`payment_id`,`store_id`,`user_id`,`auto_confirm_email`,`auto_confirm_sms`,`transport`,`out_order_id`,`ec_id`,`ci_id`,`order_seller_intro`,`return_shipCode`,`return_ec_id`,`return_content`,`return_shipTime`,`order_type` from wemall_orderform where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.OrderformDO">
+		select `id`,`addTime`,`deleteStatus`,`finishTime`,`goods_amount`,`invoice`,`invoiceType`,`msg`,`order_id`,`order_status`,`payTime`,`pay_msg`,`refund`,`refund_type`,`shipCode`,`shipTime`,`ship_price`,`totalPrice`,`addr_id`,`payment_id`,`store_id`,`user_id`,`auto_confirm_email`,`auto_confirm_sms`,`transport`,`out_order_id`,`ec_id`,`ci_id`,`order_seller_intro`,`return_shipCode`,`return_ec_id`,`return_content`,`return_shipTime`,`order_type` from wemall_orderform
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="finishtime != null and finishtime != ''"> and finishTime = #{finishtime} </if>
+		  		  <if test="goodsAmount != null and goodsAmount != ''"> and goods_amount = #{goodsAmount} </if>
+		  		  <if test="invoice != null and invoice != ''"> and invoice = #{invoice} </if>
+		  		  <if test="invoicetype != null and invoicetype != ''"> and invoiceType = #{invoicetype} </if>
+		  		  <if test="msg != null and msg != ''"> and msg = #{msg} </if>
+		  		  <if test="orderId != null and orderId != ''"> and order_id = #{orderId} </if>
+		  		  <if test="orderStatus != null and orderStatus != ''"> and order_status = #{orderStatus} </if>
+		  		  <if test="paytime != null and paytime != ''"> and payTime = #{paytime} </if>
+		  		  <if test="payMsg != null and payMsg != ''"> and pay_msg = #{payMsg} </if>
+		  		  <if test="refund != null and refund != ''"> and refund = #{refund} </if>
+		  		  <if test="refundType != null and refundType != ''"> and refund_type = #{refundType} </if>
+		  		  <if test="shipcode != null and shipcode != ''"> and shipCode = #{shipcode} </if>
+		  		  <if test="shiptime != null and shiptime != ''"> and shipTime = #{shiptime} </if>
+		  		  <if test="shipPrice != null and shipPrice != ''"> and ship_price = #{shipPrice} </if>
+		  		  <if test="totalprice != null and totalprice != ''"> and totalPrice = #{totalprice} </if>
+		  		  <if test="addrId != null and addrId != ''"> and addr_id = #{addrId} </if>
+		  		  <if test="paymentId != null and paymentId != ''"> and payment_id = #{paymentId} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="autoConfirmEmail != null and autoConfirmEmail != ''"> and auto_confirm_email = #{autoConfirmEmail} </if>
+		  		  <if test="autoConfirmSms != null and autoConfirmSms != ''"> and auto_confirm_sms = #{autoConfirmSms} </if>
+		  		  <if test="transport != null and transport != ''"> and transport = #{transport} </if>
+		  		  <if test="outOrderId != null and outOrderId != ''"> and out_order_id = #{outOrderId} </if>
+		  		  <if test="ecId != null and ecId != ''"> and ec_id = #{ecId} </if>
+		  		  <if test="ciId != null and ciId != ''"> and ci_id = #{ciId} </if>
+		  		  <if test="orderSellerIntro != null and orderSellerIntro != ''"> and order_seller_intro = #{orderSellerIntro} </if>
+		  		  <if test="returnShipcode != null and returnShipcode != ''"> and return_shipCode = #{returnShipcode} </if>
+		  		  <if test="returnEcId != null and returnEcId != ''"> and return_ec_id = #{returnEcId} </if>
+		  		  <if test="returnContent != null and returnContent != ''"> and return_content = #{returnContent} </if>
+		  		  <if test="returnShiptime != null and returnShiptime != ''"> and return_shipTime = #{returnShiptime} </if>
+		  		  <if test="orderType != null and orderType != ''"> and order_type = #{orderType} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_orderform
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="finishtime != null and finishtime != ''"> and finishTime = #{finishtime} </if>
+		  		  <if test="goodsAmount != null and goodsAmount != ''"> and goods_amount = #{goodsAmount} </if>
+		  		  <if test="invoice != null and invoice != ''"> and invoice = #{invoice} </if>
+		  		  <if test="invoicetype != null and invoicetype != ''"> and invoiceType = #{invoicetype} </if>
+		  		  <if test="msg != null and msg != ''"> and msg = #{msg} </if>
+		  		  <if test="orderId != null and orderId != ''"> and order_id = #{orderId} </if>
+		  		  <if test="orderStatus != null and orderStatus != ''"> and order_status = #{orderStatus} </if>
+		  		  <if test="paytime != null and paytime != ''"> and payTime = #{paytime} </if>
+		  		  <if test="payMsg != null and payMsg != ''"> and pay_msg = #{payMsg} </if>
+		  		  <if test="refund != null and refund != ''"> and refund = #{refund} </if>
+		  		  <if test="refundType != null and refundType != ''"> and refund_type = #{refundType} </if>
+		  		  <if test="shipcode != null and shipcode != ''"> and shipCode = #{shipcode} </if>
+		  		  <if test="shiptime != null and shiptime != ''"> and shipTime = #{shiptime} </if>
+		  		  <if test="shipPrice != null and shipPrice != ''"> and ship_price = #{shipPrice} </if>
+		  		  <if test="totalprice != null and totalprice != ''"> and totalPrice = #{totalprice} </if>
+		  		  <if test="addrId != null and addrId != ''"> and addr_id = #{addrId} </if>
+		  		  <if test="paymentId != null and paymentId != ''"> and payment_id = #{paymentId} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="autoConfirmEmail != null and autoConfirmEmail != ''"> and auto_confirm_email = #{autoConfirmEmail} </if>
+		  		  <if test="autoConfirmSms != null and autoConfirmSms != ''"> and auto_confirm_sms = #{autoConfirmSms} </if>
+		  		  <if test="transport != null and transport != ''"> and transport = #{transport} </if>
+		  		  <if test="outOrderId != null and outOrderId != ''"> and out_order_id = #{outOrderId} </if>
+		  		  <if test="ecId != null and ecId != ''"> and ec_id = #{ecId} </if>
+		  		  <if test="ciId != null and ciId != ''"> and ci_id = #{ciId} </if>
+		  		  <if test="orderSellerIntro != null and orderSellerIntro != ''"> and order_seller_intro = #{orderSellerIntro} </if>
+		  		  <if test="returnShipcode != null and returnShipcode != ''"> and return_shipCode = #{returnShipcode} </if>
+		  		  <if test="returnEcId != null and returnEcId != ''"> and return_ec_id = #{returnEcId} </if>
+		  		  <if test="returnContent != null and returnContent != ''"> and return_content = #{returnContent} </if>
+		  		  <if test="returnShiptime != null and returnShiptime != ''"> and return_shipTime = #{returnShiptime} </if>
+		  		  <if test="orderType != null and orderType != ''"> and order_type = #{orderType} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.OrderformDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_orderform
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`finishTime`, 
+			`goods_amount`, 
+			`invoice`, 
+			`invoiceType`, 
+			`msg`, 
+			`order_id`, 
+			`order_status`, 
+			`payTime`, 
+			`pay_msg`, 
+			`refund`, 
+			`refund_type`, 
+			`shipCode`, 
+			`shipTime`, 
+			`ship_price`, 
+			`totalPrice`, 
+			`addr_id`, 
+			`payment_id`, 
+			`store_id`, 
+			`user_id`, 
+			`auto_confirm_email`, 
+			`auto_confirm_sms`, 
+			`transport`, 
+			`out_order_id`, 
+			`ec_id`, 
+			`ci_id`, 
+			`order_seller_intro`, 
+			`return_shipCode`, 
+			`return_ec_id`, 
+			`return_content`, 
+			`return_shipTime`, 
+			`order_type`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{finishtime}, 
+			#{goodsAmount}, 
+			#{invoice}, 
+			#{invoicetype}, 
+			#{msg}, 
+			#{orderId}, 
+			#{orderStatus}, 
+			#{paytime}, 
+			#{payMsg}, 
+			#{refund}, 
+			#{refundType}, 
+			#{shipcode}, 
+			#{shiptime}, 
+			#{shipPrice}, 
+			#{totalprice}, 
+			#{addrId}, 
+			#{paymentId}, 
+			#{storeId}, 
+			#{userId}, 
+			#{autoConfirmEmail}, 
+			#{autoConfirmSms}, 
+			#{transport}, 
+			#{outOrderId}, 
+			#{ecId}, 
+			#{ciId}, 
+			#{orderSellerIntro}, 
+			#{returnShipcode}, 
+			#{returnEcId}, 
+			#{returnContent}, 
+			#{returnShiptime}, 
+			#{orderType}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.OrderformDO">
+		update wemall_orderform 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="finishtime != null">`finishTime` = #{finishtime}, </if>
+			<if test="goodsAmount != null">`goods_amount` = #{goodsAmount}, </if>
+			<if test="invoice != null">`invoice` = #{invoice}, </if>
+			<if test="invoicetype != null">`invoiceType` = #{invoicetype}, </if>
+			<if test="msg != null">`msg` = #{msg}, </if>
+			<if test="orderId != null">`order_id` = #{orderId}, </if>
+			<if test="orderStatus != null">`order_status` = #{orderStatus}, </if>
+			<if test="paytime != null">`payTime` = #{paytime}, </if>
+			<if test="payMsg != null">`pay_msg` = #{payMsg}, </if>
+			<if test="refund != null">`refund` = #{refund}, </if>
+			<if test="refundType != null">`refund_type` = #{refundType}, </if>
+			<if test="shipcode != null">`shipCode` = #{shipcode}, </if>
+			<if test="shiptime != null">`shipTime` = #{shiptime}, </if>
+			<if test="shipPrice != null">`ship_price` = #{shipPrice}, </if>
+			<if test="totalprice != null">`totalPrice` = #{totalprice}, </if>
+			<if test="addrId != null">`addr_id` = #{addrId}, </if>
+			<if test="paymentId != null">`payment_id` = #{paymentId}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="autoConfirmEmail != null">`auto_confirm_email` = #{autoConfirmEmail}, </if>
+			<if test="autoConfirmSms != null">`auto_confirm_sms` = #{autoConfirmSms}, </if>
+			<if test="transport != null">`transport` = #{transport}, </if>
+			<if test="outOrderId != null">`out_order_id` = #{outOrderId}, </if>
+			<if test="ecId != null">`ec_id` = #{ecId}, </if>
+			<if test="ciId != null">`ci_id` = #{ciId}, </if>
+			<if test="orderSellerIntro != null">`order_seller_intro` = #{orderSellerIntro}, </if>
+			<if test="returnShipcode != null">`return_shipCode` = #{returnShipcode}, </if>
+			<if test="returnEcId != null">`return_ec_id` = #{returnEcId}, </if>
+			<if test="returnContent != null">`return_content` = #{returnContent}, </if>
+			<if test="returnShiptime != null">`return_shipTime` = #{returnShiptime}, </if>
+			<if test="orderType != null">`order_type` = #{orderType}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_orderform where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_orderform where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

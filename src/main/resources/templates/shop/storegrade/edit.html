@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${storegrade.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${storegrade.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${storegrade.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">add_funciton：</label>
+								<div class="col-sm-8">
+									<input id="addFunciton" name="addFunciton" th:value="${storegrade.addFunciton}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">audit：</label>
+								<div class="col-sm-8">
+									<input id="audit" name="audit" th:value="${storegrade.audit}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">content：</label>
+								<div class="col-sm-8">
+									<input id="content" name="content" th:value="${storegrade.content}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goodsCount：</label>
+								<div class="col-sm-8">
+									<input id="goodscount" name="goodscount" th:value="${storegrade.goodscount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gradeLevel：</label>
+								<div class="col-sm-8">
+									<input id="gradelevel" name="gradelevel" th:value="${storegrade.gradelevel}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gradeName：</label>
+								<div class="col-sm-8">
+									<input id="gradename" name="gradename" th:value="${storegrade.gradename}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">price：</label>
+								<div class="col-sm-8">
+									<input id="price" name="price" th:value="${storegrade.price}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sequence：</label>
+								<div class="col-sm-8">
+									<input id="sequence" name="sequence" th:value="${storegrade.sequence}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">spaceSize：</label>
+								<div class="col-sm-8">
+									<input id="spacesize" name="spacesize" th:value="${storegrade.spacesize}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sysGrade：</label>
+								<div class="col-sm-8">
+									<input id="sysgrade" name="sysgrade" th:value="${storegrade.sysgrade}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">templates：</label>
+								<div class="col-sm-8">
+									<input id="templates" name="templates" th:value="${storegrade.templates}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">acount_num：</label>
+								<div class="col-sm-8">
+									<input id="acountNum" name="acountNum" th:value="${storegrade.acountNum}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/storegrade/edit.js">
+	</script>
+</body>
+</html>

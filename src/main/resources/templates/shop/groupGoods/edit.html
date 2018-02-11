@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${groupGoods.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${groupGoods.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${groupGoods.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_audit_time：</label>
+								<div class="col-sm-8">
+									<input id="ggAuditTime" name="ggAuditTime" th:value="${groupGoods.ggAuditTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_content：</label>
+								<div class="col-sm-8">
+									<input id="ggContent" name="ggContent" th:value="${groupGoods.ggContent}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_count：</label>
+								<div class="col-sm-8">
+									<input id="ggCount" name="ggCount" th:value="${groupGoods.ggCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_def_count：</label>
+								<div class="col-sm-8">
+									<input id="ggDefCount" name="ggDefCount" th:value="${groupGoods.ggDefCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_group_count：</label>
+								<div class="col-sm-8">
+									<input id="ggGroupCount" name="ggGroupCount" th:value="${groupGoods.ggGroupCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_max_count：</label>
+								<div class="col-sm-8">
+									<input id="ggMaxCount" name="ggMaxCount" th:value="${groupGoods.ggMaxCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_min_count：</label>
+								<div class="col-sm-8">
+									<input id="ggMinCount" name="ggMinCount" th:value="${groupGoods.ggMinCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_name：</label>
+								<div class="col-sm-8">
+									<input id="ggName" name="ggName" th:value="${groupGoods.ggName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_price：</label>
+								<div class="col-sm-8">
+									<input id="ggPrice" name="ggPrice" th:value="${groupGoods.ggPrice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_rebate：</label>
+								<div class="col-sm-8">
+									<input id="ggRebate" name="ggRebate" th:value="${groupGoods.ggRebate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_recommend：</label>
+								<div class="col-sm-8">
+									<input id="ggRecommend" name="ggRecommend" th:value="${groupGoods.ggRecommend}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_recommend_time：</label>
+								<div class="col-sm-8">
+									<input id="ggRecommendTime" name="ggRecommendTime" th:value="${groupGoods.ggRecommendTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_status：</label>
+								<div class="col-sm-8">
+									<input id="ggStatus" name="ggStatus" th:value="${groupGoods.ggStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_vir_count：</label>
+								<div class="col-sm-8">
+									<input id="ggVirCount" name="ggVirCount" th:value="${groupGoods.ggVirCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_ga_id：</label>
+								<div class="col-sm-8">
+									<input id="ggGaId" name="ggGaId" th:value="${groupGoods.ggGaId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_gc_id：</label>
+								<div class="col-sm-8">
+									<input id="ggGcId" name="ggGcId" th:value="${groupGoods.ggGcId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_goods_id：</label>
+								<div class="col-sm-8">
+									<input id="ggGoodsId" name="ggGoodsId" th:value="${groupGoods.ggGoodsId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_img_id：</label>
+								<div class="col-sm-8">
+									<input id="ggImgId" name="ggImgId" th:value="${groupGoods.ggImgId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">group_id：</label>
+								<div class="col-sm-8">
+									<input id="groupId" name="groupId" th:value="${groupGoods.groupId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_shop_recommend：</label>
+								<div class="col-sm-8">
+									<input id="weixinShopRecommend" name="weixinShopRecommend" th:value="${groupGoods.weixinShopRecommend}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_shop_recommendTime：</label>
+								<div class="col-sm-8">
+									<input id="weixinShopRecommendtime" name="weixinShopRecommendtime" th:value="${groupGoods.weixinShopRecommendtime}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/groupGoods/edit.js">
+	</script>
+</body>
+</html>

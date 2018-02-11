@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">address：</label>
+								<div class="col-sm-8">
+									<input id="address" name="address" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bigHeight：</label>
+								<div class="col-sm-8">
+									<input id="bigheight" name="bigheight" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bigWidth：</label>
+								<div class="col-sm-8">
+									<input id="bigwidth" name="bigwidth" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">closeReason：</label>
+								<div class="col-sm-8">
+									<input id="closereason" name="closereason" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">codeStat：</label>
+								<div class="col-sm-8">
+									<input id="codestat" name="codestat" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">complaint_time：</label>
+								<div class="col-sm-8">
+									<input id="complaintTime" name="complaintTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">consumptionRatio：</label>
+								<div class="col-sm-8">
+									<input id="consumptionratio" name="consumptionratio" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">copyRight：</label>
+								<div class="col-sm-8">
+									<input id="copyright" name="copyright" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">creditrule：</label>
+								<div class="col-sm-8">
+									<input id="creditrule" name="creditrule" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deposit：</label>
+								<div class="col-sm-8">
+									<input id="deposit" name="deposit" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description：</label>
+								<div class="col-sm-8">
+									<input id="description" name="description" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailEnable：</label>
+								<div class="col-sm-8">
+									<input id="emailenable" name="emailenable" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailHost：</label>
+								<div class="col-sm-8">
+									<input id="emailhost" name="emailhost" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailPort：</label>
+								<div class="col-sm-8">
+									<input id="emailport" name="emailport" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailPws：</label>
+								<div class="col-sm-8">
+									<input id="emailpws" name="emailpws" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailTest：</label>
+								<div class="col-sm-8">
+									<input id="emailtest" name="emailtest" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailUser：</label>
+								<div class="col-sm-8">
+									<input id="emailuser" name="emailuser" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailUserName：</label>
+								<div class="col-sm-8">
+									<input id="emailusername" name="emailusername" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">everyIndentLimit：</label>
+								<div class="col-sm-8">
+									<input id="everyindentlimit" name="everyindentlimit" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold：</label>
+								<div class="col-sm-8">
+									<input id="gold" name="gold" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goldMarketValue：</label>
+								<div class="col-sm-8">
+									<input id="goldmarketvalue" name="goldmarketvalue" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">groupBuy：</label>
+								<div class="col-sm-8">
+									<input id="groupbuy" name="groupbuy" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">hotSearch：</label>
+								<div class="col-sm-8">
+									<input id="hotsearch" name="hotsearch" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">imageFilesize：</label>
+								<div class="col-sm-8">
+									<input id="imagefilesize" name="imagefilesize" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">imageSaveType：</label>
+								<div class="col-sm-8">
+									<input id="imagesavetype" name="imagesavetype" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">imageSuffix：</label>
+								<div class="col-sm-8">
+									<input id="imagesuffix" name="imagesuffix" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">indentComment：</label>
+								<div class="col-sm-8">
+									<input id="indentcomment" name="indentcomment" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">integral：</label>
+								<div class="col-sm-8">
+									<input id="integral" name="integral" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">integralRate：</label>
+								<div class="col-sm-8">
+									<input id="integralrate" name="integralrate" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">integralStore：</label>
+								<div class="col-sm-8">
+									<input id="integralstore" name="integralstore" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">keywords：</label>
+								<div class="col-sm-8">
+									<input id="keywords" name="keywords" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">memberDayLogin：</label>
+								<div class="col-sm-8">
+									<input id="memberdaylogin" name="memberdaylogin" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">memberRegister：</label>
+								<div class="col-sm-8">
+									<input id="memberregister" name="memberregister" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">middleHeight：</label>
+								<div class="col-sm-8">
+									<input id="middleheight" name="middleheight" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">middleWidth：</label>
+								<div class="col-sm-8">
+									<input id="middlewidth" name="middlewidth" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">securityCodeConsult：</label>
+								<div class="col-sm-8">
+									<input id="securitycodeconsult" name="securitycodeconsult" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">securityCodeLogin：</label>
+								<div class="col-sm-8">
+									<input id="securitycodelogin" name="securitycodelogin" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">securityCodeRegister：</label>
+								<div class="col-sm-8">
+									<input id="securitycoderegister" name="securitycoderegister" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">securityCodeType：</label>
+								<div class="col-sm-8">
+									<input id="securitycodetype" name="securitycodetype" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">share_code：</label>
+								<div class="col-sm-8">
+									<input id="shareCode" name="shareCode" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smallHeight：</label>
+								<div class="col-sm-8">
+									<input id="smallheight" name="smallheight" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smallWidth：</label>
+								<div class="col-sm-8">
+									<input id="smallwidth" name="smallwidth" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsEnbale：</label>
+								<div class="col-sm-8">
+									<input id="smsenbale" name="smsenbale" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsPassword：</label>
+								<div class="col-sm-8">
+									<input id="smspassword" name="smspassword" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsTest：</label>
+								<div class="col-sm-8">
+									<input id="smstest" name="smstest" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsURL：</label>
+								<div class="col-sm-8">
+									<input id="smsurl" name="smsurl" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsUserName：</label>
+								<div class="col-sm-8">
+									<input id="smsusername" name="smsusername" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_allow：</label>
+								<div class="col-sm-8">
+									<input id="storeAllow" name="storeAllow" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_payment：</label>
+								<div class="col-sm-8">
+									<input id="storePayment" name="storePayment" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sysLanguage：</label>
+								<div class="col-sm-8">
+									<input id="syslanguage" name="syslanguage" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">templates：</label>
+								<div class="col-sm-8">
+									<input id="templates" name="templates" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">title：</label>
+								<div class="col-sm-8">
+									<input id="title" name="title" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uploadFilePath：</label>
+								<div class="col-sm-8">
+									<input id="uploadfilepath" name="uploadfilepath" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">user_creditrule：</label>
+								<div class="col-sm-8">
+									<input id="userCreditrule" name="userCreditrule" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">visitorConsult：</label>
+								<div class="col-sm-8">
+									<input id="visitorconsult" name="visitorconsult" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">voucher：</label>
+								<div class="col-sm-8">
+									<input id="voucher" name="voucher" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">websiteName：</label>
+								<div class="col-sm-8">
+									<input id="websitename" name="websitename" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">websiteState：</label>
+								<div class="col-sm-8">
+									<input id="websitestate" name="websitestate" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_price：</label>
+								<div class="col-sm-8">
+									<input id="ztcPrice" name="ztcPrice" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_status：</label>
+								<div class="col-sm-8">
+									<input id="ztcStatus" name="ztcStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goodsImage_id：</label>
+								<div class="col-sm-8">
+									<input id="goodsimageId" name="goodsimageId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">memberIcon_id：</label>
+								<div class="col-sm-8">
+									<input id="membericonId" name="membericonId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">storeImage_id：</label>
+								<div class="col-sm-8">
+									<input id="storeimageId" name="storeimageId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">websiteLogo_id：</label>
+								<div class="col-sm-8">
+									<input id="websitelogoId" name="websitelogoId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">domain_allow_count：</label>
+								<div class="col-sm-8">
+									<input id="domainAllowCount" name="domainAllowCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">second_domain_open：</label>
+								<div class="col-sm-8">
+									<input id="secondDomainOpen" name="secondDomainOpen" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sys_domain：</label>
+								<div class="col-sm-8">
+									<input id="sysDomain" name="sysDomain" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">qq_login：</label>
+								<div class="col-sm-8">
+									<input id="qqLogin" name="qqLogin" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">qq_login_id：</label>
+								<div class="col-sm-8">
+									<input id="qqLoginId" name="qqLoginId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">qq_login_key：</label>
+								<div class="col-sm-8">
+									<input id="qqLoginKey" name="qqLoginKey" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">qq_domain_code：</label>
+								<div class="col-sm-8">
+									<input id="qqDomainCode" name="qqDomainCode" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sina_domain_code：</label>
+								<div class="col-sm-8">
+									<input id="sinaDomainCode" name="sinaDomainCode" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sina_login：</label>
+								<div class="col-sm-8">
+									<input id="sinaLogin" name="sinaLogin" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sina_login_id：</label>
+								<div class="col-sm-8">
+									<input id="sinaLoginId" name="sinaLoginId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sina_login_key：</label>
+								<div class="col-sm-8">
+									<input id="sinaLoginKey" name="sinaLoginKey" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">imageWebServer：</label>
+								<div class="col-sm-8">
+									<input id="imagewebserver" name="imagewebserver" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">lucene_update：</label>
+								<div class="col-sm-8">
+									<input id="luceneUpdate" name="luceneUpdate" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">alipay_fenrun：</label>
+								<div class="col-sm-8">
+									<input id="alipayFenrun" name="alipayFenrun" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">balance_fenrun：</label>
+								<div class="col-sm-8">
+									<input id="balanceFenrun" name="balanceFenrun" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_order_confirm：</label>
+								<div class="col-sm-8">
+									<input id="autoOrderConfirm" name="autoOrderConfirm" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_order_notice：</label>
+								<div class="col-sm-8">
+									<input id="autoOrderNotice" name="autoOrderNotice" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_maximum：</label>
+								<div class="col-sm-8">
+									<input id="bargainMaximum" name="bargainMaximum" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_rebate：</label>
+								<div class="col-sm-8">
+									<input id="bargainRebate" name="bargainRebate" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_state：</label>
+								<div class="col-sm-8">
+									<input id="bargainState" name="bargainState" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_status：</label>
+								<div class="col-sm-8">
+									<input id="bargainStatus" name="bargainStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_title：</label>
+								<div class="col-sm-8">
+									<input id="bargainTitle" name="bargainTitle" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_qq_list：</label>
+								<div class="col-sm-8">
+									<input id="serviceQqList" name="serviceQqList" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_telphone_list：</label>
+								<div class="col-sm-8">
+									<input id="serviceTelphoneList" name="serviceTelphoneList" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sys_delivery_maximum：</label>
+								<div class="col-sm-8">
+									<input id="sysDeliveryMaximum" name="sysDeliveryMaximum" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_bbs：</label>
+								<div class="col-sm-8">
+									<input id="ucBbs" name="ucBbs" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">kuaidi_id：</label>
+								<div class="col-sm-8">
+									<input id="kuaidiId" name="kuaidiId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_api：</label>
+								<div class="col-sm-8">
+									<input id="ucApi" name="ucApi" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_appid：</label>
+								<div class="col-sm-8">
+									<input id="ucAppid" name="ucAppid" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabase" name="ucDatabase" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database_port：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabasePort" name="ucDatabasePort" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database_pws：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabasePws" name="ucDatabasePws" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database_url：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabaseUrl" name="ucDatabaseUrl" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database_username：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabaseUsername" name="ucDatabaseUsername" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_ip：</label>
+								<div class="col-sm-8">
+									<input id="ucIp" name="ucIp" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_key：</label>
+								<div class="col-sm-8">
+									<input id="ucKey" name="ucKey" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_table_preffix：</label>
+								<div class="col-sm-8">
+									<input id="ucTablePreffix" name="ucTablePreffix" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">currency_code：</label>
+								<div class="col-sm-8">
+									<input id="currencyCode" name="currencyCode" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_validity：</label>
+								<div class="col-sm-8">
+									<input id="bargainValidity" name="bargainValidity" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_amount：</label>
+								<div class="col-sm-8">
+									<input id="deliveryAmount" name="deliveryAmount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_status：</label>
+								<div class="col-sm-8">
+									<input id="deliveryStatus" name="deliveryStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_title：</label>
+								<div class="col-sm-8">
+									<input id="deliveryTitle" name="deliveryTitle" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">websiteCss：</label>
+								<div class="col-sm-8">
+									<input id="websitecss" name="websitecss" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_amount：</label>
+								<div class="col-sm-8">
+									<input id="combinAmount" name="combinAmount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_count：</label>
+								<div class="col-sm-8">
+									<input id="combinCount" name="combinCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_goods_view：</label>
+								<div class="col-sm-8">
+									<input id="ztcGoodsView" name="ztcGoodsView" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_order_evaluate：</label>
+								<div class="col-sm-8">
+									<input id="autoOrderEvaluate" name="autoOrderEvaluate" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_order_return：</label>
+								<div class="col-sm-8">
+									<input id="autoOrderReturn" name="autoOrderReturn" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_store：</label>
+								<div class="col-sm-8">
+									<input id="weixinStore" name="weixinStore" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_amount：</label>
+								<div class="col-sm-8">
+									<input id="weixinAmount" name="weixinAmount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">config_payment_type：</label>
+								<div class="col-sm-8">
+									<input id="configPaymentType" name="configPaymentType" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_account：</label>
+								<div class="col-sm-8">
+									<input id="weixinAccount" name="weixinAccount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appId：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppid" name="weixinAppid" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appSecret：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppsecret" name="weixinAppsecret" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_token：</label>
+								<div class="col-sm-8">
+									<input id="weixinToken" name="weixinToken" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_welecome_content：</label>
+								<div class="col-sm-8">
+									<input id="weixinWelecomeContent" name="weixinWelecomeContent" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_weixin_logo_id：</label>
+								<div class="col-sm-8">
+									<input id="storeWeixinLogoId" name="storeWeixinLogoId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_qr_img_id：</label>
+								<div class="col-sm-8">
+									<input id="weixinQrImgId" name="weixinQrImgId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">site_url：</label>
+								<div class="col-sm-8">
+									<input id="siteUrl" name="siteUrl" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/sysconfig/add.js">
+	</script>
+</body>
+</html>

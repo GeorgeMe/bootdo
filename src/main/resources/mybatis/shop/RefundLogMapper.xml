@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.RefundLogDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.RefundLogDO">
+		select `id`,`addTime`,`deleteStatus`,`refund`,`refund_id`,`refund_log`,`refund_type`,`of_id`,`refund_user_id` from wemall_refund_log where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.RefundLogDO">
+		select `id`,`addTime`,`deleteStatus`,`refund`,`refund_id`,`refund_log`,`refund_type`,`of_id`,`refund_user_id` from wemall_refund_log
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="refund != null and refund != ''"> and refund = #{refund} </if>
+		  		  <if test="refundId != null and refundId != ''"> and refund_id = #{refundId} </if>
+		  		  <if test="refundLog != null and refundLog != ''"> and refund_log = #{refundLog} </if>
+		  		  <if test="refundType != null and refundType != ''"> and refund_type = #{refundType} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		  <if test="refundUserId != null and refundUserId != ''"> and refund_user_id = #{refundUserId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_refund_log
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="refund != null and refund != ''"> and refund = #{refund} </if>
+		  		  <if test="refundId != null and refundId != ''"> and refund_id = #{refundId} </if>
+		  		  <if test="refundLog != null and refundLog != ''"> and refund_log = #{refundLog} </if>
+		  		  <if test="refundType != null and refundType != ''"> and refund_type = #{refundType} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		  <if test="refundUserId != null and refundUserId != ''"> and refund_user_id = #{refundUserId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.RefundLogDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_refund_log
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`refund`, 
+			`refund_id`, 
+			`refund_log`, 
+			`refund_type`, 
+			`of_id`, 
+			`refund_user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{refund}, 
+			#{refundId}, 
+			#{refundLog}, 
+			#{refundType}, 
+			#{ofId}, 
+			#{refundUserId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.RefundLogDO">
+		update wemall_refund_log 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="refund != null">`refund` = #{refund}, </if>
+			<if test="refundId != null">`refund_id` = #{refundId}, </if>
+			<if test="refundLog != null">`refund_log` = #{refundLog}, </if>
+			<if test="refundType != null">`refund_type` = #{refundType}, </if>
+			<if test="ofId != null">`of_id` = #{ofId}, </if>
+			<if test="refundUserId != null">`refund_user_id` = #{refundUserId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_refund_log where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_refund_log where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

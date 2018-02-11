@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${bargainGoods.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${bargainGoods.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${bargainGoods.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bg_price：</label>
+								<div class="col-sm-8">
+									<input id="bgPrice" name="bgPrice" th:value="${bargainGoods.bgPrice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bg_status：</label>
+								<div class="col-sm-8">
+									<input id="bgStatus" name="bgStatus" th:value="${bargainGoods.bgStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bg_time：</label>
+								<div class="col-sm-8">
+									<input id="bgTime" name="bgTime" th:value="${bargainGoods.bgTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bg_admin_user_id：</label>
+								<div class="col-sm-8">
+									<input id="bgAdminUserId" name="bgAdminUserId" th:value="${bargainGoods.bgAdminUserId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bg_goods_id：</label>
+								<div class="col-sm-8">
+									<input id="bgGoodsId" name="bgGoodsId" th:value="${bargainGoods.bgGoodsId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bg_count：</label>
+								<div class="col-sm-8">
+									<input id="bgCount" name="bgCount" th:value="${bargainGoods.bgCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bg_rebate：</label>
+								<div class="col-sm-8">
+									<input id="bgRebate" name="bgRebate" th:value="${bargainGoods.bgRebate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">audit_time：</label>
+								<div class="col-sm-8">
+									<input id="auditTime" name="auditTime" th:value="${bargainGoods.auditTime}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/bargainGoods/edit.js">
+	</script>
+</body>
+</html>

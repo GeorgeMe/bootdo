@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${integralGoodsorder.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${integralGoodsorder.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${integralGoodsorder.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_msg：</label>
+								<div class="col-sm-8">
+									<input id="igoMsg" name="igoMsg" th:value="${integralGoodsorder.igoMsg}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_order_sn：</label>
+								<div class="col-sm-8">
+									<input id="igoOrderSn" name="igoOrderSn" th:value="${integralGoodsorder.igoOrderSn}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_pay_msg：</label>
+								<div class="col-sm-8">
+									<input id="igoPayMsg" name="igoPayMsg" th:value="${integralGoodsorder.igoPayMsg}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_pay_time：</label>
+								<div class="col-sm-8">
+									<input id="igoPayTime" name="igoPayTime" th:value="${integralGoodsorder.igoPayTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_payment：</label>
+								<div class="col-sm-8">
+									<input id="igoPayment" name="igoPayment" th:value="${integralGoodsorder.igoPayment}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_ship_code：</label>
+								<div class="col-sm-8">
+									<input id="igoShipCode" name="igoShipCode" th:value="${integralGoodsorder.igoShipCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_ship_content：</label>
+								<div class="col-sm-8">
+									<input id="igoShipContent" name="igoShipContent" th:value="${integralGoodsorder.igoShipContent}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_ship_time：</label>
+								<div class="col-sm-8">
+									<input id="igoShipTime" name="igoShipTime" th:value="${integralGoodsorder.igoShipTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_status：</label>
+								<div class="col-sm-8">
+									<input id="igoStatus" name="igoStatus" th:value="${integralGoodsorder.igoStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_total_integral：</label>
+								<div class="col-sm-8">
+									<input id="igoTotalIntegral" name="igoTotalIntegral" th:value="${integralGoodsorder.igoTotalIntegral}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_trans_fee：</label>
+								<div class="col-sm-8">
+									<input id="igoTransFee" name="igoTransFee" th:value="${integralGoodsorder.igoTransFee}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_addr_id：</label>
+								<div class="col-sm-8">
+									<input id="igoAddrId" name="igoAddrId" th:value="${integralGoodsorder.igoAddrId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">igo_user_id：</label>
+								<div class="col-sm-8">
+									<input id="igoUserId" name="igoUserId" th:value="${integralGoodsorder.igoUserId}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/integralGoodsorder/edit.js">
+	</script>
+</body>
+</html>

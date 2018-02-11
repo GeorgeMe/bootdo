@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${goldRecord.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${goldRecord.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${goldRecord.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_admin_info：</label>
+								<div class="col-sm-8">
+									<input id="goldAdminInfo" name="goldAdminInfo" th:value="${goldRecord.goldAdminInfo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_admin_time：</label>
+								<div class="col-sm-8">
+									<input id="goldAdminTime" name="goldAdminTime" th:value="${goldRecord.goldAdminTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_count：</label>
+								<div class="col-sm-8">
+									<input id="goldCount" name="goldCount" th:value="${goldRecord.goldCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_exchange_info：</label>
+								<div class="col-sm-8">
+									<input id="goldExchangeInfo" name="goldExchangeInfo" th:value="${goldRecord.goldExchangeInfo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_money：</label>
+								<div class="col-sm-8">
+									<input id="goldMoney" name="goldMoney" th:value="${goldRecord.goldMoney}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_pay_status：</label>
+								<div class="col-sm-8">
+									<input id="goldPayStatus" name="goldPayStatus" th:value="${goldRecord.goldPayStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_payment：</label>
+								<div class="col-sm-8">
+									<input id="goldPayment" name="goldPayment" th:value="${goldRecord.goldPayment}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_sn：</label>
+								<div class="col-sm-8">
+									<input id="goldSn" name="goldSn" th:value="${goldRecord.goldSn}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_status：</label>
+								<div class="col-sm-8">
+									<input id="goldStatus" name="goldStatus" th:value="${goldRecord.goldStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_admin_id：</label>
+								<div class="col-sm-8">
+									<input id="goldAdminId" name="goldAdminId" th:value="${goldRecord.goldAdminId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold_user_id：</label>
+								<div class="col-sm-8">
+									<input id="goldUserId" name="goldUserId" th:value="${goldRecord.goldUserId}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/goldRecord/edit.js">
+	</script>
+</body>
+</html>

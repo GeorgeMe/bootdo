@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.PredepositDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.PredepositDO">
+		select `id`,`addTime`,`deleteStatus`,`pd_admin_info`,`pd_amount`,`pd_pay_status`,`pd_payment`,`pd_remittance_bank`,`pd_remittance_info`,`pd_remittance_time`,`pd_remittance_user`,`pd_sn`,`pd_status`,`pd_admin_id`,`pd_user_id` from wemall_predeposit where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.PredepositDO">
+		select `id`,`addTime`,`deleteStatus`,`pd_admin_info`,`pd_amount`,`pd_pay_status`,`pd_payment`,`pd_remittance_bank`,`pd_remittance_info`,`pd_remittance_time`,`pd_remittance_user`,`pd_sn`,`pd_status`,`pd_admin_id`,`pd_user_id` from wemall_predeposit
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="pdAdminInfo != null and pdAdminInfo != ''"> and pd_admin_info = #{pdAdminInfo} </if>
+		  		  <if test="pdAmount != null and pdAmount != ''"> and pd_amount = #{pdAmount} </if>
+		  		  <if test="pdPayStatus != null and pdPayStatus != ''"> and pd_pay_status = #{pdPayStatus} </if>
+		  		  <if test="pdPayment != null and pdPayment != ''"> and pd_payment = #{pdPayment} </if>
+		  		  <if test="pdRemittanceBank != null and pdRemittanceBank != ''"> and pd_remittance_bank = #{pdRemittanceBank} </if>
+		  		  <if test="pdRemittanceInfo != null and pdRemittanceInfo != ''"> and pd_remittance_info = #{pdRemittanceInfo} </if>
+		  		  <if test="pdRemittanceTime != null and pdRemittanceTime != ''"> and pd_remittance_time = #{pdRemittanceTime} </if>
+		  		  <if test="pdRemittanceUser != null and pdRemittanceUser != ''"> and pd_remittance_user = #{pdRemittanceUser} </if>
+		  		  <if test="pdSn != null and pdSn != ''"> and pd_sn = #{pdSn} </if>
+		  		  <if test="pdStatus != null and pdStatus != ''"> and pd_status = #{pdStatus} </if>
+		  		  <if test="pdAdminId != null and pdAdminId != ''"> and pd_admin_id = #{pdAdminId} </if>
+		  		  <if test="pdUserId != null and pdUserId != ''"> and pd_user_id = #{pdUserId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_predeposit
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="pdAdminInfo != null and pdAdminInfo != ''"> and pd_admin_info = #{pdAdminInfo} </if>
+		  		  <if test="pdAmount != null and pdAmount != ''"> and pd_amount = #{pdAmount} </if>
+		  		  <if test="pdPayStatus != null and pdPayStatus != ''"> and pd_pay_status = #{pdPayStatus} </if>
+		  		  <if test="pdPayment != null and pdPayment != ''"> and pd_payment = #{pdPayment} </if>
+		  		  <if test="pdRemittanceBank != null and pdRemittanceBank != ''"> and pd_remittance_bank = #{pdRemittanceBank} </if>
+		  		  <if test="pdRemittanceInfo != null and pdRemittanceInfo != ''"> and pd_remittance_info = #{pdRemittanceInfo} </if>
+		  		  <if test="pdRemittanceTime != null and pdRemittanceTime != ''"> and pd_remittance_time = #{pdRemittanceTime} </if>
+		  		  <if test="pdRemittanceUser != null and pdRemittanceUser != ''"> and pd_remittance_user = #{pdRemittanceUser} </if>
+		  		  <if test="pdSn != null and pdSn != ''"> and pd_sn = #{pdSn} </if>
+		  		  <if test="pdStatus != null and pdStatus != ''"> and pd_status = #{pdStatus} </if>
+		  		  <if test="pdAdminId != null and pdAdminId != ''"> and pd_admin_id = #{pdAdminId} </if>
+		  		  <if test="pdUserId != null and pdUserId != ''"> and pd_user_id = #{pdUserId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.PredepositDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_predeposit
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`pd_admin_info`, 
+			`pd_amount`, 
+			`pd_pay_status`, 
+			`pd_payment`, 
+			`pd_remittance_bank`, 
+			`pd_remittance_info`, 
+			`pd_remittance_time`, 
+			`pd_remittance_user`, 
+			`pd_sn`, 
+			`pd_status`, 
+			`pd_admin_id`, 
+			`pd_user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{pdAdminInfo}, 
+			#{pdAmount}, 
+			#{pdPayStatus}, 
+			#{pdPayment}, 
+			#{pdRemittanceBank}, 
+			#{pdRemittanceInfo}, 
+			#{pdRemittanceTime}, 
+			#{pdRemittanceUser}, 
+			#{pdSn}, 
+			#{pdStatus}, 
+			#{pdAdminId}, 
+			#{pdUserId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.PredepositDO">
+		update wemall_predeposit 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="pdAdminInfo != null">`pd_admin_info` = #{pdAdminInfo}, </if>
+			<if test="pdAmount != null">`pd_amount` = #{pdAmount}, </if>
+			<if test="pdPayStatus != null">`pd_pay_status` = #{pdPayStatus}, </if>
+			<if test="pdPayment != null">`pd_payment` = #{pdPayment}, </if>
+			<if test="pdRemittanceBank != null">`pd_remittance_bank` = #{pdRemittanceBank}, </if>
+			<if test="pdRemittanceInfo != null">`pd_remittance_info` = #{pdRemittanceInfo}, </if>
+			<if test="pdRemittanceTime != null">`pd_remittance_time` = #{pdRemittanceTime}, </if>
+			<if test="pdRemittanceUser != null">`pd_remittance_user` = #{pdRemittanceUser}, </if>
+			<if test="pdSn != null">`pd_sn` = #{pdSn}, </if>
+			<if test="pdStatus != null">`pd_status` = #{pdStatus}, </if>
+			<if test="pdAdminId != null">`pd_admin_id` = #{pdAdminId}, </if>
+			<if test="pdUserId != null">`pd_user_id` = #{pdUserId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_predeposit where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_predeposit where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

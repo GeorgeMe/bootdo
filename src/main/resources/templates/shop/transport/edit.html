@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${transport.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${transport.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${transport.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trans_ems：</label>
+								<div class="col-sm-8">
+									<input id="transEms" name="transEms" th:value="${transport.transEms}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trans_ems_info：</label>
+								<div class="col-sm-8">
+									<input id="transEmsInfo" name="transEmsInfo" th:value="${transport.transEmsInfo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trans_express：</label>
+								<div class="col-sm-8">
+									<input id="transExpress" name="transExpress" th:value="${transport.transExpress}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trans_express_info：</label>
+								<div class="col-sm-8">
+									<input id="transExpressInfo" name="transExpressInfo" th:value="${transport.transExpressInfo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trans_mail：</label>
+								<div class="col-sm-8">
+									<input id="transMail" name="transMail" th:value="${transport.transMail}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trans_mail_info：</label>
+								<div class="col-sm-8">
+									<input id="transMailInfo" name="transMailInfo" th:value="${transport.transMailInfo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trans_name：</label>
+								<div class="col-sm-8">
+									<input id="transName" name="transName" th:value="${transport.transName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_id：</label>
+								<div class="col-sm-8">
+									<input id="storeId" name="storeId" th:value="${transport.storeId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trans_time：</label>
+								<div class="col-sm-8">
+									<input id="transTime" name="transTime" th:value="${transport.transTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trans_type：</label>
+								<div class="col-sm-8">
+									<input id="transType" name="transType" th:value="${transport.transType}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/transport/edit.js">
+	</script>
+</body>
+</html>

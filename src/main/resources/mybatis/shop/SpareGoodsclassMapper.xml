@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.SpareGoodsclassDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.SpareGoodsclassDO">
+		select `id`,`addTime`,`deleteStatus`,`className`,`level`,`sequence`,`parent_id`,`viewInFloor` from wemall_spare_goodsclass where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.SpareGoodsclassDO">
+		select `id`,`addTime`,`deleteStatus`,`className`,`level`,`sequence`,`parent_id`,`viewInFloor` from wemall_spare_goodsclass
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="classname != null and classname != ''"> and className = #{classname} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="viewinfloor != null and viewinfloor != ''"> and viewInFloor = #{viewinfloor} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_spare_goodsclass
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="classname != null and classname != ''"> and className = #{classname} </if>
+		  		  <if test="level != null and level != ''"> and level = #{level} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="viewinfloor != null and viewinfloor != ''"> and viewInFloor = #{viewinfloor} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.SpareGoodsclassDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_spare_goodsclass
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`className`, 
+			`level`, 
+			`sequence`, 
+			`parent_id`, 
+			`viewInFloor`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{classname}, 
+			#{level}, 
+			#{sequence}, 
+			#{parentId}, 
+			#{viewinfloor}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.SpareGoodsclassDO">
+		update wemall_spare_goodsclass 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="classname != null">`className` = #{classname}, </if>
+			<if test="level != null">`level` = #{level}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="viewinfloor != null">`viewInFloor` = #{viewinfloor}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_spare_goodsclass where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_spare_goodsclass where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

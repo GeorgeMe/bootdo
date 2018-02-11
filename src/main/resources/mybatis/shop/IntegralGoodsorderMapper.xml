@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.IntegralGoodsorderDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.IntegralGoodsorderDO">
+		select `id`,`addTime`,`deleteStatus`,`igo_msg`,`igo_order_sn`,`igo_pay_msg`,`igo_pay_time`,`igo_payment`,`igo_ship_code`,`igo_ship_content`,`igo_ship_time`,`igo_status`,`igo_total_integral`,`igo_trans_fee`,`igo_addr_id`,`igo_user_id` from wemall_integral_goodsorder where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.IntegralGoodsorderDO">
+		select `id`,`addTime`,`deleteStatus`,`igo_msg`,`igo_order_sn`,`igo_pay_msg`,`igo_pay_time`,`igo_payment`,`igo_ship_code`,`igo_ship_content`,`igo_ship_time`,`igo_status`,`igo_total_integral`,`igo_trans_fee`,`igo_addr_id`,`igo_user_id` from wemall_integral_goodsorder
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="igoMsg != null and igoMsg != ''"> and igo_msg = #{igoMsg} </if>
+		  		  <if test="igoOrderSn != null and igoOrderSn != ''"> and igo_order_sn = #{igoOrderSn} </if>
+		  		  <if test="igoPayMsg != null and igoPayMsg != ''"> and igo_pay_msg = #{igoPayMsg} </if>
+		  		  <if test="igoPayTime != null and igoPayTime != ''"> and igo_pay_time = #{igoPayTime} </if>
+		  		  <if test="igoPayment != null and igoPayment != ''"> and igo_payment = #{igoPayment} </if>
+		  		  <if test="igoShipCode != null and igoShipCode != ''"> and igo_ship_code = #{igoShipCode} </if>
+		  		  <if test="igoShipContent != null and igoShipContent != ''"> and igo_ship_content = #{igoShipContent} </if>
+		  		  <if test="igoShipTime != null and igoShipTime != ''"> and igo_ship_time = #{igoShipTime} </if>
+		  		  <if test="igoStatus != null and igoStatus != ''"> and igo_status = #{igoStatus} </if>
+		  		  <if test="igoTotalIntegral != null and igoTotalIntegral != ''"> and igo_total_integral = #{igoTotalIntegral} </if>
+		  		  <if test="igoTransFee != null and igoTransFee != ''"> and igo_trans_fee = #{igoTransFee} </if>
+		  		  <if test="igoAddrId != null and igoAddrId != ''"> and igo_addr_id = #{igoAddrId} </if>
+		  		  <if test="igoUserId != null and igoUserId != ''"> and igo_user_id = #{igoUserId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_integral_goodsorder
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="igoMsg != null and igoMsg != ''"> and igo_msg = #{igoMsg} </if>
+		  		  <if test="igoOrderSn != null and igoOrderSn != ''"> and igo_order_sn = #{igoOrderSn} </if>
+		  		  <if test="igoPayMsg != null and igoPayMsg != ''"> and igo_pay_msg = #{igoPayMsg} </if>
+		  		  <if test="igoPayTime != null and igoPayTime != ''"> and igo_pay_time = #{igoPayTime} </if>
+		  		  <if test="igoPayment != null and igoPayment != ''"> and igo_payment = #{igoPayment} </if>
+		  		  <if test="igoShipCode != null and igoShipCode != ''"> and igo_ship_code = #{igoShipCode} </if>
+		  		  <if test="igoShipContent != null and igoShipContent != ''"> and igo_ship_content = #{igoShipContent} </if>
+		  		  <if test="igoShipTime != null and igoShipTime != ''"> and igo_ship_time = #{igoShipTime} </if>
+		  		  <if test="igoStatus != null and igoStatus != ''"> and igo_status = #{igoStatus} </if>
+		  		  <if test="igoTotalIntegral != null and igoTotalIntegral != ''"> and igo_total_integral = #{igoTotalIntegral} </if>
+		  		  <if test="igoTransFee != null and igoTransFee != ''"> and igo_trans_fee = #{igoTransFee} </if>
+		  		  <if test="igoAddrId != null and igoAddrId != ''"> and igo_addr_id = #{igoAddrId} </if>
+		  		  <if test="igoUserId != null and igoUserId != ''"> and igo_user_id = #{igoUserId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.IntegralGoodsorderDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_integral_goodsorder
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`igo_msg`, 
+			`igo_order_sn`, 
+			`igo_pay_msg`, 
+			`igo_pay_time`, 
+			`igo_payment`, 
+			`igo_ship_code`, 
+			`igo_ship_content`, 
+			`igo_ship_time`, 
+			`igo_status`, 
+			`igo_total_integral`, 
+			`igo_trans_fee`, 
+			`igo_addr_id`, 
+			`igo_user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{igoMsg}, 
+			#{igoOrderSn}, 
+			#{igoPayMsg}, 
+			#{igoPayTime}, 
+			#{igoPayment}, 
+			#{igoShipCode}, 
+			#{igoShipContent}, 
+			#{igoShipTime}, 
+			#{igoStatus}, 
+			#{igoTotalIntegral}, 
+			#{igoTransFee}, 
+			#{igoAddrId}, 
+			#{igoUserId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.IntegralGoodsorderDO">
+		update wemall_integral_goodsorder 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="igoMsg != null">`igo_msg` = #{igoMsg}, </if>
+			<if test="igoOrderSn != null">`igo_order_sn` = #{igoOrderSn}, </if>
+			<if test="igoPayMsg != null">`igo_pay_msg` = #{igoPayMsg}, </if>
+			<if test="igoPayTime != null">`igo_pay_time` = #{igoPayTime}, </if>
+			<if test="igoPayment != null">`igo_payment` = #{igoPayment}, </if>
+			<if test="igoShipCode != null">`igo_ship_code` = #{igoShipCode}, </if>
+			<if test="igoShipContent != null">`igo_ship_content` = #{igoShipContent}, </if>
+			<if test="igoShipTime != null">`igo_ship_time` = #{igoShipTime}, </if>
+			<if test="igoStatus != null">`igo_status` = #{igoStatus}, </if>
+			<if test="igoTotalIntegral != null">`igo_total_integral` = #{igoTotalIntegral}, </if>
+			<if test="igoTransFee != null">`igo_trans_fee` = #{igoTransFee}, </if>
+			<if test="igoAddrId != null">`igo_addr_id` = #{igoAddrId}, </if>
+			<if test="igoUserId != null">`igo_user_id` = #{igoUserId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_integral_goodsorder where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_integral_goodsorder where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

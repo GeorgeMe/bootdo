@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${spareGoodsfloor.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${spareGoodsfloor.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${spareGoodsfloor.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">adver_id：</label>
+								<div class="col-sm-8">
+									<input id="adverId" name="adverId" th:value="${spareGoodsfloor.adverId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sequence：</label>
+								<div class="col-sm-8">
+									<input id="sequence" name="sequence" th:value="${spareGoodsfloor.sequence}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">title：</label>
+								<div class="col-sm-8">
+									<input id="title" name="title" th:value="${spareGoodsfloor.title}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">visable：</label>
+								<div class="col-sm-8">
+									<input id="visable" name="visable" th:value="${spareGoodsfloor.visable}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sgc_id：</label>
+								<div class="col-sm-8">
+									<input id="sgcId" name="sgcId" th:value="${spareGoodsfloor.sgcId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">adver_type：</label>
+								<div class="col-sm-8">
+									<input id="adverType" name="adverType" th:value="${spareGoodsfloor.adverType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">advert_url：</label>
+								<div class="col-sm-8">
+									<input id="advertUrl" name="advertUrl" th:value="${spareGoodsfloor.advertUrl}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">advert_id：</label>
+								<div class="col-sm-8">
+									<input id="advertId" name="advertId" th:value="${spareGoodsfloor.advertId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">advert_img_id：</label>
+								<div class="col-sm-8">
+									<input id="advertImgId" name="advertImgId" th:value="${spareGoodsfloor.advertImgId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">display：</label>
+								<div class="col-sm-8">
+									<input id="display" name="display" th:value="${spareGoodsfloor.display}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">adp_id：</label>
+								<div class="col-sm-8">
+									<input id="adpId" name="adpId" th:value="${spareGoodsfloor.adpId}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/spareGoodsfloor/edit.js">
+	</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+创建数据库 zscat
+导入sys.sql ,shop.sql
+
+修改配置文件的数据库账号

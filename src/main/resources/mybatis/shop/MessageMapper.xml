@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.MessageDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.MessageDO">
+		select `id`,`addTime`,`deleteStatus`,`content`,`status`,`title`,`type`,`fromUser_id`,`parent_id`,`toUser_id`,`reply_status` from wemall_message where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.MessageDO">
+		select `id`,`addTime`,`deleteStatus`,`content`,`status`,`title`,`type`,`fromUser_id`,`parent_id`,`toUser_id`,`reply_status` from wemall_message
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="fromuserId != null and fromuserId != ''"> and fromUser_id = #{fromuserId} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="touserId != null and touserId != ''"> and toUser_id = #{touserId} </if>
+		  		  <if test="replyStatus != null and replyStatus != ''"> and reply_status = #{replyStatus} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_message
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="fromuserId != null and fromuserId != ''"> and fromUser_id = #{fromuserId} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="touserId != null and touserId != ''"> and toUser_id = #{touserId} </if>
+		  		  <if test="replyStatus != null and replyStatus != ''"> and reply_status = #{replyStatus} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.MessageDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_message
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`content`, 
+			`status`, 
+			`title`, 
+			`type`, 
+			`fromUser_id`, 
+			`parent_id`, 
+			`toUser_id`, 
+			`reply_status`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{content}, 
+			#{status}, 
+			#{title}, 
+			#{type}, 
+			#{fromuserId}, 
+			#{parentId}, 
+			#{touserId}, 
+			#{replyStatus}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.MessageDO">
+		update wemall_message 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="title != null">`title` = #{title}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="fromuserId != null">`fromUser_id` = #{fromuserId}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="touserId != null">`toUser_id` = #{touserId}, </if>
+			<if test="replyStatus != null">`reply_status` = #{replyStatus}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_message where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_message where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

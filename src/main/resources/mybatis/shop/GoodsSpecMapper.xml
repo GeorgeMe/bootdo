@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodsSpecDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodsSpecDO">
+		select `goods_id`,`spec_id` from wemall_goods_spec where goods_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodsSpecDO">
+		select `goods_id`,`spec_id` from wemall_goods_spec
+        <where>  
+		  		  <if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="specId != null and specId != ''"> and spec_id = #{specId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goods_spec
+		 <where>  
+		  		  <if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="specId != null and specId != ''"> and spec_id = #{specId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodsSpecDO">
+		insert into wemall_goods_spec
+		(
+			`goods_id`, 
+			`spec_id`
+		)
+		values
+		(
+			#{goodsId}, 
+			#{specId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodsSpecDO">
+		update wemall_goods_spec 
+		<set>
+			<if test="specId != null">`spec_id` = #{specId}</if>
+		</set>
+		where goods_id = #{goodsId}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goods_spec where goods_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goods_spec where goods_id in 
+		<foreach item="goodsId" collection="array" open="(" separator="," close=")">
+			#{goodsId}
+		</foreach>
+	</delete>
+
+</mapper>

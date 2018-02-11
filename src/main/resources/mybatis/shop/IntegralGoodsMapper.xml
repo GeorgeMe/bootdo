@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.IntegralGoodsDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.IntegralGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`ig_begin_time`,`ig_click_count`,`ig_content`,`ig_end_time`,`ig_exchange_count`,`ig_goods_count`,`ig_goods_integral`,`ig_goods_name`,`ig_goods_price`,`ig_goods_sn`,`ig_goods_tag`,`ig_limit_count`,`ig_limit_type`,`ig_recommend`,`ig_seo_description`,`ig_seo_keywords`,`ig_sequence`,`ig_show`,`ig_time_type`,`ig_transfee`,`ig_transfee_type`,`ig_goods_img_id` from wemall_integral_goods where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.IntegralGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`ig_begin_time`,`ig_click_count`,`ig_content`,`ig_end_time`,`ig_exchange_count`,`ig_goods_count`,`ig_goods_integral`,`ig_goods_name`,`ig_goods_price`,`ig_goods_sn`,`ig_goods_tag`,`ig_limit_count`,`ig_limit_type`,`ig_recommend`,`ig_seo_description`,`ig_seo_keywords`,`ig_sequence`,`ig_show`,`ig_time_type`,`ig_transfee`,`ig_transfee_type`,`ig_goods_img_id` from wemall_integral_goods
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="igBeginTime != null and igBeginTime != ''"> and ig_begin_time = #{igBeginTime} </if>
+		  		  <if test="igClickCount != null and igClickCount != ''"> and ig_click_count = #{igClickCount} </if>
+		  		  <if test="igContent != null and igContent != ''"> and ig_content = #{igContent} </if>
+		  		  <if test="igEndTime != null and igEndTime != ''"> and ig_end_time = #{igEndTime} </if>
+		  		  <if test="igExchangeCount != null and igExchangeCount != ''"> and ig_exchange_count = #{igExchangeCount} </if>
+		  		  <if test="igGoodsCount != null and igGoodsCount != ''"> and ig_goods_count = #{igGoodsCount} </if>
+		  		  <if test="igGoodsIntegral != null and igGoodsIntegral != ''"> and ig_goods_integral = #{igGoodsIntegral} </if>
+		  		  <if test="igGoodsName != null and igGoodsName != ''"> and ig_goods_name = #{igGoodsName} </if>
+		  		  <if test="igGoodsPrice != null and igGoodsPrice != ''"> and ig_goods_price = #{igGoodsPrice} </if>
+		  		  <if test="igGoodsSn != null and igGoodsSn != ''"> and ig_goods_sn = #{igGoodsSn} </if>
+		  		  <if test="igGoodsTag != null and igGoodsTag != ''"> and ig_goods_tag = #{igGoodsTag} </if>
+		  		  <if test="igLimitCount != null and igLimitCount != ''"> and ig_limit_count = #{igLimitCount} </if>
+		  		  <if test="igLimitType != null and igLimitType != ''"> and ig_limit_type = #{igLimitType} </if>
+		  		  <if test="igRecommend != null and igRecommend != ''"> and ig_recommend = #{igRecommend} </if>
+		  		  <if test="igSeoDescription != null and igSeoDescription != ''"> and ig_seo_description = #{igSeoDescription} </if>
+		  		  <if test="igSeoKeywords != null and igSeoKeywords != ''"> and ig_seo_keywords = #{igSeoKeywords} </if>
+		  		  <if test="igSequence != null and igSequence != ''"> and ig_sequence = #{igSequence} </if>
+		  		  <if test="igShow != null and igShow != ''"> and ig_show = #{igShow} </if>
+		  		  <if test="igTimeType != null and igTimeType != ''"> and ig_time_type = #{igTimeType} </if>
+		  		  <if test="igTransfee != null and igTransfee != ''"> and ig_transfee = #{igTransfee} </if>
+		  		  <if test="igTransfeeType != null and igTransfeeType != ''"> and ig_transfee_type = #{igTransfeeType} </if>
+		  		  <if test="igGoodsImgId != null and igGoodsImgId != ''"> and ig_goods_img_id = #{igGoodsImgId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_integral_goods
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="igBeginTime != null and igBeginTime != ''"> and ig_begin_time = #{igBeginTime} </if>
+		  		  <if test="igClickCount != null and igClickCount != ''"> and ig_click_count = #{igClickCount} </if>
+		  		  <if test="igContent != null and igContent != ''"> and ig_content = #{igContent} </if>
+		  		  <if test="igEndTime != null and igEndTime != ''"> and ig_end_time = #{igEndTime} </if>
+		  		  <if test="igExchangeCount != null and igExchangeCount != ''"> and ig_exchange_count = #{igExchangeCount} </if>
+		  		  <if test="igGoodsCount != null and igGoodsCount != ''"> and ig_goods_count = #{igGoodsCount} </if>
+		  		  <if test="igGoodsIntegral != null and igGoodsIntegral != ''"> and ig_goods_integral = #{igGoodsIntegral} </if>
+		  		  <if test="igGoodsName != null and igGoodsName != ''"> and ig_goods_name = #{igGoodsName} </if>
+		  		  <if test="igGoodsPrice != null and igGoodsPrice != ''"> and ig_goods_price = #{igGoodsPrice} </if>
+		  		  <if test="igGoodsSn != null and igGoodsSn != ''"> and ig_goods_sn = #{igGoodsSn} </if>
+		  		  <if test="igGoodsTag != null and igGoodsTag != ''"> and ig_goods_tag = #{igGoodsTag} </if>
+		  		  <if test="igLimitCount != null and igLimitCount != ''"> and ig_limit_count = #{igLimitCount} </if>
+		  		  <if test="igLimitType != null and igLimitType != ''"> and ig_limit_type = #{igLimitType} </if>
+		  		  <if test="igRecommend != null and igRecommend != ''"> and ig_recommend = #{igRecommend} </if>
+		  		  <if test="igSeoDescription != null and igSeoDescription != ''"> and ig_seo_description = #{igSeoDescription} </if>
+		  		  <if test="igSeoKeywords != null and igSeoKeywords != ''"> and ig_seo_keywords = #{igSeoKeywords} </if>
+		  		  <if test="igSequence != null and igSequence != ''"> and ig_sequence = #{igSequence} </if>
+		  		  <if test="igShow != null and igShow != ''"> and ig_show = #{igShow} </if>
+		  		  <if test="igTimeType != null and igTimeType != ''"> and ig_time_type = #{igTimeType} </if>
+		  		  <if test="igTransfee != null and igTransfee != ''"> and ig_transfee = #{igTransfee} </if>
+		  		  <if test="igTransfeeType != null and igTransfeeType != ''"> and ig_transfee_type = #{igTransfeeType} </if>
+		  		  <if test="igGoodsImgId != null and igGoodsImgId != ''"> and ig_goods_img_id = #{igGoodsImgId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.IntegralGoodsDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_integral_goods
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`ig_begin_time`, 
+			`ig_click_count`, 
+			`ig_content`, 
+			`ig_end_time`, 
+			`ig_exchange_count`, 
+			`ig_goods_count`, 
+			`ig_goods_integral`, 
+			`ig_goods_name`, 
+			`ig_goods_price`, 
+			`ig_goods_sn`, 
+			`ig_goods_tag`, 
+			`ig_limit_count`, 
+			`ig_limit_type`, 
+			`ig_recommend`, 
+			`ig_seo_description`, 
+			`ig_seo_keywords`, 
+			`ig_sequence`, 
+			`ig_show`, 
+			`ig_time_type`, 
+			`ig_transfee`, 
+			`ig_transfee_type`, 
+			`ig_goods_img_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{igBeginTime}, 
+			#{igClickCount}, 
+			#{igContent}, 
+			#{igEndTime}, 
+			#{igExchangeCount}, 
+			#{igGoodsCount}, 
+			#{igGoodsIntegral}, 
+			#{igGoodsName}, 
+			#{igGoodsPrice}, 
+			#{igGoodsSn}, 
+			#{igGoodsTag}, 
+			#{igLimitCount}, 
+			#{igLimitType}, 
+			#{igRecommend}, 
+			#{igSeoDescription}, 
+			#{igSeoKeywords}, 
+			#{igSequence}, 
+			#{igShow}, 
+			#{igTimeType}, 
+			#{igTransfee}, 
+			#{igTransfeeType}, 
+			#{igGoodsImgId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.IntegralGoodsDO">
+		update wemall_integral_goods 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="igBeginTime != null">`ig_begin_time` = #{igBeginTime}, </if>
+			<if test="igClickCount != null">`ig_click_count` = #{igClickCount}, </if>
+			<if test="igContent != null">`ig_content` = #{igContent}, </if>
+			<if test="igEndTime != null">`ig_end_time` = #{igEndTime}, </if>
+			<if test="igExchangeCount != null">`ig_exchange_count` = #{igExchangeCount}, </if>
+			<if test="igGoodsCount != null">`ig_goods_count` = #{igGoodsCount}, </if>
+			<if test="igGoodsIntegral != null">`ig_goods_integral` = #{igGoodsIntegral}, </if>
+			<if test="igGoodsName != null">`ig_goods_name` = #{igGoodsName}, </if>
+			<if test="igGoodsPrice != null">`ig_goods_price` = #{igGoodsPrice}, </if>
+			<if test="igGoodsSn != null">`ig_goods_sn` = #{igGoodsSn}, </if>
+			<if test="igGoodsTag != null">`ig_goods_tag` = #{igGoodsTag}, </if>
+			<if test="igLimitCount != null">`ig_limit_count` = #{igLimitCount}, </if>
+			<if test="igLimitType != null">`ig_limit_type` = #{igLimitType}, </if>
+			<if test="igRecommend != null">`ig_recommend` = #{igRecommend}, </if>
+			<if test="igSeoDescription != null">`ig_seo_description` = #{igSeoDescription}, </if>
+			<if test="igSeoKeywords != null">`ig_seo_keywords` = #{igSeoKeywords}, </if>
+			<if test="igSequence != null">`ig_sequence` = #{igSequence}, </if>
+			<if test="igShow != null">`ig_show` = #{igShow}, </if>
+			<if test="igTimeType != null">`ig_time_type` = #{igTimeType}, </if>
+			<if test="igTransfee != null">`ig_transfee` = #{igTransfee}, </if>
+			<if test="igTransfeeType != null">`ig_transfee_type` = #{igTransfeeType}, </if>
+			<if test="igGoodsImgId != null">`ig_goods_img_id` = #{igGoodsImgId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_integral_goods where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_integral_goods where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

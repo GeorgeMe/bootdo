@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodstypeDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodstypeDO">
+		select `id`,`addTime`,`deleteStatus`,`name`,`sequence` from wemall_goodstype where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodstypeDO">
+		select `id`,`addTime`,`deleteStatus`,`name`,`sequence` from wemall_goodstype
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goodstype
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodstypeDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_goodstype
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`name`, 
+			`sequence`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{name}, 
+			#{sequence}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodstypeDO">
+		update wemall_goodstype 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goodstype where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goodstype where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

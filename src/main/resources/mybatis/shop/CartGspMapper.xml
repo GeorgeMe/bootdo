@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.CartGspDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.CartGspDO">
+		select `cart_id`,`gsp_id` from wemall_cart_gsp where cart_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.CartGspDO">
+		select `cart_id`,`gsp_id` from wemall_cart_gsp
+        <where>  
+		  		  <if test="cartId != null and cartId != ''"> and cart_id = #{cartId} </if>
+		  		  <if test="gspId != null and gspId != ''"> and gsp_id = #{gspId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_cart_gsp
+		 <where>  
+		  		  <if test="cartId != null and cartId != ''"> and cart_id = #{cartId} </if>
+		  		  <if test="gspId != null and gspId != ''"> and gsp_id = #{gspId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.CartGspDO">
+		insert into wemall_cart_gsp
+		(
+			`cart_id`, 
+			`gsp_id`
+		)
+		values
+		(
+			#{cartId}, 
+			#{gspId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.CartGspDO">
+		update wemall_cart_gsp 
+		<set>
+			<if test="gspId != null">`gsp_id` = #{gspId}</if>
+		</set>
+		where cart_id = #{cartId}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_cart_gsp where cart_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_cart_gsp where cart_id in 
+		<foreach item="cartId" collection="array" open="(" separator="," close=")">
+			#{cartId}
+		</foreach>
+	</delete>
+
+</mapper>

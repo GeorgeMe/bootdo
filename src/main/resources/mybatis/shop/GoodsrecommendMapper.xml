@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodsrecommendDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodsrecommendDO">
+		select `id`,`addTime`,`deleteStatus`,`browseNum`,`code`,`goodsNum`,`imageHeight`,`imageWidth`,`remarkInfo`,`sequence`,`showNum`,`styleName`,`typeName` from wemall_goodsrecommend where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodsrecommendDO">
+		select `id`,`addTime`,`deleteStatus`,`browseNum`,`code`,`goodsNum`,`imageHeight`,`imageWidth`,`remarkInfo`,`sequence`,`showNum`,`styleName`,`typeName` from wemall_goodsrecommend
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="browsenum != null and browsenum != ''"> and browseNum = #{browsenum} </if>
+		  		  <if test="code != null and code != ''"> and code = #{code} </if>
+		  		  <if test="goodsnum != null and goodsnum != ''"> and goodsNum = #{goodsnum} </if>
+		  		  <if test="imageheight != null and imageheight != ''"> and imageHeight = #{imageheight} </if>
+		  		  <if test="imagewidth != null and imagewidth != ''"> and imageWidth = #{imagewidth} </if>
+		  		  <if test="remarkinfo != null and remarkinfo != ''"> and remarkInfo = #{remarkinfo} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="shownum != null and shownum != ''"> and showNum = #{shownum} </if>
+		  		  <if test="stylename != null and stylename != ''"> and styleName = #{stylename} </if>
+		  		  <if test="typename != null and typename != ''"> and typeName = #{typename} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goodsrecommend
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="browsenum != null and browsenum != ''"> and browseNum = #{browsenum} </if>
+		  		  <if test="code != null and code != ''"> and code = #{code} </if>
+		  		  <if test="goodsnum != null and goodsnum != ''"> and goodsNum = #{goodsnum} </if>
+		  		  <if test="imageheight != null and imageheight != ''"> and imageHeight = #{imageheight} </if>
+		  		  <if test="imagewidth != null and imagewidth != ''"> and imageWidth = #{imagewidth} </if>
+		  		  <if test="remarkinfo != null and remarkinfo != ''"> and remarkInfo = #{remarkinfo} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="shownum != null and shownum != ''"> and showNum = #{shownum} </if>
+		  		  <if test="stylename != null and stylename != ''"> and styleName = #{stylename} </if>
+		  		  <if test="typename != null and typename != ''"> and typeName = #{typename} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodsrecommendDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_goodsrecommend
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`browseNum`, 
+			`code`, 
+			`goodsNum`, 
+			`imageHeight`, 
+			`imageWidth`, 
+			`remarkInfo`, 
+			`sequence`, 
+			`showNum`, 
+			`styleName`, 
+			`typeName`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{browsenum}, 
+			#{code}, 
+			#{goodsnum}, 
+			#{imageheight}, 
+			#{imagewidth}, 
+			#{remarkinfo}, 
+			#{sequence}, 
+			#{shownum}, 
+			#{stylename}, 
+			#{typename}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodsrecommendDO">
+		update wemall_goodsrecommend 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="browsenum != null">`browseNum` = #{browsenum}, </if>
+			<if test="code != null">`code` = #{code}, </if>
+			<if test="goodsnum != null">`goodsNum` = #{goodsnum}, </if>
+			<if test="imageheight != null">`imageHeight` = #{imageheight}, </if>
+			<if test="imagewidth != null">`imageWidth` = #{imagewidth}, </if>
+			<if test="remarkinfo != null">`remarkInfo` = #{remarkinfo}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}, </if>
+			<if test="shownum != null">`showNum` = #{shownum}, </if>
+			<if test="stylename != null">`styleName` = #{stylename}, </if>
+			<if test="typename != null">`typeName` = #{typename}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goodsrecommend where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goodsrecommend where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

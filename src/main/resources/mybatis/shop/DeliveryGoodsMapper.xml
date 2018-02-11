@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.DeliveryGoodsDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.DeliveryGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`d_status`,`d_admin_user_id`,`d_delivery_goods_id`,`d_goods_id`,`d_begin_time`,`d_end_time`,`d_audit_time`,`d_refuse_time` from wemall_delivery_goods where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.DeliveryGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`d_status`,`d_admin_user_id`,`d_delivery_goods_id`,`d_goods_id`,`d_begin_time`,`d_end_time`,`d_audit_time`,`d_refuse_time` from wemall_delivery_goods
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="dStatus != null and dStatus != ''"> and d_status = #{dStatus} </if>
+		  		  <if test="dAdminUserId != null and dAdminUserId != ''"> and d_admin_user_id = #{dAdminUserId} </if>
+		  		  <if test="dDeliveryGoodsId != null and dDeliveryGoodsId != ''"> and d_delivery_goods_id = #{dDeliveryGoodsId} </if>
+		  		  <if test="dGoodsId != null and dGoodsId != ''"> and d_goods_id = #{dGoodsId} </if>
+		  		  <if test="dBeginTime != null and dBeginTime != ''"> and d_begin_time = #{dBeginTime} </if>
+		  		  <if test="dEndTime != null and dEndTime != ''"> and d_end_time = #{dEndTime} </if>
+		  		  <if test="dAuditTime != null and dAuditTime != ''"> and d_audit_time = #{dAuditTime} </if>
+		  		  <if test="dRefuseTime != null and dRefuseTime != ''"> and d_refuse_time = #{dRefuseTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_delivery_goods
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="dStatus != null and dStatus != ''"> and d_status = #{dStatus} </if>
+		  		  <if test="dAdminUserId != null and dAdminUserId != ''"> and d_admin_user_id = #{dAdminUserId} </if>
+		  		  <if test="dDeliveryGoodsId != null and dDeliveryGoodsId != ''"> and d_delivery_goods_id = #{dDeliveryGoodsId} </if>
+		  		  <if test="dGoodsId != null and dGoodsId != ''"> and d_goods_id = #{dGoodsId} </if>
+		  		  <if test="dBeginTime != null and dBeginTime != ''"> and d_begin_time = #{dBeginTime} </if>
+		  		  <if test="dEndTime != null and dEndTime != ''"> and d_end_time = #{dEndTime} </if>
+		  		  <if test="dAuditTime != null and dAuditTime != ''"> and d_audit_time = #{dAuditTime} </if>
+		  		  <if test="dRefuseTime != null and dRefuseTime != ''"> and d_refuse_time = #{dRefuseTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.DeliveryGoodsDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_delivery_goods
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`d_status`, 
+			`d_admin_user_id`, 
+			`d_delivery_goods_id`, 
+			`d_goods_id`, 
+			`d_begin_time`, 
+			`d_end_time`, 
+			`d_audit_time`, 
+			`d_refuse_time`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{dStatus}, 
+			#{dAdminUserId}, 
+			#{dDeliveryGoodsId}, 
+			#{dGoodsId}, 
+			#{dBeginTime}, 
+			#{dEndTime}, 
+			#{dAuditTime}, 
+			#{dRefuseTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.DeliveryGoodsDO">
+		update wemall_delivery_goods 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="dStatus != null">`d_status` = #{dStatus}, </if>
+			<if test="dAdminUserId != null">`d_admin_user_id` = #{dAdminUserId}, </if>
+			<if test="dDeliveryGoodsId != null">`d_delivery_goods_id` = #{dDeliveryGoodsId}, </if>
+			<if test="dGoodsId != null">`d_goods_id` = #{dGoodsId}, </if>
+			<if test="dBeginTime != null">`d_begin_time` = #{dBeginTime}, </if>
+			<if test="dEndTime != null">`d_end_time` = #{dEndTime}, </if>
+			<if test="dAuditTime != null">`d_audit_time` = #{dAuditTime}, </if>
+			<if test="dRefuseTime != null">`d_refuse_time` = #{dRefuseTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_delivery_goods where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_delivery_goods where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

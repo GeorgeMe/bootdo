@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.ShippingDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.ShippingDO">
+		select `id`,`addTime`,`deleteStatus`,`sequence`,`shipping_add_fee`,`shipping_add_weight`,`shipping_fee`,`shipping_info`,`shipping_name`,`shipping_weight`,`status`,`store_id` from wemall_shipping where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.ShippingDO">
+		select `id`,`addTime`,`deleteStatus`,`sequence`,`shipping_add_fee`,`shipping_add_weight`,`shipping_fee`,`shipping_info`,`shipping_name`,`shipping_weight`,`status`,`store_id` from wemall_shipping
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="shippingAddFee != null and shippingAddFee != ''"> and shipping_add_fee = #{shippingAddFee} </if>
+		  		  <if test="shippingAddWeight != null and shippingAddWeight != ''"> and shipping_add_weight = #{shippingAddWeight} </if>
+		  		  <if test="shippingFee != null and shippingFee != ''"> and shipping_fee = #{shippingFee} </if>
+		  		  <if test="shippingInfo != null and shippingInfo != ''"> and shipping_info = #{shippingInfo} </if>
+		  		  <if test="shippingName != null and shippingName != ''"> and shipping_name = #{shippingName} </if>
+		  		  <if test="shippingWeight != null and shippingWeight != ''"> and shipping_weight = #{shippingWeight} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_shipping
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="shippingAddFee != null and shippingAddFee != ''"> and shipping_add_fee = #{shippingAddFee} </if>
+		  		  <if test="shippingAddWeight != null and shippingAddWeight != ''"> and shipping_add_weight = #{shippingAddWeight} </if>
+		  		  <if test="shippingFee != null and shippingFee != ''"> and shipping_fee = #{shippingFee} </if>
+		  		  <if test="shippingInfo != null and shippingInfo != ''"> and shipping_info = #{shippingInfo} </if>
+		  		  <if test="shippingName != null and shippingName != ''"> and shipping_name = #{shippingName} </if>
+		  		  <if test="shippingWeight != null and shippingWeight != ''"> and shipping_weight = #{shippingWeight} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.ShippingDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_shipping
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`sequence`, 
+			`shipping_add_fee`, 
+			`shipping_add_weight`, 
+			`shipping_fee`, 
+			`shipping_info`, 
+			`shipping_name`, 
+			`shipping_weight`, 
+			`status`, 
+			`store_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{sequence}, 
+			#{shippingAddFee}, 
+			#{shippingAddWeight}, 
+			#{shippingFee}, 
+			#{shippingInfo}, 
+			#{shippingName}, 
+			#{shippingWeight}, 
+			#{status}, 
+			#{storeId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.ShippingDO">
+		update wemall_shipping 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}, </if>
+			<if test="shippingAddFee != null">`shipping_add_fee` = #{shippingAddFee}, </if>
+			<if test="shippingAddWeight != null">`shipping_add_weight` = #{shippingAddWeight}, </if>
+			<if test="shippingFee != null">`shipping_fee` = #{shippingFee}, </if>
+			<if test="shippingInfo != null">`shipping_info` = #{shippingInfo}, </if>
+			<if test="shippingName != null">`shipping_name` = #{shippingName}, </if>
+			<if test="shippingWeight != null">`shipping_weight` = #{shippingWeight}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_shipping where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_shipping where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

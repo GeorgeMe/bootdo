@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${deliveryGoods.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${deliveryGoods.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${deliveryGoods.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">d_status：</label>
+								<div class="col-sm-8">
+									<input id="dStatus" name="dStatus" th:value="${deliveryGoods.dStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">d_admin_user_id：</label>
+								<div class="col-sm-8">
+									<input id="dAdminUserId" name="dAdminUserId" th:value="${deliveryGoods.dAdminUserId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">d_delivery_goods_id：</label>
+								<div class="col-sm-8">
+									<input id="dDeliveryGoodsId" name="dDeliveryGoodsId" th:value="${deliveryGoods.dDeliveryGoodsId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">d_goods_id：</label>
+								<div class="col-sm-8">
+									<input id="dGoodsId" name="dGoodsId" th:value="${deliveryGoods.dGoodsId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">d_begin_time：</label>
+								<div class="col-sm-8">
+									<input id="dBeginTime" name="dBeginTime" th:value="${deliveryGoods.dBeginTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">d_end_time：</label>
+								<div class="col-sm-8">
+									<input id="dEndTime" name="dEndTime" th:value="${deliveryGoods.dEndTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">d_audit_time：</label>
+								<div class="col-sm-8">
+									<input id="dAuditTime" name="dAuditTime" th:value="${deliveryGoods.dAuditTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">d_refuse_time：</label>
+								<div class="col-sm-8">
+									<input id="dRefuseTime" name="dRefuseTime" th:value="${deliveryGoods.dRefuseTime}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/deliveryGoods/edit.js">
+	</script>
+</body>
+</html>

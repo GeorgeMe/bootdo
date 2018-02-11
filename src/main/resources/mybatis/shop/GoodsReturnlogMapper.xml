@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodsReturnlogDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodsReturnlogDO">
+		select `id`,`addTime`,`deleteStatus`,`gr_id`,`of_id`,`return_user_id` from wemall_goods_returnlog where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodsReturnlogDO">
+		select `id`,`addTime`,`deleteStatus`,`gr_id`,`of_id`,`return_user_id` from wemall_goods_returnlog
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="grId != null and grId != ''"> and gr_id = #{grId} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		  <if test="returnUserId != null and returnUserId != ''"> and return_user_id = #{returnUserId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goods_returnlog
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="grId != null and grId != ''"> and gr_id = #{grId} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		  <if test="returnUserId != null and returnUserId != ''"> and return_user_id = #{returnUserId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodsReturnlogDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_goods_returnlog
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`gr_id`, 
+			`of_id`, 
+			`return_user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{grId}, 
+			#{ofId}, 
+			#{returnUserId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodsReturnlogDO">
+		update wemall_goods_returnlog 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="grId != null">`gr_id` = #{grId}, </if>
+			<if test="ofId != null">`of_id` = #{ofId}, </if>
+			<if test="returnUserId != null">`return_user_id` = #{returnUserId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goods_returnlog where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goods_returnlog where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

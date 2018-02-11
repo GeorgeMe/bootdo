@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.PredepositLogDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.PredepositLogDO">
+		select `id`,`addTime`,`deleteStatus`,`pd_log_amount`,`pd_log_info`,`pd_op_type`,`pd_type`,`pd_log_admin_id`,`pd_log_user_id`,`predeposit_id` from wemall_predeposit_log where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.PredepositLogDO">
+		select `id`,`addTime`,`deleteStatus`,`pd_log_amount`,`pd_log_info`,`pd_op_type`,`pd_type`,`pd_log_admin_id`,`pd_log_user_id`,`predeposit_id` from wemall_predeposit_log
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="pdLogAmount != null and pdLogAmount != ''"> and pd_log_amount = #{pdLogAmount} </if>
+		  		  <if test="pdLogInfo != null and pdLogInfo != ''"> and pd_log_info = #{pdLogInfo} </if>
+		  		  <if test="pdOpType != null and pdOpType != ''"> and pd_op_type = #{pdOpType} </if>
+		  		  <if test="pdType != null and pdType != ''"> and pd_type = #{pdType} </if>
+		  		  <if test="pdLogAdminId != null and pdLogAdminId != ''"> and pd_log_admin_id = #{pdLogAdminId} </if>
+		  		  <if test="pdLogUserId != null and pdLogUserId != ''"> and pd_log_user_id = #{pdLogUserId} </if>
+		  		  <if test="predepositId != null and predepositId != ''"> and predeposit_id = #{predepositId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_predeposit_log
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="pdLogAmount != null and pdLogAmount != ''"> and pd_log_amount = #{pdLogAmount} </if>
+		  		  <if test="pdLogInfo != null and pdLogInfo != ''"> and pd_log_info = #{pdLogInfo} </if>
+		  		  <if test="pdOpType != null and pdOpType != ''"> and pd_op_type = #{pdOpType} </if>
+		  		  <if test="pdType != null and pdType != ''"> and pd_type = #{pdType} </if>
+		  		  <if test="pdLogAdminId != null and pdLogAdminId != ''"> and pd_log_admin_id = #{pdLogAdminId} </if>
+		  		  <if test="pdLogUserId != null and pdLogUserId != ''"> and pd_log_user_id = #{pdLogUserId} </if>
+		  		  <if test="predepositId != null and predepositId != ''"> and predeposit_id = #{predepositId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.PredepositLogDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_predeposit_log
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`pd_log_amount`, 
+			`pd_log_info`, 
+			`pd_op_type`, 
+			`pd_type`, 
+			`pd_log_admin_id`, 
+			`pd_log_user_id`, 
+			`predeposit_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{pdLogAmount}, 
+			#{pdLogInfo}, 
+			#{pdOpType}, 
+			#{pdType}, 
+			#{pdLogAdminId}, 
+			#{pdLogUserId}, 
+			#{predepositId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.PredepositLogDO">
+		update wemall_predeposit_log 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="pdLogAmount != null">`pd_log_amount` = #{pdLogAmount}, </if>
+			<if test="pdLogInfo != null">`pd_log_info` = #{pdLogInfo}, </if>
+			<if test="pdOpType != null">`pd_op_type` = #{pdOpType}, </if>
+			<if test="pdType != null">`pd_type` = #{pdType}, </if>
+			<if test="pdLogAdminId != null">`pd_log_admin_id` = #{pdLogAdminId}, </if>
+			<if test="pdLogUserId != null">`pd_log_user_id` = #{pdLogUserId}, </if>
+			<if test="predepositId != null">`predeposit_id` = #{predepositId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_predeposit_log where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_predeposit_log where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.NavigationDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.NavigationDO">
+		select `id`,`addTime`,`deleteStatus`,`display`,`location`,`new_win`,`sequence`,`sysNav`,`title`,`type`,`type_id`,`url`,`original_url` from wemall_navigation where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.NavigationDO">
+		select `id`,`addTime`,`deleteStatus`,`display`,`location`,`new_win`,`sequence`,`sysNav`,`title`,`type`,`type_id`,`url`,`original_url` from wemall_navigation
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="display != null and display != ''"> and display = #{display} </if>
+		  		  <if test="location != null and location != ''"> and location = #{location} </if>
+		  		  <if test="newWin != null and newWin != ''"> and new_win = #{newWin} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="sysnav != null and sysnav != ''"> and sysNav = #{sysnav} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="typeId != null and typeId != ''"> and type_id = #{typeId} </if>
+		  		  <if test="url != null and url != ''"> and url = #{url} </if>
+		  		  <if test="originalUrl != null and originalUrl != ''"> and original_url = #{originalUrl} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_navigation
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="display != null and display != ''"> and display = #{display} </if>
+		  		  <if test="location != null and location != ''"> and location = #{location} </if>
+		  		  <if test="newWin != null and newWin != ''"> and new_win = #{newWin} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="sysnav != null and sysnav != ''"> and sysNav = #{sysnav} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="typeId != null and typeId != ''"> and type_id = #{typeId} </if>
+		  		  <if test="url != null and url != ''"> and url = #{url} </if>
+		  		  <if test="originalUrl != null and originalUrl != ''"> and original_url = #{originalUrl} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.NavigationDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_navigation
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`display`, 
+			`location`, 
+			`new_win`, 
+			`sequence`, 
+			`sysNav`, 
+			`title`, 
+			`type`, 
+			`type_id`, 
+			`url`, 
+			`original_url`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{display}, 
+			#{location}, 
+			#{newWin}, 
+			#{sequence}, 
+			#{sysnav}, 
+			#{title}, 
+			#{type}, 
+			#{typeId}, 
+			#{url}, 
+			#{originalUrl}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.NavigationDO">
+		update wemall_navigation 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="display != null">`display` = #{display}, </if>
+			<if test="location != null">`location` = #{location}, </if>
+			<if test="newWin != null">`new_win` = #{newWin}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}, </if>
+			<if test="sysnav != null">`sysNav` = #{sysnav}, </if>
+			<if test="title != null">`title` = #{title}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="typeId != null">`type_id` = #{typeId}, </if>
+			<if test="url != null">`url` = #{url}, </if>
+			<if test="originalUrl != null">`original_url` = #{originalUrl}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_navigation where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_navigation where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.BargainGoodsDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.BargainGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`bg_price`,`bg_status`,`bg_time`,`bg_admin_user_id`,`bg_goods_id`,`bg_count`,`bg_rebate`,`audit_time` from wemall_bargain_goods where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.BargainGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`bg_price`,`bg_status`,`bg_time`,`bg_admin_user_id`,`bg_goods_id`,`bg_count`,`bg_rebate`,`audit_time` from wemall_bargain_goods
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="bgPrice != null and bgPrice != ''"> and bg_price = #{bgPrice} </if>
+		  		  <if test="bgStatus != null and bgStatus != ''"> and bg_status = #{bgStatus} </if>
+		  		  <if test="bgTime != null and bgTime != ''"> and bg_time = #{bgTime} </if>
+		  		  <if test="bgAdminUserId != null and bgAdminUserId != ''"> and bg_admin_user_id = #{bgAdminUserId} </if>
+		  		  <if test="bgGoodsId != null and bgGoodsId != ''"> and bg_goods_id = #{bgGoodsId} </if>
+		  		  <if test="bgCount != null and bgCount != ''"> and bg_count = #{bgCount} </if>
+		  		  <if test="bgRebate != null and bgRebate != ''"> and bg_rebate = #{bgRebate} </if>
+		  		  <if test="auditTime != null and auditTime != ''"> and audit_time = #{auditTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_bargain_goods
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="bgPrice != null and bgPrice != ''"> and bg_price = #{bgPrice} </if>
+		  		  <if test="bgStatus != null and bgStatus != ''"> and bg_status = #{bgStatus} </if>
+		  		  <if test="bgTime != null and bgTime != ''"> and bg_time = #{bgTime} </if>
+		  		  <if test="bgAdminUserId != null and bgAdminUserId != ''"> and bg_admin_user_id = #{bgAdminUserId} </if>
+		  		  <if test="bgGoodsId != null and bgGoodsId != ''"> and bg_goods_id = #{bgGoodsId} </if>
+		  		  <if test="bgCount != null and bgCount != ''"> and bg_count = #{bgCount} </if>
+		  		  <if test="bgRebate != null and bgRebate != ''"> and bg_rebate = #{bgRebate} </if>
+		  		  <if test="auditTime != null and auditTime != ''"> and audit_time = #{auditTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.BargainGoodsDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_bargain_goods
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`bg_price`, 
+			`bg_status`, 
+			`bg_time`, 
+			`bg_admin_user_id`, 
+			`bg_goods_id`, 
+			`bg_count`, 
+			`bg_rebate`, 
+			`audit_time`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{bgPrice}, 
+			#{bgStatus}, 
+			#{bgTime}, 
+			#{bgAdminUserId}, 
+			#{bgGoodsId}, 
+			#{bgCount}, 
+			#{bgRebate}, 
+			#{auditTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.BargainGoodsDO">
+		update wemall_bargain_goods 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="bgPrice != null">`bg_price` = #{bgPrice}, </if>
+			<if test="bgStatus != null">`bg_status` = #{bgStatus}, </if>
+			<if test="bgTime != null">`bg_time` = #{bgTime}, </if>
+			<if test="bgAdminUserId != null">`bg_admin_user_id` = #{bgAdminUserId}, </if>
+			<if test="bgGoodsId != null">`bg_goods_id` = #{bgGoodsId}, </if>
+			<if test="bgCount != null">`bg_count` = #{bgCount}, </if>
+			<if test="bgRebate != null">`bg_rebate` = #{bgRebate}, </if>
+			<if test="auditTime != null">`audit_time` = #{auditTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_bargain_goods where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_bargain_goods where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

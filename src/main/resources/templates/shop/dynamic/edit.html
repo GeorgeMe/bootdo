@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${dynamic.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${dynamic.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${dynamic.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">content：</label>
+								<div class="col-sm-8">
+									<input id="content" name="content" th:value="${dynamic.content}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">discussNum：</label>
+								<div class="col-sm-8">
+									<input id="discussnum" name="discussnum" th:value="${dynamic.discussnum}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">praiseNum：</label>
+								<div class="col-sm-8">
+									<input id="praisenum" name="praisenum" th:value="${dynamic.praisenum}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">turnNum：</label>
+								<div class="col-sm-8">
+									<input id="turnnum" name="turnnum" th:value="${dynamic.turnnum}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">dissParent_id：</label>
+								<div class="col-sm-8">
+									<input id="dissparentId" name="dissparentId" th:value="${dynamic.dissparentId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_id：</label>
+								<div class="col-sm-8">
+									<input id="goodsId" name="goodsId" th:value="${dynamic.goodsId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">turnParent_id：</label>
+								<div class="col-sm-8">
+									<input id="turnparentId" name="turnparentId" th:value="${dynamic.turnparentId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">user_id：</label>
+								<div class="col-sm-8">
+									<input id="userId" name="userId" th:value="${dynamic.userId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">locked：</label>
+								<div class="col-sm-8">
+									<input id="locked" name="locked" th:value="${dynamic.locked}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">img_id：</label>
+								<div class="col-sm-8">
+									<input id="imgId" name="imgId" th:value="${dynamic.imgId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_id：</label>
+								<div class="col-sm-8">
+									<input id="storeId" name="storeId" th:value="${dynamic.storeId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">display：</label>
+								<div class="col-sm-8">
+									<input id="display" name="display" th:value="${dynamic.display}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/dynamic/edit.js">
+	</script>
+</body>
+</html>

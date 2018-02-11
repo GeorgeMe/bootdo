@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${spareGoods.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${spareGoods.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${spareGoods.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">contact：</label>
+								<div class="col-sm-8">
+									<input id="contact" name="contact" th:value="${spareGoods.contact}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">content：</label>
+								<div class="col-sm-8">
+									<input id="content" name="content" th:value="${spareGoods.content}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">errorMessage：</label>
+								<div class="col-sm-8">
+									<input id="errormessage" name="errormessage" th:value="${spareGoods.errormessage}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_old_price：</label>
+								<div class="col-sm-8">
+									<input id="goodsOldPrice" name="goodsOldPrice" th:value="${spareGoods.goodsOldPrice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_price：</label>
+								<div class="col-sm-8">
+									<input id="goodsPrice" name="goodsPrice" th:value="${spareGoods.goodsPrice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">name：</label>
+								<div class="col-sm-8">
+									<input id="name" name="name" th:value="${spareGoods.name}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">oldAndnew：</label>
+								<div class="col-sm-8">
+									<input id="oldandnew" name="oldandnew" th:value="${spareGoods.oldandnew}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sellMethod：</label>
+								<div class="col-sm-8">
+									<input id="sellmethod" name="sellmethod" th:value="${spareGoods.sellmethod}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">seodescribe：</label>
+								<div class="col-sm-8">
+									<input id="seodescribe" name="seodescribe" th:value="${spareGoods.seodescribe}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">seokeyword：</label>
+								<div class="col-sm-8">
+									<input id="seokeyword" name="seokeyword" th:value="${spareGoods.seokeyword}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">status：</label>
+								<div class="col-sm-8">
+									<input id="status" name="status" th:value="${spareGoods.status}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">title：</label>
+								<div class="col-sm-8">
+									<input id="title" name="title" th:value="${spareGoods.title}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">area_id：</label>
+								<div class="col-sm-8">
+									<input id="areaId" name="areaId" th:value="${spareGoods.areaId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">img_id：</label>
+								<div class="col-sm-8">
+									<input id="imgId" name="imgId" th:value="${spareGoods.imgId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">spareGoodsClass_id：</label>
+								<div class="col-sm-8">
+									<input id="sparegoodsclassId" name="sparegoodsclassId" th:value="${spareGoods.sparegoodsclassId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">user_id：</label>
+								<div class="col-sm-8">
+									<input id="userId" name="userId" th:value="${spareGoods.userId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">phone：</label>
+								<div class="col-sm-8">
+									<input id="phone" name="phone" th:value="${spareGoods.phone}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">img1_id：</label>
+								<div class="col-sm-8">
+									<input id="img1Id" name="img1Id" th:value="${spareGoods.img1Id}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">img2_id：</label>
+								<div class="col-sm-8">
+									<input id="img2Id" name="img2Id" th:value="${spareGoods.img2Id}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">img3_id：</label>
+								<div class="col-sm-8">
+									<input id="img3Id" name="img3Id" th:value="${spareGoods.img3Id}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">img4_id：</label>
+								<div class="col-sm-8">
+									<input id="img4Id" name="img4Id" th:value="${spareGoods.img4Id}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">main_img_id：</label>
+								<div class="col-sm-8">
+									<input id="mainImgId" name="mainImgId" th:value="${spareGoods.mainImgId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">img5_id：</label>
+								<div class="col-sm-8">
+									<input id="img5Id" name="img5Id" th:value="${spareGoods.img5Id}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">viewInFloor：</label>
+								<div class="col-sm-8">
+									<input id="viewinfloor" name="viewinfloor" th:value="${spareGoods.viewinfloor}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sgf_id：</label>
+								<div class="col-sm-8">
+									<input id="sgfId" name="sgfId" th:value="${spareGoods.sgfId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">QQ：</label>
+								<div class="col-sm-8">
+									<input id="qq" name="qq" th:value="${spareGoods.qq}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">recommend：</label>
+								<div class="col-sm-8">
+									<input id="recommend" name="recommend" th:value="${spareGoods.recommend}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">down：</label>
+								<div class="col-sm-8">
+									<input id="down" name="down" th:value="${spareGoods.down}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/spareGoods/edit.js">
+	</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${goodsFloor.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${goodsFloor.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${goodsFloor.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_css：</label>
+								<div class="col-sm-8">
+									<input id="gfCss" name="gfCss" th:value="${goodsFloor.gfCss}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_display：</label>
+								<div class="col-sm-8">
+									<input id="gfDisplay" name="gfDisplay" th:value="${goodsFloor.gfDisplay}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_goods_count：</label>
+								<div class="col-sm-8">
+									<input id="gfGoodsCount" name="gfGoodsCount" th:value="${goodsFloor.gfGoodsCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_level：</label>
+								<div class="col-sm-8">
+									<input id="gfLevel" name="gfLevel" th:value="${goodsFloor.gfLevel}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_name：</label>
+								<div class="col-sm-8">
+									<input id="gfName" name="gfName" th:value="${goodsFloor.gfName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_sequence：</label>
+								<div class="col-sm-8">
+									<input id="gfSequence" name="gfSequence" th:value="${goodsFloor.gfSequence}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">parent_id：</label>
+								<div class="col-sm-8">
+									<input id="parentId" name="parentId" th:value="${goodsFloor.parentId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_gc_goods：</label>
+								<div class="col-sm-8">
+									<input id="gfGcGoods" name="gfGcGoods" th:value="${goodsFloor.gfGcGoods}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_gc_list：</label>
+								<div class="col-sm-8">
+									<input id="gfGcList" name="gfGcList" th:value="${goodsFloor.gfGcList}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_left_adv：</label>
+								<div class="col-sm-8">
+									<input id="gfLeftAdv" name="gfLeftAdv" th:value="${goodsFloor.gfLeftAdv}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_list_goods：</label>
+								<div class="col-sm-8">
+									<input id="gfListGoods" name="gfListGoods" th:value="${goodsFloor.gfListGoods}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_right_adv：</label>
+								<div class="col-sm-8">
+									<input id="gfRightAdv" name="gfRightAdv" th:value="${goodsFloor.gfRightAdv}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gf_brand_list：</label>
+								<div class="col-sm-8">
+									<input id="gfBrandList" name="gfBrandList" th:value="${goodsFloor.gfBrandList}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/goodsFloor/edit.js">
+	</script>
+</body>
+</html>

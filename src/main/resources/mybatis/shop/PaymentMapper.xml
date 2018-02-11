@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.PaymentDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.PaymentDO">
+		select `id`,`addTime`,`deleteStatus`,`chinabank_account`,`chinabank_key`,`content`,`install`,`interfaceType`,`mark`,`merchantAcctId`,`name`,`partner`,`pid`,`rmbKey`,`safeKey`,`seller_email`,`spname`,`tenpay_key`,`tenpay_partner`,`trade_mode`,`type`,`store_id`,`alipay_divide_rate`,`alipay_rate`,`balance_divide_rate`,`currency_code`,`paypal_userId`,`poundage`,`lzbank_key`,`lzbank_partner`,`lzbank_trade_mode`,`weixin_appId`,`weixin_appSecret`,`weixin_partnerId`,`weixin_partnerKey`,`weixin_paySignKey` from wemall_payment where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.PaymentDO">
+		select `id`,`addTime`,`deleteStatus`,`chinabank_account`,`chinabank_key`,`content`,`install`,`interfaceType`,`mark`,`merchantAcctId`,`name`,`partner`,`pid`,`rmbKey`,`safeKey`,`seller_email`,`spname`,`tenpay_key`,`tenpay_partner`,`trade_mode`,`type`,`store_id`,`alipay_divide_rate`,`alipay_rate`,`balance_divide_rate`,`currency_code`,`paypal_userId`,`poundage`,`lzbank_key`,`lzbank_partner`,`lzbank_trade_mode`,`weixin_appId`,`weixin_appSecret`,`weixin_partnerId`,`weixin_partnerKey`,`weixin_paySignKey` from wemall_payment
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="chinabankAccount != null and chinabankAccount != ''"> and chinabank_account = #{chinabankAccount} </if>
+		  		  <if test="chinabankKey != null and chinabankKey != ''"> and chinabank_key = #{chinabankKey} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="install != null and install != ''"> and install = #{install} </if>
+		  		  <if test="interfacetype != null and interfacetype != ''"> and interfaceType = #{interfacetype} </if>
+		  		  <if test="mark != null and mark != ''"> and mark = #{mark} </if>
+		  		  <if test="merchantacctid != null and merchantacctid != ''"> and merchantAcctId = #{merchantacctid} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="partner != null and partner != ''"> and partner = #{partner} </if>
+		  		  <if test="pid != null and pid != ''"> and pid = #{pid} </if>
+		  		  <if test="rmbkey != null and rmbkey != ''"> and rmbKey = #{rmbkey} </if>
+		  		  <if test="safekey != null and safekey != ''"> and safeKey = #{safekey} </if>
+		  		  <if test="sellerEmail != null and sellerEmail != ''"> and seller_email = #{sellerEmail} </if>
+		  		  <if test="spname != null and spname != ''"> and spname = #{spname} </if>
+		  		  <if test="tenpayKey != null and tenpayKey != ''"> and tenpay_key = #{tenpayKey} </if>
+		  		  <if test="tenpayPartner != null and tenpayPartner != ''"> and tenpay_partner = #{tenpayPartner} </if>
+		  		  <if test="tradeMode != null and tradeMode != ''"> and trade_mode = #{tradeMode} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="alipayDivideRate != null and alipayDivideRate != ''"> and alipay_divide_rate = #{alipayDivideRate} </if>
+		  		  <if test="alipayRate != null and alipayRate != ''"> and alipay_rate = #{alipayRate} </if>
+		  		  <if test="balanceDivideRate != null and balanceDivideRate != ''"> and balance_divide_rate = #{balanceDivideRate} </if>
+		  		  <if test="currencyCode != null and currencyCode != ''"> and currency_code = #{currencyCode} </if>
+		  		  <if test="paypalUserid != null and paypalUserid != ''"> and paypal_userId = #{paypalUserid} </if>
+		  		  <if test="poundage != null and poundage != ''"> and poundage = #{poundage} </if>
+		  		  <if test="lzbankKey != null and lzbankKey != ''"> and lzbank_key = #{lzbankKey} </if>
+		  		  <if test="lzbankPartner != null and lzbankPartner != ''"> and lzbank_partner = #{lzbankPartner} </if>
+		  		  <if test="lzbankTradeMode != null and lzbankTradeMode != ''"> and lzbank_trade_mode = #{lzbankTradeMode} </if>
+		  		  <if test="weixinAppid != null and weixinAppid != ''"> and weixin_appId = #{weixinAppid} </if>
+		  		  <if test="weixinAppsecret != null and weixinAppsecret != ''"> and weixin_appSecret = #{weixinAppsecret} </if>
+		  		  <if test="weixinPartnerid != null and weixinPartnerid != ''"> and weixin_partnerId = #{weixinPartnerid} </if>
+		  		  <if test="weixinPartnerkey != null and weixinPartnerkey != ''"> and weixin_partnerKey = #{weixinPartnerkey} </if>
+		  		  <if test="weixinPaysignkey != null and weixinPaysignkey != ''"> and weixin_paySignKey = #{weixinPaysignkey} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_payment
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="chinabankAccount != null and chinabankAccount != ''"> and chinabank_account = #{chinabankAccount} </if>
+		  		  <if test="chinabankKey != null and chinabankKey != ''"> and chinabank_key = #{chinabankKey} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="install != null and install != ''"> and install = #{install} </if>
+		  		  <if test="interfacetype != null and interfacetype != ''"> and interfaceType = #{interfacetype} </if>
+		  		  <if test="mark != null and mark != ''"> and mark = #{mark} </if>
+		  		  <if test="merchantacctid != null and merchantacctid != ''"> and merchantAcctId = #{merchantacctid} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="partner != null and partner != ''"> and partner = #{partner} </if>
+		  		  <if test="pid != null and pid != ''"> and pid = #{pid} </if>
+		  		  <if test="rmbkey != null and rmbkey != ''"> and rmbKey = #{rmbkey} </if>
+		  		  <if test="safekey != null and safekey != ''"> and safeKey = #{safekey} </if>
+		  		  <if test="sellerEmail != null and sellerEmail != ''"> and seller_email = #{sellerEmail} </if>
+		  		  <if test="spname != null and spname != ''"> and spname = #{spname} </if>
+		  		  <if test="tenpayKey != null and tenpayKey != ''"> and tenpay_key = #{tenpayKey} </if>
+		  		  <if test="tenpayPartner != null and tenpayPartner != ''"> and tenpay_partner = #{tenpayPartner} </if>
+		  		  <if test="tradeMode != null and tradeMode != ''"> and trade_mode = #{tradeMode} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="alipayDivideRate != null and alipayDivideRate != ''"> and alipay_divide_rate = #{alipayDivideRate} </if>
+		  		  <if test="alipayRate != null and alipayRate != ''"> and alipay_rate = #{alipayRate} </if>
+		  		  <if test="balanceDivideRate != null and balanceDivideRate != ''"> and balance_divide_rate = #{balanceDivideRate} </if>
+		  		  <if test="currencyCode != null and currencyCode != ''"> and currency_code = #{currencyCode} </if>
+		  		  <if test="paypalUserid != null and paypalUserid != ''"> and paypal_userId = #{paypalUserid} </if>
+		  		  <if test="poundage != null and poundage != ''"> and poundage = #{poundage} </if>
+		  		  <if test="lzbankKey != null and lzbankKey != ''"> and lzbank_key = #{lzbankKey} </if>
+		  		  <if test="lzbankPartner != null and lzbankPartner != ''"> and lzbank_partner = #{lzbankPartner} </if>
+		  		  <if test="lzbankTradeMode != null and lzbankTradeMode != ''"> and lzbank_trade_mode = #{lzbankTradeMode} </if>
+		  		  <if test="weixinAppid != null and weixinAppid != ''"> and weixin_appId = #{weixinAppid} </if>
+		  		  <if test="weixinAppsecret != null and weixinAppsecret != ''"> and weixin_appSecret = #{weixinAppsecret} </if>
+		  		  <if test="weixinPartnerid != null and weixinPartnerid != ''"> and weixin_partnerId = #{weixinPartnerid} </if>
+		  		  <if test="weixinPartnerkey != null and weixinPartnerkey != ''"> and weixin_partnerKey = #{weixinPartnerkey} </if>
+		  		  <if test="weixinPaysignkey != null and weixinPaysignkey != ''"> and weixin_paySignKey = #{weixinPaysignkey} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.PaymentDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_payment
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`chinabank_account`, 
+			`chinabank_key`, 
+			`content`, 
+			`install`, 
+			`interfaceType`, 
+			`mark`, 
+			`merchantAcctId`, 
+			`name`, 
+			`partner`, 
+			`pid`, 
+			`rmbKey`, 
+			`safeKey`, 
+			`seller_email`, 
+			`spname`, 
+			`tenpay_key`, 
+			`tenpay_partner`, 
+			`trade_mode`, 
+			`type`, 
+			`store_id`, 
+			`alipay_divide_rate`, 
+			`alipay_rate`, 
+			`balance_divide_rate`, 
+			`currency_code`, 
+			`paypal_userId`, 
+			`poundage`, 
+			`lzbank_key`, 
+			`lzbank_partner`, 
+			`lzbank_trade_mode`, 
+			`weixin_appId`, 
+			`weixin_appSecret`, 
+			`weixin_partnerId`, 
+			`weixin_partnerKey`, 
+			`weixin_paySignKey`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{chinabankAccount}, 
+			#{chinabankKey}, 
+			#{content}, 
+			#{install}, 
+			#{interfacetype}, 
+			#{mark}, 
+			#{merchantacctid}, 
+			#{name}, 
+			#{partner}, 
+			#{pid}, 
+			#{rmbkey}, 
+			#{safekey}, 
+			#{sellerEmail}, 
+			#{spname}, 
+			#{tenpayKey}, 
+			#{tenpayPartner}, 
+			#{tradeMode}, 
+			#{type}, 
+			#{storeId}, 
+			#{alipayDivideRate}, 
+			#{alipayRate}, 
+			#{balanceDivideRate}, 
+			#{currencyCode}, 
+			#{paypalUserid}, 
+			#{poundage}, 
+			#{lzbankKey}, 
+			#{lzbankPartner}, 
+			#{lzbankTradeMode}, 
+			#{weixinAppid}, 
+			#{weixinAppsecret}, 
+			#{weixinPartnerid}, 
+			#{weixinPartnerkey}, 
+			#{weixinPaysignkey}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.PaymentDO">
+		update wemall_payment 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="chinabankAccount != null">`chinabank_account` = #{chinabankAccount}, </if>
+			<if test="chinabankKey != null">`chinabank_key` = #{chinabankKey}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="install != null">`install` = #{install}, </if>
+			<if test="interfacetype != null">`interfaceType` = #{interfacetype}, </if>
+			<if test="mark != null">`mark` = #{mark}, </if>
+			<if test="merchantacctid != null">`merchantAcctId` = #{merchantacctid}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="partner != null">`partner` = #{partner}, </if>
+			<if test="pid != null">`pid` = #{pid}, </if>
+			<if test="rmbkey != null">`rmbKey` = #{rmbkey}, </if>
+			<if test="safekey != null">`safeKey` = #{safekey}, </if>
+			<if test="sellerEmail != null">`seller_email` = #{sellerEmail}, </if>
+			<if test="spname != null">`spname` = #{spname}, </if>
+			<if test="tenpayKey != null">`tenpay_key` = #{tenpayKey}, </if>
+			<if test="tenpayPartner != null">`tenpay_partner` = #{tenpayPartner}, </if>
+			<if test="tradeMode != null">`trade_mode` = #{tradeMode}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}, </if>
+			<if test="alipayDivideRate != null">`alipay_divide_rate` = #{alipayDivideRate}, </if>
+			<if test="alipayRate != null">`alipay_rate` = #{alipayRate}, </if>
+			<if test="balanceDivideRate != null">`balance_divide_rate` = #{balanceDivideRate}, </if>
+			<if test="currencyCode != null">`currency_code` = #{currencyCode}, </if>
+			<if test="paypalUserid != null">`paypal_userId` = #{paypalUserid}, </if>
+			<if test="poundage != null">`poundage` = #{poundage}, </if>
+			<if test="lzbankKey != null">`lzbank_key` = #{lzbankKey}, </if>
+			<if test="lzbankPartner != null">`lzbank_partner` = #{lzbankPartner}, </if>
+			<if test="lzbankTradeMode != null">`lzbank_trade_mode` = #{lzbankTradeMode}, </if>
+			<if test="weixinAppid != null">`weixin_appId` = #{weixinAppid}, </if>
+			<if test="weixinAppsecret != null">`weixin_appSecret` = #{weixinAppsecret}, </if>
+			<if test="weixinPartnerid != null">`weixin_partnerId` = #{weixinPartnerid}, </if>
+			<if test="weixinPartnerkey != null">`weixin_partnerKey` = #{weixinPartnerkey}, </if>
+			<if test="weixinPaysignkey != null">`weixin_paySignKey` = #{weixinPaysignkey}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_payment where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_payment where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

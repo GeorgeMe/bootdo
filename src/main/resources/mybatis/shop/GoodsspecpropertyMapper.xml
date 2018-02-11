@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodsspecpropertyDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodsspecpropertyDO">
+		select `id`,`addTime`,`deleteStatus`,`sequence`,`value`,`spec_id`,`specImage_id` from wemall_goodsspecproperty where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodsspecpropertyDO">
+		select `id`,`addTime`,`deleteStatus`,`sequence`,`value`,`spec_id`,`specImage_id` from wemall_goodsspecproperty
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="value != null and value != ''"> and value = #{value} </if>
+		  		  <if test="specId != null and specId != ''"> and spec_id = #{specId} </if>
+		  		  <if test="specimageId != null and specimageId != ''"> and specImage_id = #{specimageId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goodsspecproperty
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="value != null and value != ''"> and value = #{value} </if>
+		  		  <if test="specId != null and specId != ''"> and spec_id = #{specId} </if>
+		  		  <if test="specimageId != null and specimageId != ''"> and specImage_id = #{specimageId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodsspecpropertyDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_goodsspecproperty
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`sequence`, 
+			`value`, 
+			`spec_id`, 
+			`specImage_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{sequence}, 
+			#{value}, 
+			#{specId}, 
+			#{specimageId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodsspecpropertyDO">
+		update wemall_goodsspecproperty 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}, </if>
+			<if test="value != null">`value` = #{value}, </if>
+			<if test="specId != null">`spec_id` = #{specId}, </if>
+			<if test="specimageId != null">`specImage_id` = #{specimageId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goodsspecproperty where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goodsspecproperty where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

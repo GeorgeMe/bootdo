@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.AlbumDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.AlbumDO">
+		select `id`,`addTime`,`deleteStatus`,`alblum_info`,`album_default`,`album_name`,`album_sequence`,`album_cover_id`,`user_id` from wemall_album where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.AlbumDO">
+		select `id`,`addTime`,`deleteStatus`,`alblum_info`,`album_default`,`album_name`,`album_sequence`,`album_cover_id`,`user_id` from wemall_album
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="alblumInfo != null and alblumInfo != ''"> and alblum_info = #{alblumInfo} </if>
+		  		  <if test="albumDefault != null and albumDefault != ''"> and album_default = #{albumDefault} </if>
+		  		  <if test="albumName != null and albumName != ''"> and album_name = #{albumName} </if>
+		  		  <if test="albumSequence != null and albumSequence != ''"> and album_sequence = #{albumSequence} </if>
+		  		  <if test="albumCoverId != null and albumCoverId != ''"> and album_cover_id = #{albumCoverId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_album
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="alblumInfo != null and alblumInfo != ''"> and alblum_info = #{alblumInfo} </if>
+		  		  <if test="albumDefault != null and albumDefault != ''"> and album_default = #{albumDefault} </if>
+		  		  <if test="albumName != null and albumName != ''"> and album_name = #{albumName} </if>
+		  		  <if test="albumSequence != null and albumSequence != ''"> and album_sequence = #{albumSequence} </if>
+		  		  <if test="albumCoverId != null and albumCoverId != ''"> and album_cover_id = #{albumCoverId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.AlbumDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_album
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`alblum_info`, 
+			`album_default`, 
+			`album_name`, 
+			`album_sequence`, 
+			`album_cover_id`, 
+			`user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{alblumInfo}, 
+			#{albumDefault}, 
+			#{albumName}, 
+			#{albumSequence}, 
+			#{albumCoverId}, 
+			#{userId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.AlbumDO">
+		update wemall_album 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="alblumInfo != null">`alblum_info` = #{alblumInfo}, </if>
+			<if test="albumDefault != null">`album_default` = #{albumDefault}, </if>
+			<if test="albumName != null">`album_name` = #{albumName}, </if>
+			<if test="albumSequence != null">`album_sequence` = #{albumSequence}, </if>
+			<if test="albumCoverId != null">`album_cover_id` = #{albumCoverId}, </if>
+			<if test="userId != null">`user_id` = #{userId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_album where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_album where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

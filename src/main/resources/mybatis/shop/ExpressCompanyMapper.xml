@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.ExpressCompanyDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.ExpressCompanyDO">
+		select `id`,`addTime`,`deleteStatus`,`company_mark`,`company_name`,`company_status`,`company_sequence`,`company_type` from wemall_express_company where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.ExpressCompanyDO">
+		select `id`,`addTime`,`deleteStatus`,`company_mark`,`company_name`,`company_status`,`company_sequence`,`company_type` from wemall_express_company
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="companyMark != null and companyMark != ''"> and company_mark = #{companyMark} </if>
+		  		  <if test="companyName != null and companyName != ''"> and company_name = #{companyName} </if>
+		  		  <if test="companyStatus != null and companyStatus != ''"> and company_status = #{companyStatus} </if>
+		  		  <if test="companySequence != null and companySequence != ''"> and company_sequence = #{companySequence} </if>
+		  		  <if test="companyType != null and companyType != ''"> and company_type = #{companyType} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_express_company
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="companyMark != null and companyMark != ''"> and company_mark = #{companyMark} </if>
+		  		  <if test="companyName != null and companyName != ''"> and company_name = #{companyName} </if>
+		  		  <if test="companyStatus != null and companyStatus != ''"> and company_status = #{companyStatus} </if>
+		  		  <if test="companySequence != null and companySequence != ''"> and company_sequence = #{companySequence} </if>
+		  		  <if test="companyType != null and companyType != ''"> and company_type = #{companyType} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.ExpressCompanyDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_express_company
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`company_mark`, 
+			`company_name`, 
+			`company_status`, 
+			`company_sequence`, 
+			`company_type`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{companyMark}, 
+			#{companyName}, 
+			#{companyStatus}, 
+			#{companySequence}, 
+			#{companyType}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.ExpressCompanyDO">
+		update wemall_express_company 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="companyMark != null">`company_mark` = #{companyMark}, </if>
+			<if test="companyName != null">`company_name` = #{companyName}, </if>
+			<if test="companyStatus != null">`company_status` = #{companyStatus}, </if>
+			<if test="companySequence != null">`company_sequence` = #{companySequence}, </if>
+			<if test="companyType != null">`company_type` = #{companyType}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_express_company where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_express_company where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

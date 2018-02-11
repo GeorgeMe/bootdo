@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.StorecartDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.StorecartDO">
+		select `id`,`addTime`,`deleteStatus`,`cart_session_id`,`total_price`,`store_id`,`user_id`,`sc_status` from wemall_storecart where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.StorecartDO">
+		select `id`,`addTime`,`deleteStatus`,`cart_session_id`,`total_price`,`store_id`,`user_id`,`sc_status` from wemall_storecart
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="cartSessionId != null and cartSessionId != ''"> and cart_session_id = #{cartSessionId} </if>
+		  		  <if test="totalPrice != null and totalPrice != ''"> and total_price = #{totalPrice} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="scStatus != null and scStatus != ''"> and sc_status = #{scStatus} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_storecart
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="cartSessionId != null and cartSessionId != ''"> and cart_session_id = #{cartSessionId} </if>
+		  		  <if test="totalPrice != null and totalPrice != ''"> and total_price = #{totalPrice} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="scStatus != null and scStatus != ''"> and sc_status = #{scStatus} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.StorecartDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_storecart
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`cart_session_id`, 
+			`total_price`, 
+			`store_id`, 
+			`user_id`, 
+			`sc_status`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{cartSessionId}, 
+			#{totalPrice}, 
+			#{storeId}, 
+			#{userId}, 
+			#{scStatus}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.StorecartDO">
+		update wemall_storecart 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="cartSessionId != null">`cart_session_id` = #{cartSessionId}, </if>
+			<if test="totalPrice != null">`total_price` = #{totalPrice}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="scStatus != null">`sc_status` = #{scStatus}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_storecart where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_storecart where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

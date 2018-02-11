@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.CouponInfoDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.CouponInfoDO">
+		select `id`,`addTime`,`deleteStatus`,`coupon_sn`,`status`,`coupon_id`,`user_id` from wemall_coupon_info where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.CouponInfoDO">
+		select `id`,`addTime`,`deleteStatus`,`coupon_sn`,`status`,`coupon_id`,`user_id` from wemall_coupon_info
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="couponSn != null and couponSn != ''"> and coupon_sn = #{couponSn} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="couponId != null and couponId != ''"> and coupon_id = #{couponId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_coupon_info
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="couponSn != null and couponSn != ''"> and coupon_sn = #{couponSn} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="couponId != null and couponId != ''"> and coupon_id = #{couponId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.CouponInfoDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_coupon_info
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`coupon_sn`, 
+			`status`, 
+			`coupon_id`, 
+			`user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{couponSn}, 
+			#{status}, 
+			#{couponId}, 
+			#{userId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.CouponInfoDO">
+		update wemall_coupon_info 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="couponSn != null">`coupon_sn` = #{couponSn}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="couponId != null">`coupon_id` = #{couponId}, </if>
+			<if test="userId != null">`user_id` = #{userId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_coupon_info where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_coupon_info where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

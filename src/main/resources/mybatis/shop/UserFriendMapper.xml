@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.UserFriendDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.UserFriendDO">
+		select `id`,`addTime`,`deleteStatus`,`fromUser_id`,`toUser_id` from wemall_user_friend where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.UserFriendDO">
+		select `id`,`addTime`,`deleteStatus`,`fromUser_id`,`toUser_id` from wemall_user_friend
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="fromuserId != null and fromuserId != ''"> and fromUser_id = #{fromuserId} </if>
+		  		  <if test="touserId != null and touserId != ''"> and toUser_id = #{touserId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_user_friend
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="fromuserId != null and fromuserId != ''"> and fromUser_id = #{fromuserId} </if>
+		  		  <if test="touserId != null and touserId != ''"> and toUser_id = #{touserId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.UserFriendDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_user_friend
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`fromUser_id`, 
+			`toUser_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{fromuserId}, 
+			#{touserId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.UserFriendDO">
+		update wemall_user_friend 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="fromuserId != null">`fromUser_id` = #{fromuserId}, </if>
+			<if test="touserId != null">`toUser_id` = #{touserId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_user_friend where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_user_friend where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

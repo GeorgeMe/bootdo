@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.StorePointDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.StorePointDO">
+		select `id`,`addTime`,`deleteStatus`,`description_evaluate`,`description_evaluate_halfyear`,`description_evaluate_halfyear_count1`,`description_evaluate_halfyear_count2`,`description_evaluate_halfyear_count3`,`description_evaluate_halfyear_count4`,`description_evaluate_halfyear_count5`,`service_evaluate`,`service_evaluate_halfyear`,`service_evaluate_halfyear_count1`,`service_evaluate_halfyear_count2`,`service_evaluate_halfyear_count3`,`service_evaluate_halfyear_count4`,`service_evaluate_halfyear_count5`,`ship_evaluate`,`ship_evaluate_halfyear`,`ship_evaluate_halfyear_count1`,`ship_evaluate_halfyear_count2`,`ship_evaluate_halfyear_count3`,`ship_evaluate_halfyear_count4`,`ship_evaluate_halfyear_count5`,`store_evaluate1`,`store_id`,`statTime` from wemall_store_point where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.StorePointDO">
+		select `id`,`addTime`,`deleteStatus`,`description_evaluate`,`description_evaluate_halfyear`,`description_evaluate_halfyear_count1`,`description_evaluate_halfyear_count2`,`description_evaluate_halfyear_count3`,`description_evaluate_halfyear_count4`,`description_evaluate_halfyear_count5`,`service_evaluate`,`service_evaluate_halfyear`,`service_evaluate_halfyear_count1`,`service_evaluate_halfyear_count2`,`service_evaluate_halfyear_count3`,`service_evaluate_halfyear_count4`,`service_evaluate_halfyear_count5`,`ship_evaluate`,`ship_evaluate_halfyear`,`ship_evaluate_halfyear_count1`,`ship_evaluate_halfyear_count2`,`ship_evaluate_halfyear_count3`,`ship_evaluate_halfyear_count4`,`ship_evaluate_halfyear_count5`,`store_evaluate1`,`store_id`,`statTime` from wemall_store_point
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="descriptionEvaluate != null and descriptionEvaluate != ''"> and description_evaluate = #{descriptionEvaluate} </if>
+		  		  <if test="descriptionEvaluateHalfyear != null and descriptionEvaluateHalfyear != ''"> and description_evaluate_halfyear = #{descriptionEvaluateHalfyear} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount1 != null and descriptionEvaluateHalfyearCount1 != ''"> and description_evaluate_halfyear_count1 = #{descriptionEvaluateHalfyearCount1} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount2 != null and descriptionEvaluateHalfyearCount2 != ''"> and description_evaluate_halfyear_count2 = #{descriptionEvaluateHalfyearCount2} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount3 != null and descriptionEvaluateHalfyearCount3 != ''"> and description_evaluate_halfyear_count3 = #{descriptionEvaluateHalfyearCount3} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount4 != null and descriptionEvaluateHalfyearCount4 != ''"> and description_evaluate_halfyear_count4 = #{descriptionEvaluateHalfyearCount4} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount5 != null and descriptionEvaluateHalfyearCount5 != ''"> and description_evaluate_halfyear_count5 = #{descriptionEvaluateHalfyearCount5} </if>
+		  		  <if test="serviceEvaluate != null and serviceEvaluate != ''"> and service_evaluate = #{serviceEvaluate} </if>
+		  		  <if test="serviceEvaluateHalfyear != null and serviceEvaluateHalfyear != ''"> and service_evaluate_halfyear = #{serviceEvaluateHalfyear} </if>
+		  		  <if test="serviceEvaluateHalfyearCount1 != null and serviceEvaluateHalfyearCount1 != ''"> and service_evaluate_halfyear_count1 = #{serviceEvaluateHalfyearCount1} </if>
+		  		  <if test="serviceEvaluateHalfyearCount2 != null and serviceEvaluateHalfyearCount2 != ''"> and service_evaluate_halfyear_count2 = #{serviceEvaluateHalfyearCount2} </if>
+		  		  <if test="serviceEvaluateHalfyearCount3 != null and serviceEvaluateHalfyearCount3 != ''"> and service_evaluate_halfyear_count3 = #{serviceEvaluateHalfyearCount3} </if>
+		  		  <if test="serviceEvaluateHalfyearCount4 != null and serviceEvaluateHalfyearCount4 != ''"> and service_evaluate_halfyear_count4 = #{serviceEvaluateHalfyearCount4} </if>
+		  		  <if test="serviceEvaluateHalfyearCount5 != null and serviceEvaluateHalfyearCount5 != ''"> and service_evaluate_halfyear_count5 = #{serviceEvaluateHalfyearCount5} </if>
+		  		  <if test="shipEvaluate != null and shipEvaluate != ''"> and ship_evaluate = #{shipEvaluate} </if>
+		  		  <if test="shipEvaluateHalfyear != null and shipEvaluateHalfyear != ''"> and ship_evaluate_halfyear = #{shipEvaluateHalfyear} </if>
+		  		  <if test="shipEvaluateHalfyearCount1 != null and shipEvaluateHalfyearCount1 != ''"> and ship_evaluate_halfyear_count1 = #{shipEvaluateHalfyearCount1} </if>
+		  		  <if test="shipEvaluateHalfyearCount2 != null and shipEvaluateHalfyearCount2 != ''"> and ship_evaluate_halfyear_count2 = #{shipEvaluateHalfyearCount2} </if>
+		  		  <if test="shipEvaluateHalfyearCount3 != null and shipEvaluateHalfyearCount3 != ''"> and ship_evaluate_halfyear_count3 = #{shipEvaluateHalfyearCount3} </if>
+		  		  <if test="shipEvaluateHalfyearCount4 != null and shipEvaluateHalfyearCount4 != ''"> and ship_evaluate_halfyear_count4 = #{shipEvaluateHalfyearCount4} </if>
+		  		  <if test="shipEvaluateHalfyearCount5 != null and shipEvaluateHalfyearCount5 != ''"> and ship_evaluate_halfyear_count5 = #{shipEvaluateHalfyearCount5} </if>
+		  		  <if test="storeEvaluate1 != null and storeEvaluate1 != ''"> and store_evaluate1 = #{storeEvaluate1} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="stattime != null and stattime != ''"> and statTime = #{stattime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_store_point
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="descriptionEvaluate != null and descriptionEvaluate != ''"> and description_evaluate = #{descriptionEvaluate} </if>
+		  		  <if test="descriptionEvaluateHalfyear != null and descriptionEvaluateHalfyear != ''"> and description_evaluate_halfyear = #{descriptionEvaluateHalfyear} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount1 != null and descriptionEvaluateHalfyearCount1 != ''"> and description_evaluate_halfyear_count1 = #{descriptionEvaluateHalfyearCount1} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount2 != null and descriptionEvaluateHalfyearCount2 != ''"> and description_evaluate_halfyear_count2 = #{descriptionEvaluateHalfyearCount2} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount3 != null and descriptionEvaluateHalfyearCount3 != ''"> and description_evaluate_halfyear_count3 = #{descriptionEvaluateHalfyearCount3} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount4 != null and descriptionEvaluateHalfyearCount4 != ''"> and description_evaluate_halfyear_count4 = #{descriptionEvaluateHalfyearCount4} </if>
+		  		  <if test="descriptionEvaluateHalfyearCount5 != null and descriptionEvaluateHalfyearCount5 != ''"> and description_evaluate_halfyear_count5 = #{descriptionEvaluateHalfyearCount5} </if>
+		  		  <if test="serviceEvaluate != null and serviceEvaluate != ''"> and service_evaluate = #{serviceEvaluate} </if>
+		  		  <if test="serviceEvaluateHalfyear != null and serviceEvaluateHalfyear != ''"> and service_evaluate_halfyear = #{serviceEvaluateHalfyear} </if>
+		  		  <if test="serviceEvaluateHalfyearCount1 != null and serviceEvaluateHalfyearCount1 != ''"> and service_evaluate_halfyear_count1 = #{serviceEvaluateHalfyearCount1} </if>
+		  		  <if test="serviceEvaluateHalfyearCount2 != null and serviceEvaluateHalfyearCount2 != ''"> and service_evaluate_halfyear_count2 = #{serviceEvaluateHalfyearCount2} </if>
+		  		  <if test="serviceEvaluateHalfyearCount3 != null and serviceEvaluateHalfyearCount3 != ''"> and service_evaluate_halfyear_count3 = #{serviceEvaluateHalfyearCount3} </if>
+		  		  <if test="serviceEvaluateHalfyearCount4 != null and serviceEvaluateHalfyearCount4 != ''"> and service_evaluate_halfyear_count4 = #{serviceEvaluateHalfyearCount4} </if>
+		  		  <if test="serviceEvaluateHalfyearCount5 != null and serviceEvaluateHalfyearCount5 != ''"> and service_evaluate_halfyear_count5 = #{serviceEvaluateHalfyearCount5} </if>
+		  		  <if test="shipEvaluate != null and shipEvaluate != ''"> and ship_evaluate = #{shipEvaluate} </if>
+		  		  <if test="shipEvaluateHalfyear != null and shipEvaluateHalfyear != ''"> and ship_evaluate_halfyear = #{shipEvaluateHalfyear} </if>
+		  		  <if test="shipEvaluateHalfyearCount1 != null and shipEvaluateHalfyearCount1 != ''"> and ship_evaluate_halfyear_count1 = #{shipEvaluateHalfyearCount1} </if>
+		  		  <if test="shipEvaluateHalfyearCount2 != null and shipEvaluateHalfyearCount2 != ''"> and ship_evaluate_halfyear_count2 = #{shipEvaluateHalfyearCount2} </if>
+		  		  <if test="shipEvaluateHalfyearCount3 != null and shipEvaluateHalfyearCount3 != ''"> and ship_evaluate_halfyear_count3 = #{shipEvaluateHalfyearCount3} </if>
+		  		  <if test="shipEvaluateHalfyearCount4 != null and shipEvaluateHalfyearCount4 != ''"> and ship_evaluate_halfyear_count4 = #{shipEvaluateHalfyearCount4} </if>
+		  		  <if test="shipEvaluateHalfyearCount5 != null and shipEvaluateHalfyearCount5 != ''"> and ship_evaluate_halfyear_count5 = #{shipEvaluateHalfyearCount5} </if>
+		  		  <if test="storeEvaluate1 != null and storeEvaluate1 != ''"> and store_evaluate1 = #{storeEvaluate1} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="stattime != null and stattime != ''"> and statTime = #{stattime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.StorePointDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_store_point
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`description_evaluate`, 
+			`description_evaluate_halfyear`, 
+			`description_evaluate_halfyear_count1`, 
+			`description_evaluate_halfyear_count2`, 
+			`description_evaluate_halfyear_count3`, 
+			`description_evaluate_halfyear_count4`, 
+			`description_evaluate_halfyear_count5`, 
+			`service_evaluate`, 
+			`service_evaluate_halfyear`, 
+			`service_evaluate_halfyear_count1`, 
+			`service_evaluate_halfyear_count2`, 
+			`service_evaluate_halfyear_count3`, 
+			`service_evaluate_halfyear_count4`, 
+			`service_evaluate_halfyear_count5`, 
+			`ship_evaluate`, 
+			`ship_evaluate_halfyear`, 
+			`ship_evaluate_halfyear_count1`, 
+			`ship_evaluate_halfyear_count2`, 
+			`ship_evaluate_halfyear_count3`, 
+			`ship_evaluate_halfyear_count4`, 
+			`ship_evaluate_halfyear_count5`, 
+			`store_evaluate1`, 
+			`store_id`, 
+			`statTime`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{descriptionEvaluate}, 
+			#{descriptionEvaluateHalfyear}, 
+			#{descriptionEvaluateHalfyearCount1}, 
+			#{descriptionEvaluateHalfyearCount2}, 
+			#{descriptionEvaluateHalfyearCount3}, 
+			#{descriptionEvaluateHalfyearCount4}, 
+			#{descriptionEvaluateHalfyearCount5}, 
+			#{serviceEvaluate}, 
+			#{serviceEvaluateHalfyear}, 
+			#{serviceEvaluateHalfyearCount1}, 
+			#{serviceEvaluateHalfyearCount2}, 
+			#{serviceEvaluateHalfyearCount3}, 
+			#{serviceEvaluateHalfyearCount4}, 
+			#{serviceEvaluateHalfyearCount5}, 
+			#{shipEvaluate}, 
+			#{shipEvaluateHalfyear}, 
+			#{shipEvaluateHalfyearCount1}, 
+			#{shipEvaluateHalfyearCount2}, 
+			#{shipEvaluateHalfyearCount3}, 
+			#{shipEvaluateHalfyearCount4}, 
+			#{shipEvaluateHalfyearCount5}, 
+			#{storeEvaluate1}, 
+			#{storeId}, 
+			#{stattime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.StorePointDO">
+		update wemall_store_point 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="descriptionEvaluate != null">`description_evaluate` = #{descriptionEvaluate}, </if>
+			<if test="descriptionEvaluateHalfyear != null">`description_evaluate_halfyear` = #{descriptionEvaluateHalfyear}, </if>
+			<if test="descriptionEvaluateHalfyearCount1 != null">`description_evaluate_halfyear_count1` = #{descriptionEvaluateHalfyearCount1}, </if>
+			<if test="descriptionEvaluateHalfyearCount2 != null">`description_evaluate_halfyear_count2` = #{descriptionEvaluateHalfyearCount2}, </if>
+			<if test="descriptionEvaluateHalfyearCount3 != null">`description_evaluate_halfyear_count3` = #{descriptionEvaluateHalfyearCount3}, </if>
+			<if test="descriptionEvaluateHalfyearCount4 != null">`description_evaluate_halfyear_count4` = #{descriptionEvaluateHalfyearCount4}, </if>
+			<if test="descriptionEvaluateHalfyearCount5 != null">`description_evaluate_halfyear_count5` = #{descriptionEvaluateHalfyearCount5}, </if>
+			<if test="serviceEvaluate != null">`service_evaluate` = #{serviceEvaluate}, </if>
+			<if test="serviceEvaluateHalfyear != null">`service_evaluate_halfyear` = #{serviceEvaluateHalfyear}, </if>
+			<if test="serviceEvaluateHalfyearCount1 != null">`service_evaluate_halfyear_count1` = #{serviceEvaluateHalfyearCount1}, </if>
+			<if test="serviceEvaluateHalfyearCount2 != null">`service_evaluate_halfyear_count2` = #{serviceEvaluateHalfyearCount2}, </if>
+			<if test="serviceEvaluateHalfyearCount3 != null">`service_evaluate_halfyear_count3` = #{serviceEvaluateHalfyearCount3}, </if>
+			<if test="serviceEvaluateHalfyearCount4 != null">`service_evaluate_halfyear_count4` = #{serviceEvaluateHalfyearCount4}, </if>
+			<if test="serviceEvaluateHalfyearCount5 != null">`service_evaluate_halfyear_count5` = #{serviceEvaluateHalfyearCount5}, </if>
+			<if test="shipEvaluate != null">`ship_evaluate` = #{shipEvaluate}, </if>
+			<if test="shipEvaluateHalfyear != null">`ship_evaluate_halfyear` = #{shipEvaluateHalfyear}, </if>
+			<if test="shipEvaluateHalfyearCount1 != null">`ship_evaluate_halfyear_count1` = #{shipEvaluateHalfyearCount1}, </if>
+			<if test="shipEvaluateHalfyearCount2 != null">`ship_evaluate_halfyear_count2` = #{shipEvaluateHalfyearCount2}, </if>
+			<if test="shipEvaluateHalfyearCount3 != null">`ship_evaluate_halfyear_count3` = #{shipEvaluateHalfyearCount3}, </if>
+			<if test="shipEvaluateHalfyearCount4 != null">`ship_evaluate_halfyear_count4` = #{shipEvaluateHalfyearCount4}, </if>
+			<if test="shipEvaluateHalfyearCount5 != null">`ship_evaluate_halfyear_count5` = #{shipEvaluateHalfyearCount5}, </if>
+			<if test="storeEvaluate1 != null">`store_evaluate1` = #{storeEvaluate1}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}, </if>
+			<if test="stattime != null">`statTime` = #{stattime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_store_point where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_store_point where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

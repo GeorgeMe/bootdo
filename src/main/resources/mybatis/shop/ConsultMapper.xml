@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.ConsultDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.ConsultDO">
+		select `id`,`addTime`,`deleteStatus`,`consult_content`,`consult_email`,`consult_reply`,`reply`,`reply_time`,`consult_user_id`,`goods_id`,`reply_user_id` from wemall_consult where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.ConsultDO">
+		select `id`,`addTime`,`deleteStatus`,`consult_content`,`consult_email`,`consult_reply`,`reply`,`reply_time`,`consult_user_id`,`goods_id`,`reply_user_id` from wemall_consult
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="consultContent != null and consultContent != ''"> and consult_content = #{consultContent} </if>
+		  		  <if test="consultEmail != null and consultEmail != ''"> and consult_email = #{consultEmail} </if>
+		  		  <if test="consultReply != null and consultReply != ''"> and consult_reply = #{consultReply} </if>
+		  		  <if test="reply != null and reply != ''"> and reply = #{reply} </if>
+		  		  <if test="replyTime != null and replyTime != ''"> and reply_time = #{replyTime} </if>
+		  		  <if test="consultUserId != null and consultUserId != ''"> and consult_user_id = #{consultUserId} </if>
+		  		  <if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="replyUserId != null and replyUserId != ''"> and reply_user_id = #{replyUserId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_consult
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="consultContent != null and consultContent != ''"> and consult_content = #{consultContent} </if>
+		  		  <if test="consultEmail != null and consultEmail != ''"> and consult_email = #{consultEmail} </if>
+		  		  <if test="consultReply != null and consultReply != ''"> and consult_reply = #{consultReply} </if>
+		  		  <if test="reply != null and reply != ''"> and reply = #{reply} </if>
+		  		  <if test="replyTime != null and replyTime != ''"> and reply_time = #{replyTime} </if>
+		  		  <if test="consultUserId != null and consultUserId != ''"> and consult_user_id = #{consultUserId} </if>
+		  		  <if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="replyUserId != null and replyUserId != ''"> and reply_user_id = #{replyUserId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.ConsultDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_consult
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`consult_content`, 
+			`consult_email`, 
+			`consult_reply`, 
+			`reply`, 
+			`reply_time`, 
+			`consult_user_id`, 
+			`goods_id`, 
+			`reply_user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{consultContent}, 
+			#{consultEmail}, 
+			#{consultReply}, 
+			#{reply}, 
+			#{replyTime}, 
+			#{consultUserId}, 
+			#{goodsId}, 
+			#{replyUserId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.ConsultDO">
+		update wemall_consult 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="consultContent != null">`consult_content` = #{consultContent}, </if>
+			<if test="consultEmail != null">`consult_email` = #{consultEmail}, </if>
+			<if test="consultReply != null">`consult_reply` = #{consultReply}, </if>
+			<if test="reply != null">`reply` = #{reply}, </if>
+			<if test="replyTime != null">`reply_time` = #{replyTime}, </if>
+			<if test="consultUserId != null">`consult_user_id` = #{consultUserId}, </if>
+			<if test="goodsId != null">`goods_id` = #{goodsId}, </if>
+			<if test="replyUserId != null">`reply_user_id` = #{replyUserId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_consult where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_consult where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

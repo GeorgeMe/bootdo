@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_audit_time：</label>
+								<div class="col-sm-8">
+									<input id="ggAuditTime" name="ggAuditTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_content：</label>
+								<div class="col-sm-8">
+									<input id="ggContent" name="ggContent" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_count：</label>
+								<div class="col-sm-8">
+									<input id="ggCount" name="ggCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_def_count：</label>
+								<div class="col-sm-8">
+									<input id="ggDefCount" name="ggDefCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_group_count：</label>
+								<div class="col-sm-8">
+									<input id="ggGroupCount" name="ggGroupCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_max_count：</label>
+								<div class="col-sm-8">
+									<input id="ggMaxCount" name="ggMaxCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_min_count：</label>
+								<div class="col-sm-8">
+									<input id="ggMinCount" name="ggMinCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_name：</label>
+								<div class="col-sm-8">
+									<input id="ggName" name="ggName" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_price：</label>
+								<div class="col-sm-8">
+									<input id="ggPrice" name="ggPrice" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_rebate：</label>
+								<div class="col-sm-8">
+									<input id="ggRebate" name="ggRebate" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_recommend：</label>
+								<div class="col-sm-8">
+									<input id="ggRecommend" name="ggRecommend" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_recommend_time：</label>
+								<div class="col-sm-8">
+									<input id="ggRecommendTime" name="ggRecommendTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_status：</label>
+								<div class="col-sm-8">
+									<input id="ggStatus" name="ggStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_vir_count：</label>
+								<div class="col-sm-8">
+									<input id="ggVirCount" name="ggVirCount" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_ga_id：</label>
+								<div class="col-sm-8">
+									<input id="ggGaId" name="ggGaId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_gc_id：</label>
+								<div class="col-sm-8">
+									<input id="ggGcId" name="ggGcId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_goods_id：</label>
+								<div class="col-sm-8">
+									<input id="ggGoodsId" name="ggGoodsId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gg_img_id：</label>
+								<div class="col-sm-8">
+									<input id="ggImgId" name="ggImgId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">group_id：</label>
+								<div class="col-sm-8">
+									<input id="groupId" name="groupId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_shop_recommend：</label>
+								<div class="col-sm-8">
+									<input id="weixinShopRecommend" name="weixinShopRecommend" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_shop_recommendTime：</label>
+								<div class="col-sm-8">
+									<input id="weixinShopRecommendtime" name="weixinShopRecommendtime" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/groupGoods/add.js">
+	</script>
+</body>
+</html>

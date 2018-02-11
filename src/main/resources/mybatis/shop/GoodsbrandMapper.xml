@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodsbrandDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodsbrandDO">
+		select `id`,`addTime`,`deleteStatus`,`audit`,`name`,`recommend`,`sequence`,`brandLogo_id`,`category_id`,`remark`,`userStatus`,`user_id`,`weixin_shop_recommend`,`weixin_shop_recommendTime`,`first_word` from wemall_goodsbrand where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodsbrandDO">
+		select `id`,`addTime`,`deleteStatus`,`audit`,`name`,`recommend`,`sequence`,`brandLogo_id`,`category_id`,`remark`,`userStatus`,`user_id`,`weixin_shop_recommend`,`weixin_shop_recommendTime`,`first_word` from wemall_goodsbrand
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="audit != null and audit != ''"> and audit = #{audit} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="recommend != null and recommend != ''"> and recommend = #{recommend} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="brandlogoId != null and brandlogoId != ''"> and brandLogo_id = #{brandlogoId} </if>
+		  		  <if test="categoryId != null and categoryId != ''"> and category_id = #{categoryId} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="userstatus != null and userstatus != ''"> and userStatus = #{userstatus} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="weixinShopRecommend != null and weixinShopRecommend != ''"> and weixin_shop_recommend = #{weixinShopRecommend} </if>
+		  		  <if test="weixinShopRecommendtime != null and weixinShopRecommendtime != ''"> and weixin_shop_recommendTime = #{weixinShopRecommendtime} </if>
+		  		  <if test="firstWord != null and firstWord != ''"> and first_word = #{firstWord} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goodsbrand
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="audit != null and audit != ''"> and audit = #{audit} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="recommend != null and recommend != ''"> and recommend = #{recommend} </if>
+		  		  <if test="sequence != null and sequence != ''"> and sequence = #{sequence} </if>
+		  		  <if test="brandlogoId != null and brandlogoId != ''"> and brandLogo_id = #{brandlogoId} </if>
+		  		  <if test="categoryId != null and categoryId != ''"> and category_id = #{categoryId} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="userstatus != null and userstatus != ''"> and userStatus = #{userstatus} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="weixinShopRecommend != null and weixinShopRecommend != ''"> and weixin_shop_recommend = #{weixinShopRecommend} </if>
+		  		  <if test="weixinShopRecommendtime != null and weixinShopRecommendtime != ''"> and weixin_shop_recommendTime = #{weixinShopRecommendtime} </if>
+		  		  <if test="firstWord != null and firstWord != ''"> and first_word = #{firstWord} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodsbrandDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_goodsbrand
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`audit`, 
+			`name`, 
+			`recommend`, 
+			`sequence`, 
+			`brandLogo_id`, 
+			`category_id`, 
+			`remark`, 
+			`userStatus`, 
+			`user_id`, 
+			`weixin_shop_recommend`, 
+			`weixin_shop_recommendTime`, 
+			`first_word`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{audit}, 
+			#{name}, 
+			#{recommend}, 
+			#{sequence}, 
+			#{brandlogoId}, 
+			#{categoryId}, 
+			#{remark}, 
+			#{userstatus}, 
+			#{userId}, 
+			#{weixinShopRecommend}, 
+			#{weixinShopRecommendtime}, 
+			#{firstWord}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodsbrandDO">
+		update wemall_goodsbrand 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="audit != null">`audit` = #{audit}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="recommend != null">`recommend` = #{recommend}, </if>
+			<if test="sequence != null">`sequence` = #{sequence}, </if>
+			<if test="brandlogoId != null">`brandLogo_id` = #{brandlogoId}, </if>
+			<if test="categoryId != null">`category_id` = #{categoryId}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="userstatus != null">`userStatus` = #{userstatus}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="weixinShopRecommend != null">`weixin_shop_recommend` = #{weixinShopRecommend}, </if>
+			<if test="weixinShopRecommendtime != null">`weixin_shop_recommendTime` = #{weixinShopRecommendtime}, </if>
+			<if test="firstWord != null">`first_word` = #{firstWord}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goodsbrand where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goodsbrand where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

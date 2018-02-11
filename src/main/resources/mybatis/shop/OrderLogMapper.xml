@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.OrderLogDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.OrderLogDO">
+		select `id`,`addTime`,`deleteStatus`,`log_info`,`state_info`,`log_user_id`,`of_id` from wemall_order_log where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.OrderLogDO">
+		select `id`,`addTime`,`deleteStatus`,`log_info`,`state_info`,`log_user_id`,`of_id` from wemall_order_log
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="logInfo != null and logInfo != ''"> and log_info = #{logInfo} </if>
+		  		  <if test="stateInfo != null and stateInfo != ''"> and state_info = #{stateInfo} </if>
+		  		  <if test="logUserId != null and logUserId != ''"> and log_user_id = #{logUserId} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_order_log
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="logInfo != null and logInfo != ''"> and log_info = #{logInfo} </if>
+		  		  <if test="stateInfo != null and stateInfo != ''"> and state_info = #{stateInfo} </if>
+		  		  <if test="logUserId != null and logUserId != ''"> and log_user_id = #{logUserId} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.OrderLogDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_order_log
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`log_info`, 
+			`state_info`, 
+			`log_user_id`, 
+			`of_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{logInfo}, 
+			#{stateInfo}, 
+			#{logUserId}, 
+			#{ofId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.OrderLogDO">
+		update wemall_order_log 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="logInfo != null">`log_info` = #{logInfo}, </if>
+			<if test="stateInfo != null">`state_info` = #{stateInfo}, </if>
+			<if test="logUserId != null">`log_user_id` = #{logUserId}, </if>
+			<if test="ofId != null">`of_id` = #{ofId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_order_log where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_order_log where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

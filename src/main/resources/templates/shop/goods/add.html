@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_click：</label>
+								<div class="col-sm-8">
+									<input id="goodsClick" name="goodsClick" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_details：</label>
+								<div class="col-sm-8">
+									<input id="goodsDetails" name="goodsDetails" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_fee：</label>
+								<div class="col-sm-8">
+									<input id="goodsFee" name="goodsFee" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_inventory：</label>
+								<div class="col-sm-8">
+									<input id="goodsInventory" name="goodsInventory" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_inventory_detail：</label>
+								<div class="col-sm-8">
+									<input id="goodsInventoryDetail" name="goodsInventoryDetail" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_name：</label>
+								<div class="col-sm-8">
+									<input id="goodsName" name="goodsName" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_price：</label>
+								<div class="col-sm-8">
+									<input id="goodsPrice" name="goodsPrice" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_property：</label>
+								<div class="col-sm-8">
+									<input id="goodsProperty" name="goodsProperty" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_recommend：</label>
+								<div class="col-sm-8">
+									<input id="goodsRecommend" name="goodsRecommend" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_salenum：</label>
+								<div class="col-sm-8">
+									<input id="goodsSalenum" name="goodsSalenum" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_seller_time：</label>
+								<div class="col-sm-8">
+									<input id="goodsSellerTime" name="goodsSellerTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_serial：</label>
+								<div class="col-sm-8">
+									<input id="goodsSerial" name="goodsSerial" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_status：</label>
+								<div class="col-sm-8">
+									<input id="goodsStatus" name="goodsStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_transfee：</label>
+								<div class="col-sm-8">
+									<input id="goodsTransfee" name="goodsTransfee" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_weight：</label>
+								<div class="col-sm-8">
+									<input id="goodsWeight" name="goodsWeight" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">inventory_type：</label>
+								<div class="col-sm-8">
+									<input id="inventoryType" name="inventoryType" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">seo_description：</label>
+								<div class="col-sm-8">
+									<input id="seoDescription" name="seoDescription" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">seo_keywords：</label>
+								<div class="col-sm-8">
+									<input id="seoKeywords" name="seoKeywords" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_price：</label>
+								<div class="col-sm-8">
+									<input id="storePrice" name="storePrice" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_recommend：</label>
+								<div class="col-sm-8">
+									<input id="storeRecommend" name="storeRecommend" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_recommend_time：</label>
+								<div class="col-sm-8">
+									<input id="storeRecommendTime" name="storeRecommendTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_admin_content：</label>
+								<div class="col-sm-8">
+									<input id="ztcAdminContent" name="ztcAdminContent" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_apply_time：</label>
+								<div class="col-sm-8">
+									<input id="ztcApplyTime" name="ztcApplyTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_begin_time：</label>
+								<div class="col-sm-8">
+									<input id="ztcBeginTime" name="ztcBeginTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_click_num：</label>
+								<div class="col-sm-8">
+									<input id="ztcClickNum" name="ztcClickNum" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_dredge_price：</label>
+								<div class="col-sm-8">
+									<input id="ztcDredgePrice" name="ztcDredgePrice" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_gold：</label>
+								<div class="col-sm-8">
+									<input id="ztcGold" name="ztcGold" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_pay_status：</label>
+								<div class="col-sm-8">
+									<input id="ztcPayStatus" name="ztcPayStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_price：</label>
+								<div class="col-sm-8">
+									<input id="ztcPrice" name="ztcPrice" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_status：</label>
+								<div class="col-sm-8">
+									<input id="ztcStatus" name="ztcStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gc_id：</label>
+								<div class="col-sm-8">
+									<input id="gcId" name="gcId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_brand_id：</label>
+								<div class="col-sm-8">
+									<input id="goodsBrandId" name="goodsBrandId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_main_photo_id：</label>
+								<div class="col-sm-8">
+									<input id="goodsMainPhotoId" name="goodsMainPhotoId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_store_id：</label>
+								<div class="col-sm-8">
+									<input id="goodsStoreId" name="goodsStoreId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_admin_id：</label>
+								<div class="col-sm-8">
+									<input id="ztcAdminId" name="ztcAdminId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_collect：</label>
+								<div class="col-sm-8">
+									<input id="goodsCollect" name="goodsCollect" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">group_buy：</label>
+								<div class="col-sm-8">
+									<input id="groupBuy" name="groupBuy" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_choice_type：</label>
+								<div class="col-sm-8">
+									<input id="goodsChoiceType" name="goodsChoiceType" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">group_id：</label>
+								<div class="col-sm-8">
+									<input id="groupId" name="groupId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">activity_status：</label>
+								<div class="col-sm-8">
+									<input id="activityStatus" name="activityStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_status：</label>
+								<div class="col-sm-8">
+									<input id="bargainStatus" name="bargainStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_status：</label>
+								<div class="col-sm-8">
+									<input id="deliveryStatus" name="deliveryStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_current_price：</label>
+								<div class="col-sm-8">
+									<input id="goodsCurrentPrice" name="goodsCurrentPrice" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_volume：</label>
+								<div class="col-sm-8">
+									<input id="goodsVolume" name="goodsVolume" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ems_trans_fee：</label>
+								<div class="col-sm-8">
+									<input id="emsTransFee" name="emsTransFee" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">express_trans_fee：</label>
+								<div class="col-sm-8">
+									<input id="expressTransFee" name="expressTransFee" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">mail_trans_fee：</label>
+								<div class="col-sm-8">
+									<input id="mailTransFee" name="mailTransFee" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">transport_id：</label>
+								<div class="col-sm-8">
+									<input id="transportId" name="transportId" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_status：</label>
+								<div class="col-sm-8">
+									<input id="combinStatus" name="combinStatus" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_begin_time：</label>
+								<div class="col-sm-8">
+									<input id="combinBeginTime" name="combinBeginTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_end_time：</label>
+								<div class="col-sm-8">
+									<input id="combinEndTime" name="combinEndTime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_price：</label>
+								<div class="col-sm-8">
+									<input id="combinPrice" name="combinPrice" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description_evaluate：</label>
+								<div class="col-sm-8">
+									<input id="descriptionEvaluate" name="descriptionEvaluate" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_shop_hot：</label>
+								<div class="col-sm-8">
+									<input id="weixinShopHot" name="weixinShopHot" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_shop_hotTime：</label>
+								<div class="col-sm-8">
+									<input id="weixinShopHottime" name="weixinShopHottime" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_shop_recommend：</label>
+								<div class="col-sm-8">
+									<input id="weixinShopRecommend" name="weixinShopRecommend" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_shop_recommendTime：</label>
+								<div class="col-sm-8">
+									<input id="weixinShopRecommendtime" name="weixinShopRecommendtime" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/goods/add.js">
+	</script>
+</body>
+</html>

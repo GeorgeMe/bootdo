@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${store.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${store.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${store.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">card_approve：</label>
+								<div class="col-sm-8">
+									<input id="cardApprove" name="cardApprove" th:value="${store.cardApprove}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">realstore_approve：</label>
+								<div class="col-sm-8">
+									<input id="realstoreApprove" name="realstoreApprove" th:value="${store.realstoreApprove}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_address：</label>
+								<div class="col-sm-8">
+									<input id="storeAddress" name="storeAddress" th:value="${store.storeAddress}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_credit：</label>
+								<div class="col-sm-8">
+									<input id="storeCredit" name="storeCredit" th:value="${store.storeCredit}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_info：</label>
+								<div class="col-sm-8">
+									<input id="storeInfo" name="storeInfo" th:value="${store.storeInfo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_msn：</label>
+								<div class="col-sm-8">
+									<input id="storeMsn" name="storeMsn" th:value="${store.storeMsn}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_name：</label>
+								<div class="col-sm-8">
+									<input id="storeName" name="storeName" th:value="${store.storeName}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_ower：</label>
+								<div class="col-sm-8">
+									<input id="storeOwer" name="storeOwer" th:value="${store.storeOwer}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_ower_card：</label>
+								<div class="col-sm-8">
+									<input id="storeOwerCard" name="storeOwerCard" th:value="${store.storeOwerCard}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_qq：</label>
+								<div class="col-sm-8">
+									<input id="storeQq" name="storeQq" th:value="${store.storeQq}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_recommend：</label>
+								<div class="col-sm-8">
+									<input id="storeRecommend" name="storeRecommend" th:value="${store.storeRecommend}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_recommend_time：</label>
+								<div class="col-sm-8">
+									<input id="storeRecommendTime" name="storeRecommendTime" th:value="${store.storeRecommendTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_seo_description：</label>
+								<div class="col-sm-8">
+									<input id="storeSeoDescription" name="storeSeoDescription" th:value="${store.storeSeoDescription}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_seo_keywords：</label>
+								<div class="col-sm-8">
+									<input id="storeSeoKeywords" name="storeSeoKeywords" th:value="${store.storeSeoKeywords}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_status：</label>
+								<div class="col-sm-8">
+									<input id="storeStatus" name="storeStatus" th:value="${store.storeStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_telephone：</label>
+								<div class="col-sm-8">
+									<input id="storeTelephone" name="storeTelephone" th:value="${store.storeTelephone}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_zip：</label>
+								<div class="col-sm-8">
+									<input id="storeZip" name="storeZip" th:value="${store.storeZip}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">template：</label>
+								<div class="col-sm-8">
+									<input id="template" name="template" th:value="${store.template}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">validity：</label>
+								<div class="col-sm-8">
+									<input id="validity" name="validity" th:value="${store.validity}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">violation_reseaon：</label>
+								<div class="col-sm-8">
+									<input id="violationReseaon" name="violationReseaon" th:value="${store.violationReseaon}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">area_id：</label>
+								<div class="col-sm-8">
+									<input id="areaId" name="areaId" th:value="${store.areaId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">card_id：</label>
+								<div class="col-sm-8">
+									<input id="cardId" name="cardId" th:value="${store.cardId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">grade_id：</label>
+								<div class="col-sm-8">
+									<input id="gradeId" name="gradeId" th:value="${store.gradeId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sc_id：</label>
+								<div class="col-sm-8">
+									<input id="scId" name="scId" th:value="${store.scId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_banner_id：</label>
+								<div class="col-sm-8">
+									<input id="storeBannerId" name="storeBannerId" th:value="${store.storeBannerId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_license_id：</label>
+								<div class="col-sm-8">
+									<input id="storeLicenseId" name="storeLicenseId" th:value="${store.storeLicenseId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_logo_id：</label>
+								<div class="col-sm-8">
+									<input id="storeLogoId" name="storeLogoId" th:value="${store.storeLogoId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">update_grade_id：</label>
+								<div class="col-sm-8">
+									<input id="updateGradeId" name="updateGradeId" th:value="${store.updateGradeId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">domain_modify_count：</label>
+								<div class="col-sm-8">
+									<input id="domainModifyCount" name="domainModifyCount" th:value="${store.domainModifyCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_second_domain：</label>
+								<div class="col-sm-8">
+									<input id="storeSecondDomain" name="storeSecondDomain" th:value="${store.storeSecondDomain}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">favorite_count：</label>
+								<div class="col-sm-8">
+									<input id="favoriteCount" name="favoriteCount" th:value="${store.favoriteCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_lat：</label>
+								<div class="col-sm-8">
+									<input id="storeLat" name="storeLat" th:value="${store.storeLat}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_lng：</label>
+								<div class="col-sm-8">
+									<input id="storeLng" name="storeLng" th:value="${store.storeLng}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_ww：</label>
+								<div class="col-sm-8">
+									<input id="storeWw" name="storeWw" th:value="${store.storeWw}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">map_type：</label>
+								<div class="col-sm-8">
+									<input id="mapType" name="mapType" th:value="${store.mapType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_begin_time：</label>
+								<div class="col-sm-8">
+									<input id="deliveryBeginTime" name="deliveryBeginTime" th:value="${store.deliveryBeginTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_end_time：</label>
+								<div class="col-sm-8">
+									<input id="deliveryEndTime" name="deliveryEndTime" th:value="${store.deliveryEndTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_begin_time：</label>
+								<div class="col-sm-8">
+									<input id="combinBeginTime" name="combinBeginTime" th:value="${store.combinBeginTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_end_time：</label>
+								<div class="col-sm-8">
+									<input id="combinEndTime" name="combinEndTime" th:value="${store.combinEndTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_begin_time：</label>
+								<div class="col-sm-8">
+									<input id="weixinBeginTime" name="weixinBeginTime" th:value="${store.weixinBeginTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_end_time：</label>
+								<div class="col-sm-8">
+									<input id="weixinEndTime" name="weixinEndTime" th:value="${store.weixinEndTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_status：</label>
+								<div class="col-sm-8">
+									<input id="weixinStatus" name="weixinStatus" th:value="${store.weixinStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appId：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppid" name="weixinAppid" th:value="${store.weixinAppid}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appSecret：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppsecret" name="weixinAppsecret" th:value="${store.weixinAppsecret}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_token：</label>
+								<div class="col-sm-8">
+									<input id="weixinToken" name="weixinToken" th:value="${store.weixinToken}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_welecome_content：</label>
+								<div class="col-sm-8">
+									<input id="weixinWelecomeContent" name="weixinWelecomeContent" th:value="${store.weixinWelecomeContent}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_qr_img_id：</label>
+								<div class="col-sm-8">
+									<input id="weixinQrImgId" name="weixinQrImgId" th:value="${store.weixinQrImgId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_account：</label>
+								<div class="col-sm-8">
+									<input id="weixinAccount" name="weixinAccount" th:value="${store.weixinAccount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_weixin_logo_id：</label>
+								<div class="col-sm-8">
+									<input id="storeWeixinLogoId" name="storeWeixinLogoId" th:value="${store.storeWeixinLogoId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_store_name：</label>
+								<div class="col-sm-8">
+									<input id="weixinStoreName" name="weixinStoreName" th:value="${store.weixinStoreName}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/store/edit.js">
+	</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.EvaluateDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.EvaluateDO">
+		select `id`,`addTime`,`deleteStatus`,`evaluate_admin_info`,`evaluate_buyer_val`,`evaluate_info`,`evaluate_seller_info`,`evaluate_seller_time`,`evaluate_seller_val`,`evaluate_status`,`evaluate_type`,`goods_spec`,`evaluate_goods_id`,`evaluate_seller_user_id`,`evaluate_user_id`,`of_id`,`description_evaluate`,`service_evaluate`,`ship_evaluate` from wemall_evaluate where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.EvaluateDO">
+		select `id`,`addTime`,`deleteStatus`,`evaluate_admin_info`,`evaluate_buyer_val`,`evaluate_info`,`evaluate_seller_info`,`evaluate_seller_time`,`evaluate_seller_val`,`evaluate_status`,`evaluate_type`,`goods_spec`,`evaluate_goods_id`,`evaluate_seller_user_id`,`evaluate_user_id`,`of_id`,`description_evaluate`,`service_evaluate`,`ship_evaluate` from wemall_evaluate
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="evaluateAdminInfo != null and evaluateAdminInfo != ''"> and evaluate_admin_info = #{evaluateAdminInfo} </if>
+		  		  <if test="evaluateBuyerVal != null and evaluateBuyerVal != ''"> and evaluate_buyer_val = #{evaluateBuyerVal} </if>
+		  		  <if test="evaluateInfo != null and evaluateInfo != ''"> and evaluate_info = #{evaluateInfo} </if>
+		  		  <if test="evaluateSellerInfo != null and evaluateSellerInfo != ''"> and evaluate_seller_info = #{evaluateSellerInfo} </if>
+		  		  <if test="evaluateSellerTime != null and evaluateSellerTime != ''"> and evaluate_seller_time = #{evaluateSellerTime} </if>
+		  		  <if test="evaluateSellerVal != null and evaluateSellerVal != ''"> and evaluate_seller_val = #{evaluateSellerVal} </if>
+		  		  <if test="evaluateStatus != null and evaluateStatus != ''"> and evaluate_status = #{evaluateStatus} </if>
+		  		  <if test="evaluateType != null and evaluateType != ''"> and evaluate_type = #{evaluateType} </if>
+		  		  <if test="goodsSpec != null and goodsSpec != ''"> and goods_spec = #{goodsSpec} </if>
+		  		  <if test="evaluateGoodsId != null and evaluateGoodsId != ''"> and evaluate_goods_id = #{evaluateGoodsId} </if>
+		  		  <if test="evaluateSellerUserId != null and evaluateSellerUserId != ''"> and evaluate_seller_user_id = #{evaluateSellerUserId} </if>
+		  		  <if test="evaluateUserId != null and evaluateUserId != ''"> and evaluate_user_id = #{evaluateUserId} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		  <if test="descriptionEvaluate != null and descriptionEvaluate != ''"> and description_evaluate = #{descriptionEvaluate} </if>
+		  		  <if test="serviceEvaluate != null and serviceEvaluate != ''"> and service_evaluate = #{serviceEvaluate} </if>
+		  		  <if test="shipEvaluate != null and shipEvaluate != ''"> and ship_evaluate = #{shipEvaluate} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_evaluate
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="evaluateAdminInfo != null and evaluateAdminInfo != ''"> and evaluate_admin_info = #{evaluateAdminInfo} </if>
+		  		  <if test="evaluateBuyerVal != null and evaluateBuyerVal != ''"> and evaluate_buyer_val = #{evaluateBuyerVal} </if>
+		  		  <if test="evaluateInfo != null and evaluateInfo != ''"> and evaluate_info = #{evaluateInfo} </if>
+		  		  <if test="evaluateSellerInfo != null and evaluateSellerInfo != ''"> and evaluate_seller_info = #{evaluateSellerInfo} </if>
+		  		  <if test="evaluateSellerTime != null and evaluateSellerTime != ''"> and evaluate_seller_time = #{evaluateSellerTime} </if>
+		  		  <if test="evaluateSellerVal != null and evaluateSellerVal != ''"> and evaluate_seller_val = #{evaluateSellerVal} </if>
+		  		  <if test="evaluateStatus != null and evaluateStatus != ''"> and evaluate_status = #{evaluateStatus} </if>
+		  		  <if test="evaluateType != null and evaluateType != ''"> and evaluate_type = #{evaluateType} </if>
+		  		  <if test="goodsSpec != null and goodsSpec != ''"> and goods_spec = #{goodsSpec} </if>
+		  		  <if test="evaluateGoodsId != null and evaluateGoodsId != ''"> and evaluate_goods_id = #{evaluateGoodsId} </if>
+		  		  <if test="evaluateSellerUserId != null and evaluateSellerUserId != ''"> and evaluate_seller_user_id = #{evaluateSellerUserId} </if>
+		  		  <if test="evaluateUserId != null and evaluateUserId != ''"> and evaluate_user_id = #{evaluateUserId} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		  <if test="descriptionEvaluate != null and descriptionEvaluate != ''"> and description_evaluate = #{descriptionEvaluate} </if>
+		  		  <if test="serviceEvaluate != null and serviceEvaluate != ''"> and service_evaluate = #{serviceEvaluate} </if>
+		  		  <if test="shipEvaluate != null and shipEvaluate != ''"> and ship_evaluate = #{shipEvaluate} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.EvaluateDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_evaluate
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`evaluate_admin_info`, 
+			`evaluate_buyer_val`, 
+			`evaluate_info`, 
+			`evaluate_seller_info`, 
+			`evaluate_seller_time`, 
+			`evaluate_seller_val`, 
+			`evaluate_status`, 
+			`evaluate_type`, 
+			`goods_spec`, 
+			`evaluate_goods_id`, 
+			`evaluate_seller_user_id`, 
+			`evaluate_user_id`, 
+			`of_id`, 
+			`description_evaluate`, 
+			`service_evaluate`, 
+			`ship_evaluate`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{evaluateAdminInfo}, 
+			#{evaluateBuyerVal}, 
+			#{evaluateInfo}, 
+			#{evaluateSellerInfo}, 
+			#{evaluateSellerTime}, 
+			#{evaluateSellerVal}, 
+			#{evaluateStatus}, 
+			#{evaluateType}, 
+			#{goodsSpec}, 
+			#{evaluateGoodsId}, 
+			#{evaluateSellerUserId}, 
+			#{evaluateUserId}, 
+			#{ofId}, 
+			#{descriptionEvaluate}, 
+			#{serviceEvaluate}, 
+			#{shipEvaluate}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.EvaluateDO">
+		update wemall_evaluate 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="evaluateAdminInfo != null">`evaluate_admin_info` = #{evaluateAdminInfo}, </if>
+			<if test="evaluateBuyerVal != null">`evaluate_buyer_val` = #{evaluateBuyerVal}, </if>
+			<if test="evaluateInfo != null">`evaluate_info` = #{evaluateInfo}, </if>
+			<if test="evaluateSellerInfo != null">`evaluate_seller_info` = #{evaluateSellerInfo}, </if>
+			<if test="evaluateSellerTime != null">`evaluate_seller_time` = #{evaluateSellerTime}, </if>
+			<if test="evaluateSellerVal != null">`evaluate_seller_val` = #{evaluateSellerVal}, </if>
+			<if test="evaluateStatus != null">`evaluate_status` = #{evaluateStatus}, </if>
+			<if test="evaluateType != null">`evaluate_type` = #{evaluateType}, </if>
+			<if test="goodsSpec != null">`goods_spec` = #{goodsSpec}, </if>
+			<if test="evaluateGoodsId != null">`evaluate_goods_id` = #{evaluateGoodsId}, </if>
+			<if test="evaluateSellerUserId != null">`evaluate_seller_user_id` = #{evaluateSellerUserId}, </if>
+			<if test="evaluateUserId != null">`evaluate_user_id` = #{evaluateUserId}, </if>
+			<if test="ofId != null">`of_id` = #{ofId}, </if>
+			<if test="descriptionEvaluate != null">`description_evaluate` = #{descriptionEvaluate}, </if>
+			<if test="serviceEvaluate != null">`service_evaluate` = #{serviceEvaluate}, </if>
+			<if test="shipEvaluate != null">`ship_evaluate` = #{shipEvaluate}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_evaluate where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_evaluate where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

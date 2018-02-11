@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodsclassstapleDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodsclassstapleDO">
+		select `id`,`addTime`,`deleteStatus`,`name`,`gc_id`,`store_id` from wemall_goodsclassstaple where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodsclassstapleDO">
+		select `id`,`addTime`,`deleteStatus`,`name`,`gc_id`,`store_id` from wemall_goodsclassstaple
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="gcId != null and gcId != ''"> and gc_id = #{gcId} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goodsclassstaple
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="gcId != null and gcId != ''"> and gc_id = #{gcId} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodsclassstapleDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_goodsclassstaple
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`name`, 
+			`gc_id`, 
+			`store_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{name}, 
+			#{gcId}, 
+			#{storeId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodsclassstapleDO">
+		update wemall_goodsclassstaple 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="gcId != null">`gc_id` = #{gcId}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goodsclassstaple where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goodsclassstaple where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

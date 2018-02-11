@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.ComplaintDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.ComplaintDO">
+		select `id`,`addTime`,`deleteStatus`,`appeal_time`,`from_user_content`,`handle_content`,`handle_time`,`status`,`talk_content`,`to_user_content`,`type`,`cs_id`,`from_acc1_id`,`from_acc2_id`,`from_acc3_id`,`from_user_id`,`handle_user_id`,`of_id`,`to_acc1_id`,`to_acc2_id`,`to_acc3_id`,`to_user_id` from wemall_complaint where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.ComplaintDO">
+		select `id`,`addTime`,`deleteStatus`,`appeal_time`,`from_user_content`,`handle_content`,`handle_time`,`status`,`talk_content`,`to_user_content`,`type`,`cs_id`,`from_acc1_id`,`from_acc2_id`,`from_acc3_id`,`from_user_id`,`handle_user_id`,`of_id`,`to_acc1_id`,`to_acc2_id`,`to_acc3_id`,`to_user_id` from wemall_complaint
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="appealTime != null and appealTime != ''"> and appeal_time = #{appealTime} </if>
+		  		  <if test="fromUserContent != null and fromUserContent != ''"> and from_user_content = #{fromUserContent} </if>
+		  		  <if test="handleContent != null and handleContent != ''"> and handle_content = #{handleContent} </if>
+		  		  <if test="handleTime != null and handleTime != ''"> and handle_time = #{handleTime} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="talkContent != null and talkContent != ''"> and talk_content = #{talkContent} </if>
+		  		  <if test="toUserContent != null and toUserContent != ''"> and to_user_content = #{toUserContent} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="csId != null and csId != ''"> and cs_id = #{csId} </if>
+		  		  <if test="fromAcc1Id != null and fromAcc1Id != ''"> and from_acc1_id = #{fromAcc1Id} </if>
+		  		  <if test="fromAcc2Id != null and fromAcc2Id != ''"> and from_acc2_id = #{fromAcc2Id} </if>
+		  		  <if test="fromAcc3Id != null and fromAcc3Id != ''"> and from_acc3_id = #{fromAcc3Id} </if>
+		  		  <if test="fromUserId != null and fromUserId != ''"> and from_user_id = #{fromUserId} </if>
+		  		  <if test="handleUserId != null and handleUserId != ''"> and handle_user_id = #{handleUserId} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		  <if test="toAcc1Id != null and toAcc1Id != ''"> and to_acc1_id = #{toAcc1Id} </if>
+		  		  <if test="toAcc2Id != null and toAcc2Id != ''"> and to_acc2_id = #{toAcc2Id} </if>
+		  		  <if test="toAcc3Id != null and toAcc3Id != ''"> and to_acc3_id = #{toAcc3Id} </if>
+		  		  <if test="toUserId != null and toUserId != ''"> and to_user_id = #{toUserId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_complaint
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="appealTime != null and appealTime != ''"> and appeal_time = #{appealTime} </if>
+		  		  <if test="fromUserContent != null and fromUserContent != ''"> and from_user_content = #{fromUserContent} </if>
+		  		  <if test="handleContent != null and handleContent != ''"> and handle_content = #{handleContent} </if>
+		  		  <if test="handleTime != null and handleTime != ''"> and handle_time = #{handleTime} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="talkContent != null and talkContent != ''"> and talk_content = #{talkContent} </if>
+		  		  <if test="toUserContent != null and toUserContent != ''"> and to_user_content = #{toUserContent} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="csId != null and csId != ''"> and cs_id = #{csId} </if>
+		  		  <if test="fromAcc1Id != null and fromAcc1Id != ''"> and from_acc1_id = #{fromAcc1Id} </if>
+		  		  <if test="fromAcc2Id != null and fromAcc2Id != ''"> and from_acc2_id = #{fromAcc2Id} </if>
+		  		  <if test="fromAcc3Id != null and fromAcc3Id != ''"> and from_acc3_id = #{fromAcc3Id} </if>
+		  		  <if test="fromUserId != null and fromUserId != ''"> and from_user_id = #{fromUserId} </if>
+		  		  <if test="handleUserId != null and handleUserId != ''"> and handle_user_id = #{handleUserId} </if>
+		  		  <if test="ofId != null and ofId != ''"> and of_id = #{ofId} </if>
+		  		  <if test="toAcc1Id != null and toAcc1Id != ''"> and to_acc1_id = #{toAcc1Id} </if>
+		  		  <if test="toAcc2Id != null and toAcc2Id != ''"> and to_acc2_id = #{toAcc2Id} </if>
+		  		  <if test="toAcc3Id != null and toAcc3Id != ''"> and to_acc3_id = #{toAcc3Id} </if>
+		  		  <if test="toUserId != null and toUserId != ''"> and to_user_id = #{toUserId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.ComplaintDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_complaint
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`appeal_time`, 
+			`from_user_content`, 
+			`handle_content`, 
+			`handle_time`, 
+			`status`, 
+			`talk_content`, 
+			`to_user_content`, 
+			`type`, 
+			`cs_id`, 
+			`from_acc1_id`, 
+			`from_acc2_id`, 
+			`from_acc3_id`, 
+			`from_user_id`, 
+			`handle_user_id`, 
+			`of_id`, 
+			`to_acc1_id`, 
+			`to_acc2_id`, 
+			`to_acc3_id`, 
+			`to_user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{appealTime}, 
+			#{fromUserContent}, 
+			#{handleContent}, 
+			#{handleTime}, 
+			#{status}, 
+			#{talkContent}, 
+			#{toUserContent}, 
+			#{type}, 
+			#{csId}, 
+			#{fromAcc1Id}, 
+			#{fromAcc2Id}, 
+			#{fromAcc3Id}, 
+			#{fromUserId}, 
+			#{handleUserId}, 
+			#{ofId}, 
+			#{toAcc1Id}, 
+			#{toAcc2Id}, 
+			#{toAcc3Id}, 
+			#{toUserId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.ComplaintDO">
+		update wemall_complaint 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="appealTime != null">`appeal_time` = #{appealTime}, </if>
+			<if test="fromUserContent != null">`from_user_content` = #{fromUserContent}, </if>
+			<if test="handleContent != null">`handle_content` = #{handleContent}, </if>
+			<if test="handleTime != null">`handle_time` = #{handleTime}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="talkContent != null">`talk_content` = #{talkContent}, </if>
+			<if test="toUserContent != null">`to_user_content` = #{toUserContent}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="csId != null">`cs_id` = #{csId}, </if>
+			<if test="fromAcc1Id != null">`from_acc1_id` = #{fromAcc1Id}, </if>
+			<if test="fromAcc2Id != null">`from_acc2_id` = #{fromAcc2Id}, </if>
+			<if test="fromAcc3Id != null">`from_acc3_id` = #{fromAcc3Id}, </if>
+			<if test="fromUserId != null">`from_user_id` = #{fromUserId}, </if>
+			<if test="handleUserId != null">`handle_user_id` = #{handleUserId}, </if>
+			<if test="ofId != null">`of_id` = #{ofId}, </if>
+			<if test="toAcc1Id != null">`to_acc1_id` = #{toAcc1Id}, </if>
+			<if test="toAcc2Id != null">`to_acc2_id` = #{toAcc2Id}, </if>
+			<if test="toAcc3Id != null">`to_acc3_id` = #{toAcc3Id}, </if>
+			<if test="toUserId != null">`to_user_id` = #{toUserId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_complaint where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_complaint where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

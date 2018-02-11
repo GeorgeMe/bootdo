@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.AddressDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.AddressDO">
+		select `id`,`addTime`,`deleteStatus`,`area_info`,`mobile`,`telephone`,`trueName`,`zip`,`area_id`,`user_id` from wemall_address where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.AddressDO">
+		select `id`,`addTime`,`deleteStatus`,`area_info`,`mobile`,`telephone`,`trueName`,`zip`,`area_id`,`user_id` from wemall_address
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="areaInfo != null and areaInfo != ''"> and area_info = #{areaInfo} </if>
+		  		  <if test="mobile != null and mobile != ''"> and mobile = #{mobile} </if>
+		  		  <if test="telephone != null and telephone != ''"> and telephone = #{telephone} </if>
+		  		  <if test="truename != null and truename != ''"> and trueName = #{truename} </if>
+		  		  <if test="zip != null and zip != ''"> and zip = #{zip} </if>
+		  		  <if test="areaId != null and areaId != ''"> and area_id = #{areaId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_address
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="areaInfo != null and areaInfo != ''"> and area_info = #{areaInfo} </if>
+		  		  <if test="mobile != null and mobile != ''"> and mobile = #{mobile} </if>
+		  		  <if test="telephone != null and telephone != ''"> and telephone = #{telephone} </if>
+		  		  <if test="truename != null and truename != ''"> and trueName = #{truename} </if>
+		  		  <if test="zip != null and zip != ''"> and zip = #{zip} </if>
+		  		  <if test="areaId != null and areaId != ''"> and area_id = #{areaId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.AddressDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_address
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`area_info`, 
+			`mobile`, 
+			`telephone`, 
+			`trueName`, 
+			`zip`, 
+			`area_id`, 
+			`user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{areaInfo}, 
+			#{mobile}, 
+			#{telephone}, 
+			#{truename}, 
+			#{zip}, 
+			#{areaId}, 
+			#{userId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.AddressDO">
+		update wemall_address 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="areaInfo != null">`area_info` = #{areaInfo}, </if>
+			<if test="mobile != null">`mobile` = #{mobile}, </if>
+			<if test="telephone != null">`telephone` = #{telephone}, </if>
+			<if test="truename != null">`trueName` = #{truename}, </if>
+			<if test="zip != null">`zip` = #{zip}, </if>
+			<if test="areaId != null">`area_id` = #{areaId}, </if>
+			<if test="userId != null">`user_id` = #{userId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_address where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_address where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

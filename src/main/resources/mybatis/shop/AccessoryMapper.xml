@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.AccessoryDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.AccessoryDO">
+		select `id`,`addTime`,`deleteStatus`,`ext`,`height`,`info`,`name`,`path`,`size`,`width`,`album_id`,`user_id`,`config_id` from wemall_accessory where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.AccessoryDO">
+		select `id`,`addTime`,`deleteStatus`,`ext`,`height`,`info`,`name`,`path`,`size`,`width`,`album_id`,`user_id`,`config_id` from wemall_accessory
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="ext != null and ext != ''"> and ext = #{ext} </if>
+		  		  <if test="height != null and height != ''"> and height = #{height} </if>
+		  		  <if test="info != null and info != ''"> and info = #{info} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="path != null and path != ''"> and path = #{path} </if>
+		  		  <if test="size != null and size != ''"> and size = #{size} </if>
+		  		  <if test="width != null and width != ''"> and width = #{width} </if>
+		  		  <if test="albumId != null and albumId != ''"> and album_id = #{albumId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="configId != null and configId != ''"> and config_id = #{configId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_accessory
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="ext != null and ext != ''"> and ext = #{ext} </if>
+		  		  <if test="height != null and height != ''"> and height = #{height} </if>
+		  		  <if test="info != null and info != ''"> and info = #{info} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="path != null and path != ''"> and path = #{path} </if>
+		  		  <if test="size != null and size != ''"> and size = #{size} </if>
+		  		  <if test="width != null and width != ''"> and width = #{width} </if>
+		  		  <if test="albumId != null and albumId != ''"> and album_id = #{albumId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="configId != null and configId != ''"> and config_id = #{configId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.AccessoryDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_accessory
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`ext`, 
+			`height`, 
+			`info`, 
+			`name`, 
+			`path`, 
+			`size`, 
+			`width`, 
+			`album_id`, 
+			`user_id`, 
+			`config_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{ext}, 
+			#{height}, 
+			#{info}, 
+			#{name}, 
+			#{path}, 
+			#{size}, 
+			#{width}, 
+			#{albumId}, 
+			#{userId}, 
+			#{configId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.AccessoryDO">
+		update wemall_accessory 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="ext != null">`ext` = #{ext}, </if>
+			<if test="height != null">`height` = #{height}, </if>
+			<if test="info != null">`info` = #{info}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="path != null">`path` = #{path}, </if>
+			<if test="size != null">`size` = #{size}, </if>
+			<if test="width != null">`width` = #{width}, </if>
+			<if test="albumId != null">`album_id` = #{albumId}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="configId != null">`config_id` = #{configId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_accessory where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_accessory where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

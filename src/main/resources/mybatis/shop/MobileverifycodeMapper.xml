@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.MobileverifycodeDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.MobileverifycodeDO">
+		select `id`,`addTime`,`deleteStatus`,`code`,`mobile` from wemall_mobileverifycode where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.MobileverifycodeDO">
+		select `id`,`addTime`,`deleteStatus`,`code`,`mobile` from wemall_mobileverifycode
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="code != null and code != ''"> and code = #{code} </if>
+		  		  <if test="mobile != null and mobile != ''"> and mobile = #{mobile} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_mobileverifycode
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="code != null and code != ''"> and code = #{code} </if>
+		  		  <if test="mobile != null and mobile != ''"> and mobile = #{mobile} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.MobileverifycodeDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_mobileverifycode
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`code`, 
+			`mobile`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{code}, 
+			#{mobile}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.MobileverifycodeDO">
+		update wemall_mobileverifycode 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="code != null">`code` = #{code}, </if>
+			<if test="mobile != null">`mobile` = #{mobile}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_mobileverifycode where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_mobileverifycode where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

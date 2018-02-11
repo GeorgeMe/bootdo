@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.AdvPosDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.AdvPosDO">
+		select `id`,`addTime`,`deleteStatus`,`ap_acc_url`,`ap_code`,`ap_content`,`ap_height`,`ap_price`,`ap_sale_type`,`ap_show_type`,`ap_status`,`ap_sys_type`,`ap_text`,`ap_title`,`ap_type`,`ap_use_status`,`ap_width`,`ap_acc_id` from wemall_adv_pos where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.AdvPosDO">
+		select `id`,`addTime`,`deleteStatus`,`ap_acc_url`,`ap_code`,`ap_content`,`ap_height`,`ap_price`,`ap_sale_type`,`ap_show_type`,`ap_status`,`ap_sys_type`,`ap_text`,`ap_title`,`ap_type`,`ap_use_status`,`ap_width`,`ap_acc_id` from wemall_adv_pos
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="apAccUrl != null and apAccUrl != ''"> and ap_acc_url = #{apAccUrl} </if>
+		  		  <if test="apCode != null and apCode != ''"> and ap_code = #{apCode} </if>
+		  		  <if test="apContent != null and apContent != ''"> and ap_content = #{apContent} </if>
+		  		  <if test="apHeight != null and apHeight != ''"> and ap_height = #{apHeight} </if>
+		  		  <if test="apPrice != null and apPrice != ''"> and ap_price = #{apPrice} </if>
+		  		  <if test="apSaleType != null and apSaleType != ''"> and ap_sale_type = #{apSaleType} </if>
+		  		  <if test="apShowType != null and apShowType != ''"> and ap_show_type = #{apShowType} </if>
+		  		  <if test="apStatus != null and apStatus != ''"> and ap_status = #{apStatus} </if>
+		  		  <if test="apSysType != null and apSysType != ''"> and ap_sys_type = #{apSysType} </if>
+		  		  <if test="apText != null and apText != ''"> and ap_text = #{apText} </if>
+		  		  <if test="apTitle != null and apTitle != ''"> and ap_title = #{apTitle} </if>
+		  		  <if test="apType != null and apType != ''"> and ap_type = #{apType} </if>
+		  		  <if test="apUseStatus != null and apUseStatus != ''"> and ap_use_status = #{apUseStatus} </if>
+		  		  <if test="apWidth != null and apWidth != ''"> and ap_width = #{apWidth} </if>
+		  		  <if test="apAccId != null and apAccId != ''"> and ap_acc_id = #{apAccId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_adv_pos
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="apAccUrl != null and apAccUrl != ''"> and ap_acc_url = #{apAccUrl} </if>
+		  		  <if test="apCode != null and apCode != ''"> and ap_code = #{apCode} </if>
+		  		  <if test="apContent != null and apContent != ''"> and ap_content = #{apContent} </if>
+		  		  <if test="apHeight != null and apHeight != ''"> and ap_height = #{apHeight} </if>
+		  		  <if test="apPrice != null and apPrice != ''"> and ap_price = #{apPrice} </if>
+		  		  <if test="apSaleType != null and apSaleType != ''"> and ap_sale_type = #{apSaleType} </if>
+		  		  <if test="apShowType != null and apShowType != ''"> and ap_show_type = #{apShowType} </if>
+		  		  <if test="apStatus != null and apStatus != ''"> and ap_status = #{apStatus} </if>
+		  		  <if test="apSysType != null and apSysType != ''"> and ap_sys_type = #{apSysType} </if>
+		  		  <if test="apText != null and apText != ''"> and ap_text = #{apText} </if>
+		  		  <if test="apTitle != null and apTitle != ''"> and ap_title = #{apTitle} </if>
+		  		  <if test="apType != null and apType != ''"> and ap_type = #{apType} </if>
+		  		  <if test="apUseStatus != null and apUseStatus != ''"> and ap_use_status = #{apUseStatus} </if>
+		  		  <if test="apWidth != null and apWidth != ''"> and ap_width = #{apWidth} </if>
+		  		  <if test="apAccId != null and apAccId != ''"> and ap_acc_id = #{apAccId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.AdvPosDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_adv_pos
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`ap_acc_url`, 
+			`ap_code`, 
+			`ap_content`, 
+			`ap_height`, 
+			`ap_price`, 
+			`ap_sale_type`, 
+			`ap_show_type`, 
+			`ap_status`, 
+			`ap_sys_type`, 
+			`ap_text`, 
+			`ap_title`, 
+			`ap_type`, 
+			`ap_use_status`, 
+			`ap_width`, 
+			`ap_acc_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{apAccUrl}, 
+			#{apCode}, 
+			#{apContent}, 
+			#{apHeight}, 
+			#{apPrice}, 
+			#{apSaleType}, 
+			#{apShowType}, 
+			#{apStatus}, 
+			#{apSysType}, 
+			#{apText}, 
+			#{apTitle}, 
+			#{apType}, 
+			#{apUseStatus}, 
+			#{apWidth}, 
+			#{apAccId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.AdvPosDO">
+		update wemall_adv_pos 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="apAccUrl != null">`ap_acc_url` = #{apAccUrl}, </if>
+			<if test="apCode != null">`ap_code` = #{apCode}, </if>
+			<if test="apContent != null">`ap_content` = #{apContent}, </if>
+			<if test="apHeight != null">`ap_height` = #{apHeight}, </if>
+			<if test="apPrice != null">`ap_price` = #{apPrice}, </if>
+			<if test="apSaleType != null">`ap_sale_type` = #{apSaleType}, </if>
+			<if test="apShowType != null">`ap_show_type` = #{apShowType}, </if>
+			<if test="apStatus != null">`ap_status` = #{apStatus}, </if>
+			<if test="apSysType != null">`ap_sys_type` = #{apSysType}, </if>
+			<if test="apText != null">`ap_text` = #{apText}, </if>
+			<if test="apTitle != null">`ap_title` = #{apTitle}, </if>
+			<if test="apType != null">`ap_type` = #{apType}, </if>
+			<if test="apUseStatus != null">`ap_use_status` = #{apUseStatus}, </if>
+			<if test="apWidth != null">`ap_width` = #{apWidth}, </if>
+			<if test="apAccId != null">`ap_acc_id` = #{apAccId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_adv_pos where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_adv_pos where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

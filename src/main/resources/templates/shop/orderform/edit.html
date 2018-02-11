@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${orderform.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${orderform.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${orderform.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">finishTime：</label>
+								<div class="col-sm-8">
+									<input id="finishtime" name="finishtime" th:value="${orderform.finishtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goods_amount：</label>
+								<div class="col-sm-8">
+									<input id="goodsAmount" name="goodsAmount" th:value="${orderform.goodsAmount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">invoice：</label>
+								<div class="col-sm-8">
+									<input id="invoice" name="invoice" th:value="${orderform.invoice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">invoiceType：</label>
+								<div class="col-sm-8">
+									<input id="invoicetype" name="invoicetype" th:value="${orderform.invoicetype}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">msg：</label>
+								<div class="col-sm-8">
+									<input id="msg" name="msg" th:value="${orderform.msg}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">order_id：</label>
+								<div class="col-sm-8">
+									<input id="orderId" name="orderId" th:value="${orderform.orderId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">order_status：</label>
+								<div class="col-sm-8">
+									<input id="orderStatus" name="orderStatus" th:value="${orderform.orderStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">payTime：</label>
+								<div class="col-sm-8">
+									<input id="paytime" name="paytime" th:value="${orderform.paytime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">pay_msg：</label>
+								<div class="col-sm-8">
+									<input id="payMsg" name="payMsg" th:value="${orderform.payMsg}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">refund：</label>
+								<div class="col-sm-8">
+									<input id="refund" name="refund" th:value="${orderform.refund}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">refund_type：</label>
+								<div class="col-sm-8">
+									<input id="refundType" name="refundType" th:value="${orderform.refundType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">shipCode：</label>
+								<div class="col-sm-8">
+									<input id="shipcode" name="shipcode" th:value="${orderform.shipcode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">shipTime：</label>
+								<div class="col-sm-8">
+									<input id="shiptime" name="shiptime" th:value="${orderform.shiptime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ship_price：</label>
+								<div class="col-sm-8">
+									<input id="shipPrice" name="shipPrice" th:value="${orderform.shipPrice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">totalPrice：</label>
+								<div class="col-sm-8">
+									<input id="totalprice" name="totalprice" th:value="${orderform.totalprice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">addr_id：</label>
+								<div class="col-sm-8">
+									<input id="addrId" name="addrId" th:value="${orderform.addrId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">payment_id：</label>
+								<div class="col-sm-8">
+									<input id="paymentId" name="paymentId" th:value="${orderform.paymentId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_id：</label>
+								<div class="col-sm-8">
+									<input id="storeId" name="storeId" th:value="${orderform.storeId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">user_id：</label>
+								<div class="col-sm-8">
+									<input id="userId" name="userId" th:value="${orderform.userId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_confirm_email：</label>
+								<div class="col-sm-8">
+									<input id="autoConfirmEmail" name="autoConfirmEmail" th:value="${orderform.autoConfirmEmail}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_confirm_sms：</label>
+								<div class="col-sm-8">
+									<input id="autoConfirmSms" name="autoConfirmSms" th:value="${orderform.autoConfirmSms}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">transport：</label>
+								<div class="col-sm-8">
+									<input id="transport" name="transport" th:value="${orderform.transport}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">out_order_id：</label>
+								<div class="col-sm-8">
+									<input id="outOrderId" name="outOrderId" th:value="${orderform.outOrderId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ec_id：</label>
+								<div class="col-sm-8">
+									<input id="ecId" name="ecId" th:value="${orderform.ecId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ci_id：</label>
+								<div class="col-sm-8">
+									<input id="ciId" name="ciId" th:value="${orderform.ciId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">order_seller_intro：</label>
+								<div class="col-sm-8">
+									<input id="orderSellerIntro" name="orderSellerIntro" th:value="${orderform.orderSellerIntro}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">return_shipCode：</label>
+								<div class="col-sm-8">
+									<input id="returnShipcode" name="returnShipcode" th:value="${orderform.returnShipcode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">return_ec_id：</label>
+								<div class="col-sm-8">
+									<input id="returnEcId" name="returnEcId" th:value="${orderform.returnEcId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">return_content：</label>
+								<div class="col-sm-8">
+									<input id="returnContent" name="returnContent" th:value="${orderform.returnContent}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">return_shipTime：</label>
+								<div class="col-sm-8">
+									<input id="returnShiptime" name="returnShiptime" th:value="${orderform.returnShiptime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">order_type：</label>
+								<div class="col-sm-8">
+									<input id="orderType" name="orderType" th:value="${orderform.orderType}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/orderform/edit.js">
+	</script>
+</body>
+</html>

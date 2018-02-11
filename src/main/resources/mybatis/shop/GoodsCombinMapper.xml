@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodsCombinDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodsCombinDO">
+		select `wemall_goods_id`,`combin_goods_id` from wemall_goods_combin where wemall_goods_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodsCombinDO">
+		select `wemall_goods_id`,`combin_goods_id` from wemall_goods_combin
+        <where>  
+		  		  <if test="wemallGoodsId != null and wemallGoodsId != ''"> and wemall_goods_id = #{wemallGoodsId} </if>
+		  		  <if test="combinGoodsId != null and combinGoodsId != ''"> and combin_goods_id = #{combinGoodsId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goods_combin
+		 <where>  
+		  		  <if test="wemallGoodsId != null and wemallGoodsId != ''"> and wemall_goods_id = #{wemallGoodsId} </if>
+		  		  <if test="combinGoodsId != null and combinGoodsId != ''"> and combin_goods_id = #{combinGoodsId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodsCombinDO">
+		insert into wemall_goods_combin
+		(
+			`wemall_goods_id`, 
+			`combin_goods_id`
+		)
+		values
+		(
+			#{wemallGoodsId}, 
+			#{combinGoodsId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodsCombinDO">
+		update wemall_goods_combin 
+		<set>
+			<if test="combinGoodsId != null">`combin_goods_id` = #{combinGoodsId}</if>
+		</set>
+		where wemall_goods_id = #{wemallGoodsId}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goods_combin where wemall_goods_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goods_combin where wemall_goods_id in 
+		<foreach item="wemallGoodsId" collection="array" open="(" separator="," close=")">
+			#{wemallGoodsId}
+		</foreach>
+	</delete>
+
+</mapper>

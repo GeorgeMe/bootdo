@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.CouponDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.CouponDO">
+		select `id`,`addTime`,`deleteStatus`,`coupon_amount`,`coupon_begin_time`,`coupon_count`,`coupon_end_time`,`coupon_name`,`coupon_order_amount`,`coupon_acc_id` from wemall_coupon where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.CouponDO">
+		select `id`,`addTime`,`deleteStatus`,`coupon_amount`,`coupon_begin_time`,`coupon_count`,`coupon_end_time`,`coupon_name`,`coupon_order_amount`,`coupon_acc_id` from wemall_coupon
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="couponAmount != null and couponAmount != ''"> and coupon_amount = #{couponAmount} </if>
+		  		  <if test="couponBeginTime != null and couponBeginTime != ''"> and coupon_begin_time = #{couponBeginTime} </if>
+		  		  <if test="couponCount != null and couponCount != ''"> and coupon_count = #{couponCount} </if>
+		  		  <if test="couponEndTime != null and couponEndTime != ''"> and coupon_end_time = #{couponEndTime} </if>
+		  		  <if test="couponName != null and couponName != ''"> and coupon_name = #{couponName} </if>
+		  		  <if test="couponOrderAmount != null and couponOrderAmount != ''"> and coupon_order_amount = #{couponOrderAmount} </if>
+		  		  <if test="couponAccId != null and couponAccId != ''"> and coupon_acc_id = #{couponAccId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_coupon
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="couponAmount != null and couponAmount != ''"> and coupon_amount = #{couponAmount} </if>
+		  		  <if test="couponBeginTime != null and couponBeginTime != ''"> and coupon_begin_time = #{couponBeginTime} </if>
+		  		  <if test="couponCount != null and couponCount != ''"> and coupon_count = #{couponCount} </if>
+		  		  <if test="couponEndTime != null and couponEndTime != ''"> and coupon_end_time = #{couponEndTime} </if>
+		  		  <if test="couponName != null and couponName != ''"> and coupon_name = #{couponName} </if>
+		  		  <if test="couponOrderAmount != null and couponOrderAmount != ''"> and coupon_order_amount = #{couponOrderAmount} </if>
+		  		  <if test="couponAccId != null and couponAccId != ''"> and coupon_acc_id = #{couponAccId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.CouponDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_coupon
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`coupon_amount`, 
+			`coupon_begin_time`, 
+			`coupon_count`, 
+			`coupon_end_time`, 
+			`coupon_name`, 
+			`coupon_order_amount`, 
+			`coupon_acc_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{couponAmount}, 
+			#{couponBeginTime}, 
+			#{couponCount}, 
+			#{couponEndTime}, 
+			#{couponName}, 
+			#{couponOrderAmount}, 
+			#{couponAccId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.CouponDO">
+		update wemall_coupon 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="couponAmount != null">`coupon_amount` = #{couponAmount}, </if>
+			<if test="couponBeginTime != null">`coupon_begin_time` = #{couponBeginTime}, </if>
+			<if test="couponCount != null">`coupon_count` = #{couponCount}, </if>
+			<if test="couponEndTime != null">`coupon_end_time` = #{couponEndTime}, </if>
+			<if test="couponName != null">`coupon_name` = #{couponName}, </if>
+			<if test="couponOrderAmount != null">`coupon_order_amount` = #{couponOrderAmount}, </if>
+			<if test="couponAccId != null">`coupon_acc_id` = #{couponAccId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_coupon where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_coupon where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

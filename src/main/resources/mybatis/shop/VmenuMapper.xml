@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.VmenuDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.VmenuDO">
+		select `id`,`addTime`,`deleteStatus`,`menu_key`,`menu_name`,`menu_type`,`menu_url`,`parent_id`,`store_id`,`menu_sequence`,`menu_key_content`,`menu_cat` from wemall_vmenu where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.VmenuDO">
+		select `id`,`addTime`,`deleteStatus`,`menu_key`,`menu_name`,`menu_type`,`menu_url`,`parent_id`,`store_id`,`menu_sequence`,`menu_key_content`,`menu_cat` from wemall_vmenu
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="menuKey != null and menuKey != ''"> and menu_key = #{menuKey} </if>
+		  		  <if test="menuName != null and menuName != ''"> and menu_name = #{menuName} </if>
+		  		  <if test="menuType != null and menuType != ''"> and menu_type = #{menuType} </if>
+		  		  <if test="menuUrl != null and menuUrl != ''"> and menu_url = #{menuUrl} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="menuSequence != null and menuSequence != ''"> and menu_sequence = #{menuSequence} </if>
+		  		  <if test="menuKeyContent != null and menuKeyContent != ''"> and menu_key_content = #{menuKeyContent} </if>
+		  		  <if test="menuCat != null and menuCat != ''"> and menu_cat = #{menuCat} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_vmenu
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="menuKey != null and menuKey != ''"> and menu_key = #{menuKey} </if>
+		  		  <if test="menuName != null and menuName != ''"> and menu_name = #{menuName} </if>
+		  		  <if test="menuType != null and menuType != ''"> and menu_type = #{menuType} </if>
+		  		  <if test="menuUrl != null and menuUrl != ''"> and menu_url = #{menuUrl} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="menuSequence != null and menuSequence != ''"> and menu_sequence = #{menuSequence} </if>
+		  		  <if test="menuKeyContent != null and menuKeyContent != ''"> and menu_key_content = #{menuKeyContent} </if>
+		  		  <if test="menuCat != null and menuCat != ''"> and menu_cat = #{menuCat} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.VmenuDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_vmenu
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`menu_key`, 
+			`menu_name`, 
+			`menu_type`, 
+			`menu_url`, 
+			`parent_id`, 
+			`store_id`, 
+			`menu_sequence`, 
+			`menu_key_content`, 
+			`menu_cat`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{menuKey}, 
+			#{menuName}, 
+			#{menuType}, 
+			#{menuUrl}, 
+			#{parentId}, 
+			#{storeId}, 
+			#{menuSequence}, 
+			#{menuKeyContent}, 
+			#{menuCat}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.VmenuDO">
+		update wemall_vmenu 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="menuKey != null">`menu_key` = #{menuKey}, </if>
+			<if test="menuName != null">`menu_name` = #{menuName}, </if>
+			<if test="menuType != null">`menu_type` = #{menuType}, </if>
+			<if test="menuUrl != null">`menu_url` = #{menuUrl}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}, </if>
+			<if test="menuSequence != null">`menu_sequence` = #{menuSequence}, </if>
+			<if test="menuKeyContent != null">`menu_key_content` = #{menuKeyContent}, </if>
+			<if test="menuCat != null">`menu_cat` = #{menuCat}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_vmenu where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_vmenu where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.ReportDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.ReportDO">
+		select `id`,`addTime`,`deleteStatus`,`content`,`handle_Time`,`handle_info`,`result`,`status`,`acc1_id`,`acc2_id`,`acc3_id`,`goods_id`,`subject_id`,`user_id` from wemall_report where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.ReportDO">
+		select `id`,`addTime`,`deleteStatus`,`content`,`handle_Time`,`handle_info`,`result`,`status`,`acc1_id`,`acc2_id`,`acc3_id`,`goods_id`,`subject_id`,`user_id` from wemall_report
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="handleTime != null and handleTime != ''"> and handle_Time = #{handleTime} </if>
+		  		  <if test="handleInfo != null and handleInfo != ''"> and handle_info = #{handleInfo} </if>
+		  		  <if test="result != null and result != ''"> and result = #{result} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="acc1Id != null and acc1Id != ''"> and acc1_id = #{acc1Id} </if>
+		  		  <if test="acc2Id != null and acc2Id != ''"> and acc2_id = #{acc2Id} </if>
+		  		  <if test="acc3Id != null and acc3Id != ''"> and acc3_id = #{acc3Id} </if>
+		  		  <if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="subjectId != null and subjectId != ''"> and subject_id = #{subjectId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_report
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="handleTime != null and handleTime != ''"> and handle_Time = #{handleTime} </if>
+		  		  <if test="handleInfo != null and handleInfo != ''"> and handle_info = #{handleInfo} </if>
+		  		  <if test="result != null and result != ''"> and result = #{result} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="acc1Id != null and acc1Id != ''"> and acc1_id = #{acc1Id} </if>
+		  		  <if test="acc2Id != null and acc2Id != ''"> and acc2_id = #{acc2Id} </if>
+		  		  <if test="acc3Id != null and acc3Id != ''"> and acc3_id = #{acc3Id} </if>
+		  		  <if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="subjectId != null and subjectId != ''"> and subject_id = #{subjectId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.ReportDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_report
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`content`, 
+			`handle_Time`, 
+			`handle_info`, 
+			`result`, 
+			`status`, 
+			`acc1_id`, 
+			`acc2_id`, 
+			`acc3_id`, 
+			`goods_id`, 
+			`subject_id`, 
+			`user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{content}, 
+			#{handleTime}, 
+			#{handleInfo}, 
+			#{result}, 
+			#{status}, 
+			#{acc1Id}, 
+			#{acc2Id}, 
+			#{acc3Id}, 
+			#{goodsId}, 
+			#{subjectId}, 
+			#{userId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.ReportDO">
+		update wemall_report 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="handleTime != null">`handle_Time` = #{handleTime}, </if>
+			<if test="handleInfo != null">`handle_info` = #{handleInfo}, </if>
+			<if test="result != null">`result` = #{result}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="acc1Id != null">`acc1_id` = #{acc1Id}, </if>
+			<if test="acc2Id != null">`acc2_id` = #{acc2Id}, </if>
+			<if test="acc3Id != null">`acc3_id` = #{acc3Id}, </if>
+			<if test="goodsId != null">`goods_id` = #{goodsId}, </if>
+			<if test="subjectId != null">`subject_id` = #{subjectId}, </if>
+			<if test="userId != null">`user_id` = #{userId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_report where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_report where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

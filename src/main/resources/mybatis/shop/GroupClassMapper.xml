@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GroupClassDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GroupClassDO">
+		select `id`,`addTime`,`deleteStatus`,`gc_level`,`gc_name`,`gc_sequence`,`parent_id` from wemall_group_class where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GroupClassDO">
+		select `id`,`addTime`,`deleteStatus`,`gc_level`,`gc_name`,`gc_sequence`,`parent_id` from wemall_group_class
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="gcLevel != null and gcLevel != ''"> and gc_level = #{gcLevel} </if>
+		  		  <if test="gcName != null and gcName != ''"> and gc_name = #{gcName} </if>
+		  		  <if test="gcSequence != null and gcSequence != ''"> and gc_sequence = #{gcSequence} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_group_class
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="gcLevel != null and gcLevel != ''"> and gc_level = #{gcLevel} </if>
+		  		  <if test="gcName != null and gcName != ''"> and gc_name = #{gcName} </if>
+		  		  <if test="gcSequence != null and gcSequence != ''"> and gc_sequence = #{gcSequence} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GroupClassDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_group_class
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`gc_level`, 
+			`gc_name`, 
+			`gc_sequence`, 
+			`parent_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{gcLevel}, 
+			#{gcName}, 
+			#{gcSequence}, 
+			#{parentId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GroupClassDO">
+		update wemall_group_class 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="gcLevel != null">`gc_level` = #{gcLevel}, </if>
+			<if test="gcName != null">`gc_name` = #{gcName}, </if>
+			<if test="gcSequence != null">`gc_sequence` = #{gcSequence}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_group_class where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_group_class where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

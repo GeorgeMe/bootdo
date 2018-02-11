@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GroupGoodsDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GroupGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`gg_audit_time`,`gg_content`,`gg_count`,`gg_def_count`,`gg_group_count`,`gg_max_count`,`gg_min_count`,`gg_name`,`gg_price`,`gg_rebate`,`gg_recommend`,`gg_recommend_time`,`gg_status`,`gg_vir_count`,`gg_ga_id`,`gg_gc_id`,`gg_goods_id`,`gg_img_id`,`group_id`,`weixin_shop_recommend`,`weixin_shop_recommendTime` from wemall_group_goods where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GroupGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`gg_audit_time`,`gg_content`,`gg_count`,`gg_def_count`,`gg_group_count`,`gg_max_count`,`gg_min_count`,`gg_name`,`gg_price`,`gg_rebate`,`gg_recommend`,`gg_recommend_time`,`gg_status`,`gg_vir_count`,`gg_ga_id`,`gg_gc_id`,`gg_goods_id`,`gg_img_id`,`group_id`,`weixin_shop_recommend`,`weixin_shop_recommendTime` from wemall_group_goods
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="ggAuditTime != null and ggAuditTime != ''"> and gg_audit_time = #{ggAuditTime} </if>
+		  		  <if test="ggContent != null and ggContent != ''"> and gg_content = #{ggContent} </if>
+		  		  <if test="ggCount != null and ggCount != ''"> and gg_count = #{ggCount} </if>
+		  		  <if test="ggDefCount != null and ggDefCount != ''"> and gg_def_count = #{ggDefCount} </if>
+		  		  <if test="ggGroupCount != null and ggGroupCount != ''"> and gg_group_count = #{ggGroupCount} </if>
+		  		  <if test="ggMaxCount != null and ggMaxCount != ''"> and gg_max_count = #{ggMaxCount} </if>
+		  		  <if test="ggMinCount != null and ggMinCount != ''"> and gg_min_count = #{ggMinCount} </if>
+		  		  <if test="ggName != null and ggName != ''"> and gg_name = #{ggName} </if>
+		  		  <if test="ggPrice != null and ggPrice != ''"> and gg_price = #{ggPrice} </if>
+		  		  <if test="ggRebate != null and ggRebate != ''"> and gg_rebate = #{ggRebate} </if>
+		  		  <if test="ggRecommend != null and ggRecommend != ''"> and gg_recommend = #{ggRecommend} </if>
+		  		  <if test="ggRecommendTime != null and ggRecommendTime != ''"> and gg_recommend_time = #{ggRecommendTime} </if>
+		  		  <if test="ggStatus != null and ggStatus != ''"> and gg_status = #{ggStatus} </if>
+		  		  <if test="ggVirCount != null and ggVirCount != ''"> and gg_vir_count = #{ggVirCount} </if>
+		  		  <if test="ggGaId != null and ggGaId != ''"> and gg_ga_id = #{ggGaId} </if>
+		  		  <if test="ggGcId != null and ggGcId != ''"> and gg_gc_id = #{ggGcId} </if>
+		  		  <if test="ggGoodsId != null and ggGoodsId != ''"> and gg_goods_id = #{ggGoodsId} </if>
+		  		  <if test="ggImgId != null and ggImgId != ''"> and gg_img_id = #{ggImgId} </if>
+		  		  <if test="groupId != null and groupId != ''"> and group_id = #{groupId} </if>
+		  		  <if test="weixinShopRecommend != null and weixinShopRecommend != ''"> and weixin_shop_recommend = #{weixinShopRecommend} </if>
+		  		  <if test="weixinShopRecommendtime != null and weixinShopRecommendtime != ''"> and weixin_shop_recommendTime = #{weixinShopRecommendtime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_group_goods
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="ggAuditTime != null and ggAuditTime != ''"> and gg_audit_time = #{ggAuditTime} </if>
+		  		  <if test="ggContent != null and ggContent != ''"> and gg_content = #{ggContent} </if>
+		  		  <if test="ggCount != null and ggCount != ''"> and gg_count = #{ggCount} </if>
+		  		  <if test="ggDefCount != null and ggDefCount != ''"> and gg_def_count = #{ggDefCount} </if>
+		  		  <if test="ggGroupCount != null and ggGroupCount != ''"> and gg_group_count = #{ggGroupCount} </if>
+		  		  <if test="ggMaxCount != null and ggMaxCount != ''"> and gg_max_count = #{ggMaxCount} </if>
+		  		  <if test="ggMinCount != null and ggMinCount != ''"> and gg_min_count = #{ggMinCount} </if>
+		  		  <if test="ggName != null and ggName != ''"> and gg_name = #{ggName} </if>
+		  		  <if test="ggPrice != null and ggPrice != ''"> and gg_price = #{ggPrice} </if>
+		  		  <if test="ggRebate != null and ggRebate != ''"> and gg_rebate = #{ggRebate} </if>
+		  		  <if test="ggRecommend != null and ggRecommend != ''"> and gg_recommend = #{ggRecommend} </if>
+		  		  <if test="ggRecommendTime != null and ggRecommendTime != ''"> and gg_recommend_time = #{ggRecommendTime} </if>
+		  		  <if test="ggStatus != null and ggStatus != ''"> and gg_status = #{ggStatus} </if>
+		  		  <if test="ggVirCount != null and ggVirCount != ''"> and gg_vir_count = #{ggVirCount} </if>
+		  		  <if test="ggGaId != null and ggGaId != ''"> and gg_ga_id = #{ggGaId} </if>
+		  		  <if test="ggGcId != null and ggGcId != ''"> and gg_gc_id = #{ggGcId} </if>
+		  		  <if test="ggGoodsId != null and ggGoodsId != ''"> and gg_goods_id = #{ggGoodsId} </if>
+		  		  <if test="ggImgId != null and ggImgId != ''"> and gg_img_id = #{ggImgId} </if>
+		  		  <if test="groupId != null and groupId != ''"> and group_id = #{groupId} </if>
+		  		  <if test="weixinShopRecommend != null and weixinShopRecommend != ''"> and weixin_shop_recommend = #{weixinShopRecommend} </if>
+		  		  <if test="weixinShopRecommendtime != null and weixinShopRecommendtime != ''"> and weixin_shop_recommendTime = #{weixinShopRecommendtime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GroupGoodsDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_group_goods
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`gg_audit_time`, 
+			`gg_content`, 
+			`gg_count`, 
+			`gg_def_count`, 
+			`gg_group_count`, 
+			`gg_max_count`, 
+			`gg_min_count`, 
+			`gg_name`, 
+			`gg_price`, 
+			`gg_rebate`, 
+			`gg_recommend`, 
+			`gg_recommend_time`, 
+			`gg_status`, 
+			`gg_vir_count`, 
+			`gg_ga_id`, 
+			`gg_gc_id`, 
+			`gg_goods_id`, 
+			`gg_img_id`, 
+			`group_id`, 
+			`weixin_shop_recommend`, 
+			`weixin_shop_recommendTime`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{ggAuditTime}, 
+			#{ggContent}, 
+			#{ggCount}, 
+			#{ggDefCount}, 
+			#{ggGroupCount}, 
+			#{ggMaxCount}, 
+			#{ggMinCount}, 
+			#{ggName}, 
+			#{ggPrice}, 
+			#{ggRebate}, 
+			#{ggRecommend}, 
+			#{ggRecommendTime}, 
+			#{ggStatus}, 
+			#{ggVirCount}, 
+			#{ggGaId}, 
+			#{ggGcId}, 
+			#{ggGoodsId}, 
+			#{ggImgId}, 
+			#{groupId}, 
+			#{weixinShopRecommend}, 
+			#{weixinShopRecommendtime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GroupGoodsDO">
+		update wemall_group_goods 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="ggAuditTime != null">`gg_audit_time` = #{ggAuditTime}, </if>
+			<if test="ggContent != null">`gg_content` = #{ggContent}, </if>
+			<if test="ggCount != null">`gg_count` = #{ggCount}, </if>
+			<if test="ggDefCount != null">`gg_def_count` = #{ggDefCount}, </if>
+			<if test="ggGroupCount != null">`gg_group_count` = #{ggGroupCount}, </if>
+			<if test="ggMaxCount != null">`gg_max_count` = #{ggMaxCount}, </if>
+			<if test="ggMinCount != null">`gg_min_count` = #{ggMinCount}, </if>
+			<if test="ggName != null">`gg_name` = #{ggName}, </if>
+			<if test="ggPrice != null">`gg_price` = #{ggPrice}, </if>
+			<if test="ggRebate != null">`gg_rebate` = #{ggRebate}, </if>
+			<if test="ggRecommend != null">`gg_recommend` = #{ggRecommend}, </if>
+			<if test="ggRecommendTime != null">`gg_recommend_time` = #{ggRecommendTime}, </if>
+			<if test="ggStatus != null">`gg_status` = #{ggStatus}, </if>
+			<if test="ggVirCount != null">`gg_vir_count` = #{ggVirCount}, </if>
+			<if test="ggGaId != null">`gg_ga_id` = #{ggGaId}, </if>
+			<if test="ggGcId != null">`gg_gc_id` = #{ggGcId}, </if>
+			<if test="ggGoodsId != null">`gg_goods_id` = #{ggGoodsId}, </if>
+			<if test="ggImgId != null">`gg_img_id` = #{ggImgId}, </if>
+			<if test="groupId != null">`group_id` = #{groupId}, </if>
+			<if test="weixinShopRecommend != null">`weixin_shop_recommend` = #{weixinShopRecommend}, </if>
+			<if test="weixinShopRecommendtime != null">`weixin_shop_recommendTime` = #{weixinShopRecommendtime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_group_goods where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_group_goods where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

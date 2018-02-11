@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.ActivityGoodsDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.ActivityGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`ag_status`,`act_id`,`ag_admin_id`,`ag_goods_id`,`ag_price` from wemall_activity_goods where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.ActivityGoodsDO">
+		select `id`,`addTime`,`deleteStatus`,`ag_status`,`act_id`,`ag_admin_id`,`ag_goods_id`,`ag_price` from wemall_activity_goods
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="agStatus != null and agStatus != ''"> and ag_status = #{agStatus} </if>
+		  		  <if test="actId != null and actId != ''"> and act_id = #{actId} </if>
+		  		  <if test="agAdminId != null and agAdminId != ''"> and ag_admin_id = #{agAdminId} </if>
+		  		  <if test="agGoodsId != null and agGoodsId != ''"> and ag_goods_id = #{agGoodsId} </if>
+		  		  <if test="agPrice != null and agPrice != ''"> and ag_price = #{agPrice} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_activity_goods
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="agStatus != null and agStatus != ''"> and ag_status = #{agStatus} </if>
+		  		  <if test="actId != null and actId != ''"> and act_id = #{actId} </if>
+		  		  <if test="agAdminId != null and agAdminId != ''"> and ag_admin_id = #{agAdminId} </if>
+		  		  <if test="agGoodsId != null and agGoodsId != ''"> and ag_goods_id = #{agGoodsId} </if>
+		  		  <if test="agPrice != null and agPrice != ''"> and ag_price = #{agPrice} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.ActivityGoodsDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_activity_goods
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`ag_status`, 
+			`act_id`, 
+			`ag_admin_id`, 
+			`ag_goods_id`, 
+			`ag_price`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{agStatus}, 
+			#{actId}, 
+			#{agAdminId}, 
+			#{agGoodsId}, 
+			#{agPrice}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.ActivityGoodsDO">
+		update wemall_activity_goods 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="agStatus != null">`ag_status` = #{agStatus}, </if>
+			<if test="actId != null">`act_id` = #{actId}, </if>
+			<if test="agAdminId != null">`ag_admin_id` = #{agAdminId}, </if>
+			<if test="agGoodsId != null">`ag_goods_id` = #{agGoodsId}, </if>
+			<if test="agPrice != null">`ag_price` = #{agPrice}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_activity_goods where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_activity_goods where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

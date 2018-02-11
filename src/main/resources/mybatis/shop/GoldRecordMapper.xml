@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoldRecordDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoldRecordDO">
+		select `id`,`addTime`,`deleteStatus`,`gold_admin_info`,`gold_admin_time`,`gold_count`,`gold_exchange_info`,`gold_money`,`gold_pay_status`,`gold_payment`,`gold_sn`,`gold_status`,`gold_admin_id`,`gold_user_id` from wemall_gold_record where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoldRecordDO">
+		select `id`,`addTime`,`deleteStatus`,`gold_admin_info`,`gold_admin_time`,`gold_count`,`gold_exchange_info`,`gold_money`,`gold_pay_status`,`gold_payment`,`gold_sn`,`gold_status`,`gold_admin_id`,`gold_user_id` from wemall_gold_record
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="goldAdminInfo != null and goldAdminInfo != ''"> and gold_admin_info = #{goldAdminInfo} </if>
+		  		  <if test="goldAdminTime != null and goldAdminTime != ''"> and gold_admin_time = #{goldAdminTime} </if>
+		  		  <if test="goldCount != null and goldCount != ''"> and gold_count = #{goldCount} </if>
+		  		  <if test="goldExchangeInfo != null and goldExchangeInfo != ''"> and gold_exchange_info = #{goldExchangeInfo} </if>
+		  		  <if test="goldMoney != null and goldMoney != ''"> and gold_money = #{goldMoney} </if>
+		  		  <if test="goldPayStatus != null and goldPayStatus != ''"> and gold_pay_status = #{goldPayStatus} </if>
+		  		  <if test="goldPayment != null and goldPayment != ''"> and gold_payment = #{goldPayment} </if>
+		  		  <if test="goldSn != null and goldSn != ''"> and gold_sn = #{goldSn} </if>
+		  		  <if test="goldStatus != null and goldStatus != ''"> and gold_status = #{goldStatus} </if>
+		  		  <if test="goldAdminId != null and goldAdminId != ''"> and gold_admin_id = #{goldAdminId} </if>
+		  		  <if test="goldUserId != null and goldUserId != ''"> and gold_user_id = #{goldUserId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_gold_record
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="goldAdminInfo != null and goldAdminInfo != ''"> and gold_admin_info = #{goldAdminInfo} </if>
+		  		  <if test="goldAdminTime != null and goldAdminTime != ''"> and gold_admin_time = #{goldAdminTime} </if>
+		  		  <if test="goldCount != null and goldCount != ''"> and gold_count = #{goldCount} </if>
+		  		  <if test="goldExchangeInfo != null and goldExchangeInfo != ''"> and gold_exchange_info = #{goldExchangeInfo} </if>
+		  		  <if test="goldMoney != null and goldMoney != ''"> and gold_money = #{goldMoney} </if>
+		  		  <if test="goldPayStatus != null and goldPayStatus != ''"> and gold_pay_status = #{goldPayStatus} </if>
+		  		  <if test="goldPayment != null and goldPayment != ''"> and gold_payment = #{goldPayment} </if>
+		  		  <if test="goldSn != null and goldSn != ''"> and gold_sn = #{goldSn} </if>
+		  		  <if test="goldStatus != null and goldStatus != ''"> and gold_status = #{goldStatus} </if>
+		  		  <if test="goldAdminId != null and goldAdminId != ''"> and gold_admin_id = #{goldAdminId} </if>
+		  		  <if test="goldUserId != null and goldUserId != ''"> and gold_user_id = #{goldUserId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoldRecordDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_gold_record
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`gold_admin_info`, 
+			`gold_admin_time`, 
+			`gold_count`, 
+			`gold_exchange_info`, 
+			`gold_money`, 
+			`gold_pay_status`, 
+			`gold_payment`, 
+			`gold_sn`, 
+			`gold_status`, 
+			`gold_admin_id`, 
+			`gold_user_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{goldAdminInfo}, 
+			#{goldAdminTime}, 
+			#{goldCount}, 
+			#{goldExchangeInfo}, 
+			#{goldMoney}, 
+			#{goldPayStatus}, 
+			#{goldPayment}, 
+			#{goldSn}, 
+			#{goldStatus}, 
+			#{goldAdminId}, 
+			#{goldUserId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoldRecordDO">
+		update wemall_gold_record 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="goldAdminInfo != null">`gold_admin_info` = #{goldAdminInfo}, </if>
+			<if test="goldAdminTime != null">`gold_admin_time` = #{goldAdminTime}, </if>
+			<if test="goldCount != null">`gold_count` = #{goldCount}, </if>
+			<if test="goldExchangeInfo != null">`gold_exchange_info` = #{goldExchangeInfo}, </if>
+			<if test="goldMoney != null">`gold_money` = #{goldMoney}, </if>
+			<if test="goldPayStatus != null">`gold_pay_status` = #{goldPayStatus}, </if>
+			<if test="goldPayment != null">`gold_payment` = #{goldPayment}, </if>
+			<if test="goldSn != null">`gold_sn` = #{goldSn}, </if>
+			<if test="goldStatus != null">`gold_status` = #{goldStatus}, </if>
+			<if test="goldAdminId != null">`gold_admin_id` = #{goldAdminId}, </if>
+			<if test="goldUserId != null">`gold_user_id` = #{goldUserId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_gold_record where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_gold_record where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

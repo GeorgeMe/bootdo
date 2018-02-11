@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${payment.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${payment.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${payment.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">chinabank_account：</label>
+								<div class="col-sm-8">
+									<input id="chinabankAccount" name="chinabankAccount" th:value="${payment.chinabankAccount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">chinabank_key：</label>
+								<div class="col-sm-8">
+									<input id="chinabankKey" name="chinabankKey" th:value="${payment.chinabankKey}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">content：</label>
+								<div class="col-sm-8">
+									<input id="content" name="content" th:value="${payment.content}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">install：</label>
+								<div class="col-sm-8">
+									<input id="install" name="install" th:value="${payment.install}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">interfaceType：</label>
+								<div class="col-sm-8">
+									<input id="interfacetype" name="interfacetype" th:value="${payment.interfacetype}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">mark：</label>
+								<div class="col-sm-8">
+									<input id="mark" name="mark" th:value="${payment.mark}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">merchantAcctId：</label>
+								<div class="col-sm-8">
+									<input id="merchantacctid" name="merchantacctid" th:value="${payment.merchantacctid}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">name：</label>
+								<div class="col-sm-8">
+									<input id="name" name="name" th:value="${payment.name}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">partner：</label>
+								<div class="col-sm-8">
+									<input id="partner" name="partner" th:value="${payment.partner}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">pid：</label>
+								<div class="col-sm-8">
+									<input id="pid" name="pid" th:value="${payment.pid}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">rmbKey：</label>
+								<div class="col-sm-8">
+									<input id="rmbkey" name="rmbkey" th:value="${payment.rmbkey}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">safeKey：</label>
+								<div class="col-sm-8">
+									<input id="safekey" name="safekey" th:value="${payment.safekey}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">seller_email：</label>
+								<div class="col-sm-8">
+									<input id="sellerEmail" name="sellerEmail" th:value="${payment.sellerEmail}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">spname：</label>
+								<div class="col-sm-8">
+									<input id="spname" name="spname" th:value="${payment.spname}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">tenpay_key：</label>
+								<div class="col-sm-8">
+									<input id="tenpayKey" name="tenpayKey" th:value="${payment.tenpayKey}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">tenpay_partner：</label>
+								<div class="col-sm-8">
+									<input id="tenpayPartner" name="tenpayPartner" th:value="${payment.tenpayPartner}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">trade_mode：</label>
+								<div class="col-sm-8">
+									<input id="tradeMode" name="tradeMode" th:value="${payment.tradeMode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">type：</label>
+								<div class="col-sm-8">
+									<input id="type" name="type" th:value="${payment.type}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_id：</label>
+								<div class="col-sm-8">
+									<input id="storeId" name="storeId" th:value="${payment.storeId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">alipay_divide_rate：</label>
+								<div class="col-sm-8">
+									<input id="alipayDivideRate" name="alipayDivideRate" th:value="${payment.alipayDivideRate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">alipay_rate：</label>
+								<div class="col-sm-8">
+									<input id="alipayRate" name="alipayRate" th:value="${payment.alipayRate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">balance_divide_rate：</label>
+								<div class="col-sm-8">
+									<input id="balanceDivideRate" name="balanceDivideRate" th:value="${payment.balanceDivideRate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">currency_code：</label>
+								<div class="col-sm-8">
+									<input id="currencyCode" name="currencyCode" th:value="${payment.currencyCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">paypal_userId：</label>
+								<div class="col-sm-8">
+									<input id="paypalUserid" name="paypalUserid" th:value="${payment.paypalUserid}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">poundage：</label>
+								<div class="col-sm-8">
+									<input id="poundage" name="poundage" th:value="${payment.poundage}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">lzbank_key：</label>
+								<div class="col-sm-8">
+									<input id="lzbankKey" name="lzbankKey" th:value="${payment.lzbankKey}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">lzbank_partner：</label>
+								<div class="col-sm-8">
+									<input id="lzbankPartner" name="lzbankPartner" th:value="${payment.lzbankPartner}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">lzbank_trade_mode：</label>
+								<div class="col-sm-8">
+									<input id="lzbankTradeMode" name="lzbankTradeMode" th:value="${payment.lzbankTradeMode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appId：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppid" name="weixinAppid" th:value="${payment.weixinAppid}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appSecret：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppsecret" name="weixinAppsecret" th:value="${payment.weixinAppsecret}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_partnerId：</label>
+								<div class="col-sm-8">
+									<input id="weixinPartnerid" name="weixinPartnerid" th:value="${payment.weixinPartnerid}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_partnerKey：</label>
+								<div class="col-sm-8">
+									<input id="weixinPartnerkey" name="weixinPartnerkey" th:value="${payment.weixinPartnerkey}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_paySignKey：</label>
+								<div class="col-sm-8">
+									<input id="weixinPaysignkey" name="weixinPaysignkey" th:value="${payment.weixinPaysignkey}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/payment/edit.js">
+	</script>
+</body>
+</html>

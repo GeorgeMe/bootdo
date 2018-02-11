@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoodsFloorDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoodsFloorDO">
+		select `id`,`addTime`,`deleteStatus`,`gf_css`,`gf_display`,`gf_goods_count`,`gf_level`,`gf_name`,`gf_sequence`,`parent_id`,`gf_gc_goods`,`gf_gc_list`,`gf_left_adv`,`gf_list_goods`,`gf_right_adv`,`gf_brand_list` from wemall_goods_floor where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoodsFloorDO">
+		select `id`,`addTime`,`deleteStatus`,`gf_css`,`gf_display`,`gf_goods_count`,`gf_level`,`gf_name`,`gf_sequence`,`parent_id`,`gf_gc_goods`,`gf_gc_list`,`gf_left_adv`,`gf_list_goods`,`gf_right_adv`,`gf_brand_list` from wemall_goods_floor
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="gfCss != null and gfCss != ''"> and gf_css = #{gfCss} </if>
+		  		  <if test="gfDisplay != null and gfDisplay != ''"> and gf_display = #{gfDisplay} </if>
+		  		  <if test="gfGoodsCount != null and gfGoodsCount != ''"> and gf_goods_count = #{gfGoodsCount} </if>
+		  		  <if test="gfLevel != null and gfLevel != ''"> and gf_level = #{gfLevel} </if>
+		  		  <if test="gfName != null and gfName != ''"> and gf_name = #{gfName} </if>
+		  		  <if test="gfSequence != null and gfSequence != ''"> and gf_sequence = #{gfSequence} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="gfGcGoods != null and gfGcGoods != ''"> and gf_gc_goods = #{gfGcGoods} </if>
+		  		  <if test="gfGcList != null and gfGcList != ''"> and gf_gc_list = #{gfGcList} </if>
+		  		  <if test="gfLeftAdv != null and gfLeftAdv != ''"> and gf_left_adv = #{gfLeftAdv} </if>
+		  		  <if test="gfListGoods != null and gfListGoods != ''"> and gf_list_goods = #{gfListGoods} </if>
+		  		  <if test="gfRightAdv != null and gfRightAdv != ''"> and gf_right_adv = #{gfRightAdv} </if>
+		  		  <if test="gfBrandList != null and gfBrandList != ''"> and gf_brand_list = #{gfBrandList} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_goods_floor
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="gfCss != null and gfCss != ''"> and gf_css = #{gfCss} </if>
+		  		  <if test="gfDisplay != null and gfDisplay != ''"> and gf_display = #{gfDisplay} </if>
+		  		  <if test="gfGoodsCount != null and gfGoodsCount != ''"> and gf_goods_count = #{gfGoodsCount} </if>
+		  		  <if test="gfLevel != null and gfLevel != ''"> and gf_level = #{gfLevel} </if>
+		  		  <if test="gfName != null and gfName != ''"> and gf_name = #{gfName} </if>
+		  		  <if test="gfSequence != null and gfSequence != ''"> and gf_sequence = #{gfSequence} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="gfGcGoods != null and gfGcGoods != ''"> and gf_gc_goods = #{gfGcGoods} </if>
+		  		  <if test="gfGcList != null and gfGcList != ''"> and gf_gc_list = #{gfGcList} </if>
+		  		  <if test="gfLeftAdv != null and gfLeftAdv != ''"> and gf_left_adv = #{gfLeftAdv} </if>
+		  		  <if test="gfListGoods != null and gfListGoods != ''"> and gf_list_goods = #{gfListGoods} </if>
+		  		  <if test="gfRightAdv != null and gfRightAdv != ''"> and gf_right_adv = #{gfRightAdv} </if>
+		  		  <if test="gfBrandList != null and gfBrandList != ''"> and gf_brand_list = #{gfBrandList} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoodsFloorDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_goods_floor
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`gf_css`, 
+			`gf_display`, 
+			`gf_goods_count`, 
+			`gf_level`, 
+			`gf_name`, 
+			`gf_sequence`, 
+			`parent_id`, 
+			`gf_gc_goods`, 
+			`gf_gc_list`, 
+			`gf_left_adv`, 
+			`gf_list_goods`, 
+			`gf_right_adv`, 
+			`gf_brand_list`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{gfCss}, 
+			#{gfDisplay}, 
+			#{gfGoodsCount}, 
+			#{gfLevel}, 
+			#{gfName}, 
+			#{gfSequence}, 
+			#{parentId}, 
+			#{gfGcGoods}, 
+			#{gfGcList}, 
+			#{gfLeftAdv}, 
+			#{gfListGoods}, 
+			#{gfRightAdv}, 
+			#{gfBrandList}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoodsFloorDO">
+		update wemall_goods_floor 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="gfCss != null">`gf_css` = #{gfCss}, </if>
+			<if test="gfDisplay != null">`gf_display` = #{gfDisplay}, </if>
+			<if test="gfGoodsCount != null">`gf_goods_count` = #{gfGoodsCount}, </if>
+			<if test="gfLevel != null">`gf_level` = #{gfLevel}, </if>
+			<if test="gfName != null">`gf_name` = #{gfName}, </if>
+			<if test="gfSequence != null">`gf_sequence` = #{gfSequence}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="gfGcGoods != null">`gf_gc_goods` = #{gfGcGoods}, </if>
+			<if test="gfGcList != null">`gf_gc_list` = #{gfGcList}, </if>
+			<if test="gfLeftAdv != null">`gf_left_adv` = #{gfLeftAdv}, </if>
+			<if test="gfListGoods != null">`gf_list_goods` = #{gfListGoods}, </if>
+			<if test="gfRightAdv != null">`gf_right_adv` = #{gfRightAdv}, </if>
+			<if test="gfBrandList != null">`gf_brand_list` = #{gfBrandList}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_goods_floor where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_goods_floor where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

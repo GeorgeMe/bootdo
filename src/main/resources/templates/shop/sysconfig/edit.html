@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${sysconfig.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${sysconfig.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${sysconfig.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">address：</label>
+								<div class="col-sm-8">
+									<input id="address" name="address" th:value="${sysconfig.address}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bigHeight：</label>
+								<div class="col-sm-8">
+									<input id="bigheight" name="bigheight" th:value="${sysconfig.bigheight}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bigWidth：</label>
+								<div class="col-sm-8">
+									<input id="bigwidth" name="bigwidth" th:value="${sysconfig.bigwidth}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">closeReason：</label>
+								<div class="col-sm-8">
+									<input id="closereason" name="closereason" th:value="${sysconfig.closereason}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">codeStat：</label>
+								<div class="col-sm-8">
+									<input id="codestat" name="codestat" th:value="${sysconfig.codestat}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">complaint_time：</label>
+								<div class="col-sm-8">
+									<input id="complaintTime" name="complaintTime" th:value="${sysconfig.complaintTime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">consumptionRatio：</label>
+								<div class="col-sm-8">
+									<input id="consumptionratio" name="consumptionratio" th:value="${sysconfig.consumptionratio}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">copyRight：</label>
+								<div class="col-sm-8">
+									<input id="copyright" name="copyright" th:value="${sysconfig.copyright}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">creditrule：</label>
+								<div class="col-sm-8">
+									<input id="creditrule" name="creditrule" th:value="${sysconfig.creditrule}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deposit：</label>
+								<div class="col-sm-8">
+									<input id="deposit" name="deposit" th:value="${sysconfig.deposit}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description：</label>
+								<div class="col-sm-8">
+									<input id="description" name="description" th:value="${sysconfig.description}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailEnable：</label>
+								<div class="col-sm-8">
+									<input id="emailenable" name="emailenable" th:value="${sysconfig.emailenable}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailHost：</label>
+								<div class="col-sm-8">
+									<input id="emailhost" name="emailhost" th:value="${sysconfig.emailhost}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailPort：</label>
+								<div class="col-sm-8">
+									<input id="emailport" name="emailport" th:value="${sysconfig.emailport}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailPws：</label>
+								<div class="col-sm-8">
+									<input id="emailpws" name="emailpws" th:value="${sysconfig.emailpws}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailTest：</label>
+								<div class="col-sm-8">
+									<input id="emailtest" name="emailtest" th:value="${sysconfig.emailtest}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailUser：</label>
+								<div class="col-sm-8">
+									<input id="emailuser" name="emailuser" th:value="${sysconfig.emailuser}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">emailUserName：</label>
+								<div class="col-sm-8">
+									<input id="emailusername" name="emailusername" th:value="${sysconfig.emailusername}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">everyIndentLimit：</label>
+								<div class="col-sm-8">
+									<input id="everyindentlimit" name="everyindentlimit" th:value="${sysconfig.everyindentlimit}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">gold：</label>
+								<div class="col-sm-8">
+									<input id="gold" name="gold" th:value="${sysconfig.gold}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goldMarketValue：</label>
+								<div class="col-sm-8">
+									<input id="goldmarketvalue" name="goldmarketvalue" th:value="${sysconfig.goldmarketvalue}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">groupBuy：</label>
+								<div class="col-sm-8">
+									<input id="groupbuy" name="groupbuy" th:value="${sysconfig.groupbuy}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">hotSearch：</label>
+								<div class="col-sm-8">
+									<input id="hotsearch" name="hotsearch" th:value="${sysconfig.hotsearch}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">imageFilesize：</label>
+								<div class="col-sm-8">
+									<input id="imagefilesize" name="imagefilesize" th:value="${sysconfig.imagefilesize}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">imageSaveType：</label>
+								<div class="col-sm-8">
+									<input id="imagesavetype" name="imagesavetype" th:value="${sysconfig.imagesavetype}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">imageSuffix：</label>
+								<div class="col-sm-8">
+									<input id="imagesuffix" name="imagesuffix" th:value="${sysconfig.imagesuffix}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">indentComment：</label>
+								<div class="col-sm-8">
+									<input id="indentcomment" name="indentcomment" th:value="${sysconfig.indentcomment}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">integral：</label>
+								<div class="col-sm-8">
+									<input id="integral" name="integral" th:value="${sysconfig.integral}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">integralRate：</label>
+								<div class="col-sm-8">
+									<input id="integralrate" name="integralrate" th:value="${sysconfig.integralrate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">integralStore：</label>
+								<div class="col-sm-8">
+									<input id="integralstore" name="integralstore" th:value="${sysconfig.integralstore}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">keywords：</label>
+								<div class="col-sm-8">
+									<input id="keywords" name="keywords" th:value="${sysconfig.keywords}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">memberDayLogin：</label>
+								<div class="col-sm-8">
+									<input id="memberdaylogin" name="memberdaylogin" th:value="${sysconfig.memberdaylogin}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">memberRegister：</label>
+								<div class="col-sm-8">
+									<input id="memberregister" name="memberregister" th:value="${sysconfig.memberregister}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">middleHeight：</label>
+								<div class="col-sm-8">
+									<input id="middleheight" name="middleheight" th:value="${sysconfig.middleheight}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">middleWidth：</label>
+								<div class="col-sm-8">
+									<input id="middlewidth" name="middlewidth" th:value="${sysconfig.middlewidth}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">securityCodeConsult：</label>
+								<div class="col-sm-8">
+									<input id="securitycodeconsult" name="securitycodeconsult" th:value="${sysconfig.securitycodeconsult}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">securityCodeLogin：</label>
+								<div class="col-sm-8">
+									<input id="securitycodelogin" name="securitycodelogin" th:value="${sysconfig.securitycodelogin}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">securityCodeRegister：</label>
+								<div class="col-sm-8">
+									<input id="securitycoderegister" name="securitycoderegister" th:value="${sysconfig.securitycoderegister}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">securityCodeType：</label>
+								<div class="col-sm-8">
+									<input id="securitycodetype" name="securitycodetype" th:value="${sysconfig.securitycodetype}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">share_code：</label>
+								<div class="col-sm-8">
+									<input id="shareCode" name="shareCode" th:value="${sysconfig.shareCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smallHeight：</label>
+								<div class="col-sm-8">
+									<input id="smallheight" name="smallheight" th:value="${sysconfig.smallheight}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smallWidth：</label>
+								<div class="col-sm-8">
+									<input id="smallwidth" name="smallwidth" th:value="${sysconfig.smallwidth}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsEnbale：</label>
+								<div class="col-sm-8">
+									<input id="smsenbale" name="smsenbale" th:value="${sysconfig.smsenbale}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsPassword：</label>
+								<div class="col-sm-8">
+									<input id="smspassword" name="smspassword" th:value="${sysconfig.smspassword}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsTest：</label>
+								<div class="col-sm-8">
+									<input id="smstest" name="smstest" th:value="${sysconfig.smstest}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsURL：</label>
+								<div class="col-sm-8">
+									<input id="smsurl" name="smsurl" th:value="${sysconfig.smsurl}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">smsUserName：</label>
+								<div class="col-sm-8">
+									<input id="smsusername" name="smsusername" th:value="${sysconfig.smsusername}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_allow：</label>
+								<div class="col-sm-8">
+									<input id="storeAllow" name="storeAllow" th:value="${sysconfig.storeAllow}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_payment：</label>
+								<div class="col-sm-8">
+									<input id="storePayment" name="storePayment" th:value="${sysconfig.storePayment}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sysLanguage：</label>
+								<div class="col-sm-8">
+									<input id="syslanguage" name="syslanguage" th:value="${sysconfig.syslanguage}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">templates：</label>
+								<div class="col-sm-8">
+									<input id="templates" name="templates" th:value="${sysconfig.templates}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">title：</label>
+								<div class="col-sm-8">
+									<input id="title" name="title" th:value="${sysconfig.title}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uploadFilePath：</label>
+								<div class="col-sm-8">
+									<input id="uploadfilepath" name="uploadfilepath" th:value="${sysconfig.uploadfilepath}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">user_creditrule：</label>
+								<div class="col-sm-8">
+									<input id="userCreditrule" name="userCreditrule" th:value="${sysconfig.userCreditrule}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">visitorConsult：</label>
+								<div class="col-sm-8">
+									<input id="visitorconsult" name="visitorconsult" th:value="${sysconfig.visitorconsult}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">voucher：</label>
+								<div class="col-sm-8">
+									<input id="voucher" name="voucher" th:value="${sysconfig.voucher}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">websiteName：</label>
+								<div class="col-sm-8">
+									<input id="websitename" name="websitename" th:value="${sysconfig.websitename}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">websiteState：</label>
+								<div class="col-sm-8">
+									<input id="websitestate" name="websitestate" th:value="${sysconfig.websitestate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_price：</label>
+								<div class="col-sm-8">
+									<input id="ztcPrice" name="ztcPrice" th:value="${sysconfig.ztcPrice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_status：</label>
+								<div class="col-sm-8">
+									<input id="ztcStatus" name="ztcStatus" th:value="${sysconfig.ztcStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">goodsImage_id：</label>
+								<div class="col-sm-8">
+									<input id="goodsimageId" name="goodsimageId" th:value="${sysconfig.goodsimageId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">memberIcon_id：</label>
+								<div class="col-sm-8">
+									<input id="membericonId" name="membericonId" th:value="${sysconfig.membericonId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">storeImage_id：</label>
+								<div class="col-sm-8">
+									<input id="storeimageId" name="storeimageId" th:value="${sysconfig.storeimageId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">websiteLogo_id：</label>
+								<div class="col-sm-8">
+									<input id="websitelogoId" name="websitelogoId" th:value="${sysconfig.websitelogoId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">domain_allow_count：</label>
+								<div class="col-sm-8">
+									<input id="domainAllowCount" name="domainAllowCount" th:value="${sysconfig.domainAllowCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">second_domain_open：</label>
+								<div class="col-sm-8">
+									<input id="secondDomainOpen" name="secondDomainOpen" th:value="${sysconfig.secondDomainOpen}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sys_domain：</label>
+								<div class="col-sm-8">
+									<input id="sysDomain" name="sysDomain" th:value="${sysconfig.sysDomain}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">qq_login：</label>
+								<div class="col-sm-8">
+									<input id="qqLogin" name="qqLogin" th:value="${sysconfig.qqLogin}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">qq_login_id：</label>
+								<div class="col-sm-8">
+									<input id="qqLoginId" name="qqLoginId" th:value="${sysconfig.qqLoginId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">qq_login_key：</label>
+								<div class="col-sm-8">
+									<input id="qqLoginKey" name="qqLoginKey" th:value="${sysconfig.qqLoginKey}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">qq_domain_code：</label>
+								<div class="col-sm-8">
+									<input id="qqDomainCode" name="qqDomainCode" th:value="${sysconfig.qqDomainCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sina_domain_code：</label>
+								<div class="col-sm-8">
+									<input id="sinaDomainCode" name="sinaDomainCode" th:value="${sysconfig.sinaDomainCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sina_login：</label>
+								<div class="col-sm-8">
+									<input id="sinaLogin" name="sinaLogin" th:value="${sysconfig.sinaLogin}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sina_login_id：</label>
+								<div class="col-sm-8">
+									<input id="sinaLoginId" name="sinaLoginId" th:value="${sysconfig.sinaLoginId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sina_login_key：</label>
+								<div class="col-sm-8">
+									<input id="sinaLoginKey" name="sinaLoginKey" th:value="${sysconfig.sinaLoginKey}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">imageWebServer：</label>
+								<div class="col-sm-8">
+									<input id="imagewebserver" name="imagewebserver" th:value="${sysconfig.imagewebserver}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">lucene_update：</label>
+								<div class="col-sm-8">
+									<input id="luceneUpdate" name="luceneUpdate" th:value="${sysconfig.luceneUpdate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">alipay_fenrun：</label>
+								<div class="col-sm-8">
+									<input id="alipayFenrun" name="alipayFenrun" th:value="${sysconfig.alipayFenrun}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">balance_fenrun：</label>
+								<div class="col-sm-8">
+									<input id="balanceFenrun" name="balanceFenrun" th:value="${sysconfig.balanceFenrun}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_order_confirm：</label>
+								<div class="col-sm-8">
+									<input id="autoOrderConfirm" name="autoOrderConfirm" th:value="${sysconfig.autoOrderConfirm}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_order_notice：</label>
+								<div class="col-sm-8">
+									<input id="autoOrderNotice" name="autoOrderNotice" th:value="${sysconfig.autoOrderNotice}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_maximum：</label>
+								<div class="col-sm-8">
+									<input id="bargainMaximum" name="bargainMaximum" th:value="${sysconfig.bargainMaximum}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_rebate：</label>
+								<div class="col-sm-8">
+									<input id="bargainRebate" name="bargainRebate" th:value="${sysconfig.bargainRebate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_state：</label>
+								<div class="col-sm-8">
+									<input id="bargainState" name="bargainState" th:value="${sysconfig.bargainState}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_status：</label>
+								<div class="col-sm-8">
+									<input id="bargainStatus" name="bargainStatus" th:value="${sysconfig.bargainStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_title：</label>
+								<div class="col-sm-8">
+									<input id="bargainTitle" name="bargainTitle" th:value="${sysconfig.bargainTitle}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_qq_list：</label>
+								<div class="col-sm-8">
+									<input id="serviceQqList" name="serviceQqList" th:value="${sysconfig.serviceQqList}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_telphone_list：</label>
+								<div class="col-sm-8">
+									<input id="serviceTelphoneList" name="serviceTelphoneList" th:value="${sysconfig.serviceTelphoneList}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">sys_delivery_maximum：</label>
+								<div class="col-sm-8">
+									<input id="sysDeliveryMaximum" name="sysDeliveryMaximum" th:value="${sysconfig.sysDeliveryMaximum}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_bbs：</label>
+								<div class="col-sm-8">
+									<input id="ucBbs" name="ucBbs" th:value="${sysconfig.ucBbs}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">kuaidi_id：</label>
+								<div class="col-sm-8">
+									<input id="kuaidiId" name="kuaidiId" th:value="${sysconfig.kuaidiId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_api：</label>
+								<div class="col-sm-8">
+									<input id="ucApi" name="ucApi" th:value="${sysconfig.ucApi}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_appid：</label>
+								<div class="col-sm-8">
+									<input id="ucAppid" name="ucAppid" th:value="${sysconfig.ucAppid}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabase" name="ucDatabase" th:value="${sysconfig.ucDatabase}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database_port：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabasePort" name="ucDatabasePort" th:value="${sysconfig.ucDatabasePort}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database_pws：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabasePws" name="ucDatabasePws" th:value="${sysconfig.ucDatabasePws}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database_url：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabaseUrl" name="ucDatabaseUrl" th:value="${sysconfig.ucDatabaseUrl}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_database_username：</label>
+								<div class="col-sm-8">
+									<input id="ucDatabaseUsername" name="ucDatabaseUsername" th:value="${sysconfig.ucDatabaseUsername}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_ip：</label>
+								<div class="col-sm-8">
+									<input id="ucIp" name="ucIp" th:value="${sysconfig.ucIp}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_key：</label>
+								<div class="col-sm-8">
+									<input id="ucKey" name="ucKey" th:value="${sysconfig.ucKey}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">uc_table_preffix：</label>
+								<div class="col-sm-8">
+									<input id="ucTablePreffix" name="ucTablePreffix" th:value="${sysconfig.ucTablePreffix}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">currency_code：</label>
+								<div class="col-sm-8">
+									<input id="currencyCode" name="currencyCode" th:value="${sysconfig.currencyCode}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">bargain_validity：</label>
+								<div class="col-sm-8">
+									<input id="bargainValidity" name="bargainValidity" th:value="${sysconfig.bargainValidity}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_amount：</label>
+								<div class="col-sm-8">
+									<input id="deliveryAmount" name="deliveryAmount" th:value="${sysconfig.deliveryAmount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_status：</label>
+								<div class="col-sm-8">
+									<input id="deliveryStatus" name="deliveryStatus" th:value="${sysconfig.deliveryStatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">delivery_title：</label>
+								<div class="col-sm-8">
+									<input id="deliveryTitle" name="deliveryTitle" th:value="${sysconfig.deliveryTitle}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">websiteCss：</label>
+								<div class="col-sm-8">
+									<input id="websitecss" name="websitecss" th:value="${sysconfig.websitecss}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_amount：</label>
+								<div class="col-sm-8">
+									<input id="combinAmount" name="combinAmount" th:value="${sysconfig.combinAmount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">combin_count：</label>
+								<div class="col-sm-8">
+									<input id="combinCount" name="combinCount" th:value="${sysconfig.combinCount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ztc_goods_view：</label>
+								<div class="col-sm-8">
+									<input id="ztcGoodsView" name="ztcGoodsView" th:value="${sysconfig.ztcGoodsView}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_order_evaluate：</label>
+								<div class="col-sm-8">
+									<input id="autoOrderEvaluate" name="autoOrderEvaluate" th:value="${sysconfig.autoOrderEvaluate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">auto_order_return：</label>
+								<div class="col-sm-8">
+									<input id="autoOrderReturn" name="autoOrderReturn" th:value="${sysconfig.autoOrderReturn}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_store：</label>
+								<div class="col-sm-8">
+									<input id="weixinStore" name="weixinStore" th:value="${sysconfig.weixinStore}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_amount：</label>
+								<div class="col-sm-8">
+									<input id="weixinAmount" name="weixinAmount" th:value="${sysconfig.weixinAmount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">config_payment_type：</label>
+								<div class="col-sm-8">
+									<input id="configPaymentType" name="configPaymentType" th:value="${sysconfig.configPaymentType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_account：</label>
+								<div class="col-sm-8">
+									<input id="weixinAccount" name="weixinAccount" th:value="${sysconfig.weixinAccount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appId：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppid" name="weixinAppid" th:value="${sysconfig.weixinAppid}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_appSecret：</label>
+								<div class="col-sm-8">
+									<input id="weixinAppsecret" name="weixinAppsecret" th:value="${sysconfig.weixinAppsecret}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_token：</label>
+								<div class="col-sm-8">
+									<input id="weixinToken" name="weixinToken" th:value="${sysconfig.weixinToken}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_welecome_content：</label>
+								<div class="col-sm-8">
+									<input id="weixinWelecomeContent" name="weixinWelecomeContent" th:value="${sysconfig.weixinWelecomeContent}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_weixin_logo_id：</label>
+								<div class="col-sm-8">
+									<input id="storeWeixinLogoId" name="storeWeixinLogoId" th:value="${sysconfig.storeWeixinLogoId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">weixin_qr_img_id：</label>
+								<div class="col-sm-8">
+									<input id="weixinQrImgId" name="weixinQrImgId" th:value="${sysconfig.weixinQrImgId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">site_url：</label>
+								<div class="col-sm-8">
+									<input id="siteUrl" name="siteUrl" th:value="${sysconfig.siteUrl}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/sysconfig/edit.js">
+	</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.TransportDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.TransportDO">
+		select `id`,`addTime`,`deleteStatus`,`trans_ems`,`trans_ems_info`,`trans_express`,`trans_express_info`,`trans_mail`,`trans_mail_info`,`trans_name`,`store_id`,`trans_time`,`trans_type` from wemall_transport where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.TransportDO">
+		select `id`,`addTime`,`deleteStatus`,`trans_ems`,`trans_ems_info`,`trans_express`,`trans_express_info`,`trans_mail`,`trans_mail_info`,`trans_name`,`store_id`,`trans_time`,`trans_type` from wemall_transport
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="transEms != null and transEms != ''"> and trans_ems = #{transEms} </if>
+		  		  <if test="transEmsInfo != null and transEmsInfo != ''"> and trans_ems_info = #{transEmsInfo} </if>
+		  		  <if test="transExpress != null and transExpress != ''"> and trans_express = #{transExpress} </if>
+		  		  <if test="transExpressInfo != null and transExpressInfo != ''"> and trans_express_info = #{transExpressInfo} </if>
+		  		  <if test="transMail != null and transMail != ''"> and trans_mail = #{transMail} </if>
+		  		  <if test="transMailInfo != null and transMailInfo != ''"> and trans_mail_info = #{transMailInfo} </if>
+		  		  <if test="transName != null and transName != ''"> and trans_name = #{transName} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="transTime != null and transTime != ''"> and trans_time = #{transTime} </if>
+		  		  <if test="transType != null and transType != ''"> and trans_type = #{transType} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_transport
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="transEms != null and transEms != ''"> and trans_ems = #{transEms} </if>
+		  		  <if test="transEmsInfo != null and transEmsInfo != ''"> and trans_ems_info = #{transEmsInfo} </if>
+		  		  <if test="transExpress != null and transExpress != ''"> and trans_express = #{transExpress} </if>
+		  		  <if test="transExpressInfo != null and transExpressInfo != ''"> and trans_express_info = #{transExpressInfo} </if>
+		  		  <if test="transMail != null and transMail != ''"> and trans_mail = #{transMail} </if>
+		  		  <if test="transMailInfo != null and transMailInfo != ''"> and trans_mail_info = #{transMailInfo} </if>
+		  		  <if test="transName != null and transName != ''"> and trans_name = #{transName} </if>
+		  		  <if test="storeId != null and storeId != ''"> and store_id = #{storeId} </if>
+		  		  <if test="transTime != null and transTime != ''"> and trans_time = #{transTime} </if>
+		  		  <if test="transType != null and transType != ''"> and trans_type = #{transType} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.TransportDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_transport
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`trans_ems`, 
+			`trans_ems_info`, 
+			`trans_express`, 
+			`trans_express_info`, 
+			`trans_mail`, 
+			`trans_mail_info`, 
+			`trans_name`, 
+			`store_id`, 
+			`trans_time`, 
+			`trans_type`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{transEms}, 
+			#{transEmsInfo}, 
+			#{transExpress}, 
+			#{transExpressInfo}, 
+			#{transMail}, 
+			#{transMailInfo}, 
+			#{transName}, 
+			#{storeId}, 
+			#{transTime}, 
+			#{transType}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.TransportDO">
+		update wemall_transport 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="transEms != null">`trans_ems` = #{transEms}, </if>
+			<if test="transEmsInfo != null">`trans_ems_info` = #{transEmsInfo}, </if>
+			<if test="transExpress != null">`trans_express` = #{transExpress}, </if>
+			<if test="transExpressInfo != null">`trans_express_info` = #{transExpressInfo}, </if>
+			<if test="transMail != null">`trans_mail` = #{transMail}, </if>
+			<if test="transMailInfo != null">`trans_mail_info` = #{transMailInfo}, </if>
+			<if test="transName != null">`trans_name` = #{transName}, </if>
+			<if test="storeId != null">`store_id` = #{storeId}, </if>
+			<if test="transTime != null">`trans_time` = #{transTime}, </if>
+			<if test="transType != null">`trans_type` = #{transType}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_transport where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_transport where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${predepositLog.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${predepositLog.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${predepositLog.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">pd_log_amount：</label>
+								<div class="col-sm-8">
+									<input id="pdLogAmount" name="pdLogAmount" th:value="${predepositLog.pdLogAmount}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">pd_log_info：</label>
+								<div class="col-sm-8">
+									<input id="pdLogInfo" name="pdLogInfo" th:value="${predepositLog.pdLogInfo}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">pd_op_type：</label>
+								<div class="col-sm-8">
+									<input id="pdOpType" name="pdOpType" th:value="${predepositLog.pdOpType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">pd_type：</label>
+								<div class="col-sm-8">
+									<input id="pdType" name="pdType" th:value="${predepositLog.pdType}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">pd_log_admin_id：</label>
+								<div class="col-sm-8">
+									<input id="pdLogAdminId" name="pdLogAdminId" th:value="${predepositLog.pdLogAdminId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">pd_log_user_id：</label>
+								<div class="col-sm-8">
+									<input id="pdLogUserId" name="pdLogUserId" th:value="${predepositLog.pdLogUserId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">predeposit_id：</label>
+								<div class="col-sm-8">
+									<input id="predepositId" name="predepositId" th:value="${predepositLog.predepositId}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/predepositLog/edit.js">
+	</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.StoreStatDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.StoreStatDO">
+		select `id`,`addTime`,`deleteStatus`,`all_goods`,`all_store`,`all_user`,`next_time`,`order_amount`,`store_update`,`week_complaint`,`week_goods`,`week_order`,`week_report`,`week_store`,`week_user` from wemall_store_stat where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.StoreStatDO">
+		select `id`,`addTime`,`deleteStatus`,`all_goods`,`all_store`,`all_user`,`next_time`,`order_amount`,`store_update`,`week_complaint`,`week_goods`,`week_order`,`week_report`,`week_store`,`week_user` from wemall_store_stat
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="allGoods != null and allGoods != ''"> and all_goods = #{allGoods} </if>
+		  		  <if test="allStore != null and allStore != ''"> and all_store = #{allStore} </if>
+		  		  <if test="allUser != null and allUser != ''"> and all_user = #{allUser} </if>
+		  		  <if test="nextTime != null and nextTime != ''"> and next_time = #{nextTime} </if>
+		  		  <if test="orderAmount != null and orderAmount != ''"> and order_amount = #{orderAmount} </if>
+		  		  <if test="storeUpdate != null and storeUpdate != ''"> and store_update = #{storeUpdate} </if>
+		  		  <if test="weekComplaint != null and weekComplaint != ''"> and week_complaint = #{weekComplaint} </if>
+		  		  <if test="weekGoods != null and weekGoods != ''"> and week_goods = #{weekGoods} </if>
+		  		  <if test="weekOrder != null and weekOrder != ''"> and week_order = #{weekOrder} </if>
+		  		  <if test="weekReport != null and weekReport != ''"> and week_report = #{weekReport} </if>
+		  		  <if test="weekStore != null and weekStore != ''"> and week_store = #{weekStore} </if>
+		  		  <if test="weekUser != null and weekUser != ''"> and week_user = #{weekUser} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_store_stat
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="allGoods != null and allGoods != ''"> and all_goods = #{allGoods} </if>
+		  		  <if test="allStore != null and allStore != ''"> and all_store = #{allStore} </if>
+		  		  <if test="allUser != null and allUser != ''"> and all_user = #{allUser} </if>
+		  		  <if test="nextTime != null and nextTime != ''"> and next_time = #{nextTime} </if>
+		  		  <if test="orderAmount != null and orderAmount != ''"> and order_amount = #{orderAmount} </if>
+		  		  <if test="storeUpdate != null and storeUpdate != ''"> and store_update = #{storeUpdate} </if>
+		  		  <if test="weekComplaint != null and weekComplaint != ''"> and week_complaint = #{weekComplaint} </if>
+		  		  <if test="weekGoods != null and weekGoods != ''"> and week_goods = #{weekGoods} </if>
+		  		  <if test="weekOrder != null and weekOrder != ''"> and week_order = #{weekOrder} </if>
+		  		  <if test="weekReport != null and weekReport != ''"> and week_report = #{weekReport} </if>
+		  		  <if test="weekStore != null and weekStore != ''"> and week_store = #{weekStore} </if>
+		  		  <if test="weekUser != null and weekUser != ''"> and week_user = #{weekUser} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.StoreStatDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_store_stat
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`all_goods`, 
+			`all_store`, 
+			`all_user`, 
+			`next_time`, 
+			`order_amount`, 
+			`store_update`, 
+			`week_complaint`, 
+			`week_goods`, 
+			`week_order`, 
+			`week_report`, 
+			`week_store`, 
+			`week_user`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{allGoods}, 
+			#{allStore}, 
+			#{allUser}, 
+			#{nextTime}, 
+			#{orderAmount}, 
+			#{storeUpdate}, 
+			#{weekComplaint}, 
+			#{weekGoods}, 
+			#{weekOrder}, 
+			#{weekReport}, 
+			#{weekStore}, 
+			#{weekUser}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.StoreStatDO">
+		update wemall_store_stat 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="allGoods != null">`all_goods` = #{allGoods}, </if>
+			<if test="allStore != null">`all_store` = #{allStore}, </if>
+			<if test="allUser != null">`all_user` = #{allUser}, </if>
+			<if test="nextTime != null">`next_time` = #{nextTime}, </if>
+			<if test="orderAmount != null">`order_amount` = #{orderAmount}, </if>
+			<if test="storeUpdate != null">`store_update` = #{storeUpdate}, </if>
+			<if test="weekComplaint != null">`week_complaint` = #{weekComplaint}, </if>
+			<if test="weekGoods != null">`week_goods` = #{weekGoods}, </if>
+			<if test="weekOrder != null">`week_order` = #{weekOrder}, </if>
+			<if test="weekReport != null">`week_report` = #{weekReport}, </if>
+			<if test="weekStore != null">`week_store` = #{weekStore}, </if>
+			<if test="weekUser != null">`week_user` = #{weekUser}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_store_stat where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_store_stat where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

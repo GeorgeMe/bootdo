@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zscat.shop.dao.GoldLogDao">
+
+	<select id="get" resultType="com.zscat.shop.domain.GoldLogDO">
+		select `id`,`addTime`,`deleteStatus`,`gl_admin_content`,`gl_admin_time`,`gl_content`,`gl_count`,`gl_money`,`gl_payment`,`gl_type`,`gl_admin_id`,`gl_user_id`,`gr_id` from wemall_gold_log where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.zscat.shop.domain.GoldLogDO">
+		select `id`,`addTime`,`deleteStatus`,`gl_admin_content`,`gl_admin_time`,`gl_content`,`gl_count`,`gl_money`,`gl_payment`,`gl_type`,`gl_admin_id`,`gl_user_id`,`gr_id` from wemall_gold_log
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="glAdminContent != null and glAdminContent != ''"> and gl_admin_content = #{glAdminContent} </if>
+		  		  <if test="glAdminTime != null and glAdminTime != ''"> and gl_admin_time = #{glAdminTime} </if>
+		  		  <if test="glContent != null and glContent != ''"> and gl_content = #{glContent} </if>
+		  		  <if test="glCount != null and glCount != ''"> and gl_count = #{glCount} </if>
+		  		  <if test="glMoney != null and glMoney != ''"> and gl_money = #{glMoney} </if>
+		  		  <if test="glPayment != null and glPayment != ''"> and gl_payment = #{glPayment} </if>
+		  		  <if test="glType != null and glType != ''"> and gl_type = #{glType} </if>
+		  		  <if test="glAdminId != null and glAdminId != ''"> and gl_admin_id = #{glAdminId} </if>
+		  		  <if test="glUserId != null and glUserId != ''"> and gl_user_id = #{glUserId} </if>
+		  		  <if test="grId != null and grId != ''"> and gr_id = #{grId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from wemall_gold_log
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="addtime != null and addtime != ''"> and addTime = #{addtime} </if>
+		  		  <if test="deletestatus != null and deletestatus != ''"> and deleteStatus = #{deletestatus} </if>
+		  		  <if test="glAdminContent != null and glAdminContent != ''"> and gl_admin_content = #{glAdminContent} </if>
+		  		  <if test="glAdminTime != null and glAdminTime != ''"> and gl_admin_time = #{glAdminTime} </if>
+		  		  <if test="glContent != null and glContent != ''"> and gl_content = #{glContent} </if>
+		  		  <if test="glCount != null and glCount != ''"> and gl_count = #{glCount} </if>
+		  		  <if test="glMoney != null and glMoney != ''"> and gl_money = #{glMoney} </if>
+		  		  <if test="glPayment != null and glPayment != ''"> and gl_payment = #{glPayment} </if>
+		  		  <if test="glType != null and glType != ''"> and gl_type = #{glType} </if>
+		  		  <if test="glAdminId != null and glAdminId != ''"> and gl_admin_id = #{glAdminId} </if>
+		  		  <if test="glUserId != null and glUserId != ''"> and gl_user_id = #{glUserId} </if>
+		  		  <if test="grId != null and grId != ''"> and gr_id = #{grId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.zscat.shop.domain.GoldLogDO" useGeneratedKeys="true" keyProperty="id">
+		insert into wemall_gold_log
+		(
+			`addTime`, 
+			`deleteStatus`, 
+			`gl_admin_content`, 
+			`gl_admin_time`, 
+			`gl_content`, 
+			`gl_count`, 
+			`gl_money`, 
+			`gl_payment`, 
+			`gl_type`, 
+			`gl_admin_id`, 
+			`gl_user_id`, 
+			`gr_id`
+		)
+		values
+		(
+			#{addtime}, 
+			#{deletestatus}, 
+			#{glAdminContent}, 
+			#{glAdminTime}, 
+			#{glContent}, 
+			#{glCount}, 
+			#{glMoney}, 
+			#{glPayment}, 
+			#{glType}, 
+			#{glAdminId}, 
+			#{glUserId}, 
+			#{grId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zscat.shop.domain.GoldLogDO">
+		update wemall_gold_log 
+		<set>
+			<if test="addtime != null">`addTime` = #{addtime}, </if>
+			<if test="deletestatus != null">`deleteStatus` = #{deletestatus}, </if>
+			<if test="glAdminContent != null">`gl_admin_content` = #{glAdminContent}, </if>
+			<if test="glAdminTime != null">`gl_admin_time` = #{glAdminTime}, </if>
+			<if test="glContent != null">`gl_content` = #{glContent}, </if>
+			<if test="glCount != null">`gl_count` = #{glCount}, </if>
+			<if test="glMoney != null">`gl_money` = #{glMoney}, </if>
+			<if test="glPayment != null">`gl_payment` = #{glPayment}, </if>
+			<if test="glType != null">`gl_type` = #{glType}, </if>
+			<if test="glAdminId != null">`gl_admin_id` = #{glAdminId}, </if>
+			<if test="glUserId != null">`gl_user_id` = #{glUserId}, </if>
+			<if test="grId != null">`gr_id` = #{grId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from wemall_gold_log where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from wemall_gold_log where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

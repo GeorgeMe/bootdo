@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+						<input id="id" name="id" th:value="${storePoint.id}"  type="hidden">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">addTime：</label>
+								<div class="col-sm-8">
+									<input id="addtime" name="addtime" th:value="${storePoint.addtime}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">deleteStatus：</label>
+								<div class="col-sm-8">
+									<input id="deletestatus" name="deletestatus" th:value="${storePoint.deletestatus}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description_evaluate：</label>
+								<div class="col-sm-8">
+									<input id="descriptionEvaluate" name="descriptionEvaluate" th:value="${storePoint.descriptionEvaluate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description_evaluate_halfyear：</label>
+								<div class="col-sm-8">
+									<input id="descriptionEvaluateHalfyear" name="descriptionEvaluateHalfyear" th:value="${storePoint.descriptionEvaluateHalfyear}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description_evaluate_halfyear_count1：</label>
+								<div class="col-sm-8">
+									<input id="descriptionEvaluateHalfyearCount1" name="descriptionEvaluateHalfyearCount1" th:value="${storePoint.descriptionEvaluateHalfyearCount1}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description_evaluate_halfyear_count2：</label>
+								<div class="col-sm-8">
+									<input id="descriptionEvaluateHalfyearCount2" name="descriptionEvaluateHalfyearCount2" th:value="${storePoint.descriptionEvaluateHalfyearCount2}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description_evaluate_halfyear_count3：</label>
+								<div class="col-sm-8">
+									<input id="descriptionEvaluateHalfyearCount3" name="descriptionEvaluateHalfyearCount3" th:value="${storePoint.descriptionEvaluateHalfyearCount3}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description_evaluate_halfyear_count4：</label>
+								<div class="col-sm-8">
+									<input id="descriptionEvaluateHalfyearCount4" name="descriptionEvaluateHalfyearCount4" th:value="${storePoint.descriptionEvaluateHalfyearCount4}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">description_evaluate_halfyear_count5：</label>
+								<div class="col-sm-8">
+									<input id="descriptionEvaluateHalfyearCount5" name="descriptionEvaluateHalfyearCount5" th:value="${storePoint.descriptionEvaluateHalfyearCount5}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_evaluate：</label>
+								<div class="col-sm-8">
+									<input id="serviceEvaluate" name="serviceEvaluate" th:value="${storePoint.serviceEvaluate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_evaluate_halfyear：</label>
+								<div class="col-sm-8">
+									<input id="serviceEvaluateHalfyear" name="serviceEvaluateHalfyear" th:value="${storePoint.serviceEvaluateHalfyear}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_evaluate_halfyear_count1：</label>
+								<div class="col-sm-8">
+									<input id="serviceEvaluateHalfyearCount1" name="serviceEvaluateHalfyearCount1" th:value="${storePoint.serviceEvaluateHalfyearCount1}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_evaluate_halfyear_count2：</label>
+								<div class="col-sm-8">
+									<input id="serviceEvaluateHalfyearCount2" name="serviceEvaluateHalfyearCount2" th:value="${storePoint.serviceEvaluateHalfyearCount2}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_evaluate_halfyear_count3：</label>
+								<div class="col-sm-8">
+									<input id="serviceEvaluateHalfyearCount3" name="serviceEvaluateHalfyearCount3" th:value="${storePoint.serviceEvaluateHalfyearCount3}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_evaluate_halfyear_count4：</label>
+								<div class="col-sm-8">
+									<input id="serviceEvaluateHalfyearCount4" name="serviceEvaluateHalfyearCount4" th:value="${storePoint.serviceEvaluateHalfyearCount4}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">service_evaluate_halfyear_count5：</label>
+								<div class="col-sm-8">
+									<input id="serviceEvaluateHalfyearCount5" name="serviceEvaluateHalfyearCount5" th:value="${storePoint.serviceEvaluateHalfyearCount5}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ship_evaluate：</label>
+								<div class="col-sm-8">
+									<input id="shipEvaluate" name="shipEvaluate" th:value="${storePoint.shipEvaluate}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ship_evaluate_halfyear：</label>
+								<div class="col-sm-8">
+									<input id="shipEvaluateHalfyear" name="shipEvaluateHalfyear" th:value="${storePoint.shipEvaluateHalfyear}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ship_evaluate_halfyear_count1：</label>
+								<div class="col-sm-8">
+									<input id="shipEvaluateHalfyearCount1" name="shipEvaluateHalfyearCount1" th:value="${storePoint.shipEvaluateHalfyearCount1}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ship_evaluate_halfyear_count2：</label>
+								<div class="col-sm-8">
+									<input id="shipEvaluateHalfyearCount2" name="shipEvaluateHalfyearCount2" th:value="${storePoint.shipEvaluateHalfyearCount2}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ship_evaluate_halfyear_count3：</label>
+								<div class="col-sm-8">
+									<input id="shipEvaluateHalfyearCount3" name="shipEvaluateHalfyearCount3" th:value="${storePoint.shipEvaluateHalfyearCount3}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ship_evaluate_halfyear_count4：</label>
+								<div class="col-sm-8">
+									<input id="shipEvaluateHalfyearCount4" name="shipEvaluateHalfyearCount4" th:value="${storePoint.shipEvaluateHalfyearCount4}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">ship_evaluate_halfyear_count5：</label>
+								<div class="col-sm-8">
+									<input id="shipEvaluateHalfyearCount5" name="shipEvaluateHalfyearCount5" th:value="${storePoint.shipEvaluateHalfyearCount5}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_evaluate1：</label>
+								<div class="col-sm-8">
+									<input id="storeEvaluate1" name="storeEvaluate1" th:value="${storePoint.storeEvaluate1}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">store_id：</label>
+								<div class="col-sm-8">
+									<input id="storeId" name="storeId" th:value="${storePoint.storeId}" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">statTime：</label>
+								<div class="col-sm-8">
+									<input id="stattime" name="stattime" th:value="${storePoint.stattime}" class="form-control" type="text">
+								</div>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/shop/storePoint/edit.js">
+	</script>
+</body>
+</html>
